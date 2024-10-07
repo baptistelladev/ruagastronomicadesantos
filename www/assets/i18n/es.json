@@ -1,0 +1,85 @@
+{
+  "CHANGE_LANG_PAGE" : {
+    "DESCRIPTION": {
+      "TITLE": ["define", "un idioma"],
+      "SUB_TITLE": "cómo quieres ver nuestra app"
+    },
+    "CHANGE_WHEN_YOU_WANT" : "cambia cuando quieras",
+    "CURRENT_LANG" : "Idioma actual"
+  },
+  "SHARED" : {
+    "ADVERTISE" : "anunciar",
+    "YOUR_BRAND" : "tu marca",
+    "LOOKING_FOR" : "Buscando",
+    "BACK_TO_TOP" : ["desplazarse","hacia arriba"],
+    "ESTABLISHMENTS" : "estabelecimientos",
+    "VERSION" : "versión",
+    "SEE_DETAILS" : ["ver","detalles"],
+    "CANCEL" : "Cancelar",
+    "DEFINE" : "Definir"
+  },
+  "INICIO_PAGE" : {
+    "PARAGRAPH_ONE" : ["Nuestro propósito aquí es ayudarte a ahorrar tu bien más precioso:","el tiempo"],
+    "PARAGRAPH_TWO" : ["Filtra los establecimientos según tus gustos: comida japonesa, comida mexicana, hamburguesería, pizzería, pet friendly, música en vivo..."],
+    "LIST_OF_ESTABLISHMENTS" : ["Lista","de establecimientos"]
+  },
+  "COMPONENTS" : {
+    "MADE_W_LOVE" : ["hecho con","en"],
+    "TABS" : {
+      "EXPLORE" : "Explorar",
+      "MENU" : "Menú"
+    },
+    "CHANGE_LANG" : "Cambiar idioma"
+  },
+  "MENU_PAGE" : {
+    "HEADER_TITLE" : ["sección","de menú"],
+    "MENU_TITLE" : "Menú"
+  },
+  "CONTACT_PAGE": {
+    "HEADER_TITLE": ["sección", "contacto"],
+    "DESCRIPTION": {
+      "TITLE": ["habla", "conmigo"],
+      "SUB_TITLE": "por correo electrónico, redes sociales o WhatsApp."
+    },
+    "COMERCIAL" : "comercial",
+    "OTHER" : "otros",
+    "SEND_EMAIL" : "enviar correo electrónico",
+    "SEND_MESSAGE" : "enviar mensaje",
+    "COMERCIAL_TEXT" : ["para","asociaciones y anuncios"],
+    "OTHER_TEXT" : ["para","sugerencias y críticas"]
+  },
+  "ABOUT_PAGE" : {
+    "HEADER_TITLE" : ["sección","sobre"],
+    "TASTIEST_STREET" : ["la calle","más sabrosa","de la ciudad."],
+    "INTRODUCTION" : {
+      "TITLE" : ["Una breve","introducción"],
+      "TEXT": [
+        ["A esta altura, seguramente te estarás preguntando:", "¿por qué se creó una página web para la Calle Tolentino Filgueras?"],
+        ["Para algunas personas puede no tener sentido o utilidad, pero para muchas otras será de gran ayuda. La Baixada Santista, y especialmente la ciudad de Santos, recibe miles de turistas cada año, ya sea por el puerto, el equipo de fútbol, el centro histórico, la playa o la gastronomía, etc."],
+        ["Los turistas vienen de todos lados, del propio estado de São Paulo, de Brasil y de otras partes del mundo. Con base en esto, nos gustaría dar la bienvenida a estas personas con cariño. Incluso con un pequeño gesto, intentamos ayudar tanto a los residentes como a los visitantes, proporcionando información relevante sobre cada establecimiento."]
+      ]
+    },
+    "ACHE" : {
+      "TITLE" : ["Que","dolor","solucionamos"],
+      "TEXT": [
+        ["Imagina la siguiente situación: eres un residente o un turista visitando la Calle Gastronómica por primera vez. Solo eso ya sería un buen motivo para que te mostremos todos los establecimientos que hay en la calle, junto con sus números para facilitar la ubicación y otra información relevante."],
+        ["Ahora imagina que este turista podría ser un extranjero. Si estuvieras en su lugar, apuesto a que apreciarías este tipo de atención."],
+        ["La persona puede estar a pie o en coche y tendría que recorrer toda la calle", "para saber qué hay, dónde está, cómo es y si está abierto. Además, si está en coche, podría tener que dar más de una vuelta, y créeme, eso pasa bastante a menudo."]
+      ]
+    },
+    "RESUME" : {
+      "TITLE" : ["Si","tuviera que resumir"],
+      "TEXT": [
+        ["Diría que construimos esto para hacer de Santos una ciudad más digital, lo que beneficia a usted, a los turistas, a los establecimientos y a la ciudad en su conjunto. De esta manera, logramos optimizar el bien más preciado de cada uno:", "el tiempo", "y como consecuencia, ayuda a fomentar el turismo en la región."],
+        ["Esto es solo el comienzo; tenemos otras ideas en mente para este proyecto y otros que vendrán. Puedes contribuir con sugerencias de mejora, críticas, elogios, en fin, será un placer recibir un mensaje tuyo."]
+      ]
+    },
+    "CONCLUSION" : {
+      "TITLE" : ["Conclusión"],
+      "TEXT" : ["Nuestro proyecto aún no recibe apoyo financiero ni material, por lo que es posible que te encuentres con anuncios privados o incluso del propio Google."]
+    },
+    "ERRORS" : {
+      "REQUIRED_FIELD" : "campo obligatorio"
+    }
+  }
+}
