@@ -1,16 +1,11 @@
-<<<<<<< HEAD
 import { IHour } from "./Hour"
 import { IShortTicket } from "./Ticket"
 import { ITime } from "./Time"
-=======
-import { ITranslation } from "./Translation"
->>>>>>> ea5ebe9e877921834f27db03115d3c8bb931add4
 
 export interface IShortEstablishment {
   name: string,
   value: string,
   adress: {
-<<<<<<< HEAD
     number: string,
     neighborhood: string,
     street: string,
@@ -39,11 +34,6 @@ export interface IShortEstablishment {
     show_field: boolean
   },
   working_time: ITime[]
-=======
-    number: string
-  },
-  mainType: ITranslation
->>>>>>> ea5ebe9e877921834f27db03115d3c8bb931add4
 }
 
 export interface ILongEstablishment {

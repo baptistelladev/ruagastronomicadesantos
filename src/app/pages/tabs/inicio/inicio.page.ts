@@ -3,21 +3,14 @@ import { Title } from '@angular/platform-browser';
 import { AlertController, AlertInput, IonContent, IonSelect, NavController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable, Subscription } from 'rxjs';
-<<<<<<< HEAD
-=======
-import { SHORT_ESTABLISHMENTS } from 'src/app/shared/mocks/establishments';
->>>>>>> ea5ebe9e877921834f27db03115d3c8bb931add4
 import { IShortEstablishment } from 'src/app/shared/models/Establishment';
 import { ILang } from 'src/app/shared/models/Lang';
 import { ISocialNetwork } from 'src/app/shared/models/Network';
 import * as AppStore from './../../../shared/store/app.state';
 import { Store } from '@ngrx/store';
 import { ITranslation } from 'src/app/shared/models/Translation';
-<<<<<<< HEAD
 import { EstablishmentsService } from 'src/app/core/services/firebase/establishments.service';
 import { ECollectionsEnum } from 'src/app/shared/enums/Collections.ts/collection';
-=======
->>>>>>> ea5ebe9e877921834f27db03115d3c8bb931add4
 
 
 @Component({
@@ -122,11 +115,7 @@ export class InicioPage implements OnInit, OnDestroy {
     },
   ]
 
-<<<<<<< HEAD
   public short_establishments: IShortEstablishment[];
-=======
-  public short_establishments: IShortEstablishment[] = SHORT_ESTABLISHMENTS;
->>>>>>> ea5ebe9e877921834f27db03115d3c8bb931add4
 
   public filters: any[] = [
     {
@@ -151,29 +140,21 @@ export class InicioPage implements OnInit, OnDestroy {
   public currentLanguage$: Observable<ILang>;
   public currentLanguageSubscription: Subscription;
 
-<<<<<<< HEAD
   public establishments: IShortEstablishment;
   public establishments$: Observable<IShortEstablishment[]>;
   public establishmentsDescription: Subscription;
 
-=======
->>>>>>> ea5ebe9e877921834f27db03115d3c8bb931add4
   constructor(
     private alertCtrl : AlertController,
     private title : Title,
     private navCtrl : NavController,
     private translate : TranslateService,
-<<<<<<< HEAD
     private store : Store,
     private establishmentsService : EstablishmentsService
-=======
-    private store : Store
->>>>>>> ea5ebe9e877921834f27db03115d3c8bb931add4
   ) { }
 
   ngOnInit() {
     this.getCurrentLanguageFromNGRX();
-<<<<<<< HEAD
     this.getEstablishments();
   }
 
@@ -185,8 +166,6 @@ export class InicioPage implements OnInit, OnDestroy {
       console.log(stablishments);
       this.short_establishments = stablishments;
     })
-=======
->>>>>>> ea5ebe9e877921834f27db03115d3c8bb931add4
   }
 
   ionViewWillEnter(): void {
@@ -262,19 +241,12 @@ export class InicioPage implements OnInit, OnDestroy {
   }
 
   public seeEstablishment(establishment: any): void {
-<<<<<<< HEAD
     this.navCtrl.navigateForward(['/estabelecimento/' + establishment.value]);
     this.store.dispatch(AppStore.setCurrentEstablishment({ establishment: establishment } ))
-=======
-    this.navCtrl.navigateForward(['/estabelecimento/teste'])
->>>>>>> ea5ebe9e877921834f27db03115d3c8bb931add4
   }
 
   public ngOnDestroy(): void {
     this.currentLanguageSubscription.unsubscribe();
-<<<<<<< HEAD
     this.establishmentsDescription.unsubscribe();
-=======
->>>>>>> ea5ebe9e877921834f27db03115d3c8bb931add4
   }
 }
