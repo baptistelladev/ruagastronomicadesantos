@@ -6,9 +6,10 @@ import { getElement } from 'ionicons/dist/types/stencil-public-runtime';
 import { ISocialNetwork } from 'src/app/shared/models/Network';
 import { Store } from '@ngrx/store';
 import { IShortEstablishment } from 'src/app/shared/models/Establishment';
-import { Observable, Subscription } from 'rxjs';
+import { map, Observable, Subscription } from 'rxjs';
 import * as AppStore from './../../../shared/store/app.state';
 import { ILang } from 'src/app/shared/models/Lang';
+import { ITime } from 'src/app/shared/models/Time';
 
 
 @Component({
@@ -93,7 +94,6 @@ export class EstabelecimentoPage implements OnInit {
     this.getCurrentLanguageFromNGRX();
     this.selectOption('location');
     this.getCurrentEstablishment();
-    console.log(this.todayAsDayNumber);
 
   }
 
@@ -110,6 +110,12 @@ export class EstabelecimentoPage implements OnInit {
     this.establishment$ = this.store.select(AppStore.selectCurrentEstablishment);
 
     this.establishmentDescription = this.establishment$
+    .pipe(map((establishment: IShortEstablishment) => {
+      return {
+        ...establishment,
+        working_time: [...establishment.working_time].sort((a, b) => a.day_number - b.day_number)
+      }
+    }))
     .subscribe((establishment: IShortEstablishment) => {
       this.establishment = establishment;
     })
@@ -125,7 +131,7 @@ export class EstabelecimentoPage implements OnInit {
   }
 
   public async goWithWaze() {
-    let hasCopy = this.clipboard.copy('fefe');
+    let hasCopy = this.clipboard.copy(`${this.establishment.adress.street}, ${this.establishment.adress.number} - ${this.establishment.adress.neighborhood}`);
 
     if (hasCopy) {
       await this.showAlert('Cole-o em um aplicativo de sua preferência');

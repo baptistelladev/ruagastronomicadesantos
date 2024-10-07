@@ -9,9 +9,9 @@
             mode="ios"
             (click)="back()"
             class="back ion-color-gray-text back-btn no-ion-padding"
-            title="Voltar"
+            [title]="('ESTABLISHMENT_PAGE.HEADER_TITLE.0' | translate) + ' ' + ('ESTABLISHMENT_PAGE.HEADER_TITLE.1' | translate)"
             fill="clear">
-              <ion-icon name="chevron-back-outline"></ion-icon> <span class="font-w-thin mg-left-5">sobre o <b>estabelecimento</b></span>
+              <ion-icon name="chevron-back-outline"></ion-icon> <span class="font-w-thin mg-left-5">{{ 'ESTABLISHMENT_PAGE.HEADER_TITLE.0' | translate }} <b>{{ 'ESTABLISHMENT_PAGE.HEADER_TITLE.1' | translate }}</b></span>
             </ion-button>
           </ion-col>
         </ion-row>
@@ -54,7 +54,7 @@
 
               <ion-button
               class="copy-btn"
-              title="Copiar"
+              [title]="'SHARED.COPY' | translate"
               mode="ios"
               fill="clear"
               (click)="goWithWaze()">
@@ -71,10 +71,10 @@
                     <ion-button
                     mode="md"
                     shape="round"
-                    title="Chamar no WhatsApp"
+                    [title]="('SHARED.CALL_WHATSAPP.0' | translate) + ' ' + ('SHARED.CALL_WHATSAPP.1' | translate)"
                     fill="solid"
                     class="rgs-main-solid linkt-btn">
-                      <ion-icon name="logo-whatsapp" class="mg-right-5"></ion-icon> chamar no <b class="mg-left-5">WhatsApp</b>
+                      <ion-icon name="logo-whatsapp" class="mg-right-5"></ion-icon>{{ 'SHARED.CALL_WHATSAPP.0' | translate }} <b class="mg-left-5">{{ 'SHARED.CALL_WHATSAPP.1' | translate }}</b>
                     </ion-button>
                   </ion-col>
 
@@ -82,10 +82,10 @@
                     <ion-button
                     mode="md"
                     shape="round"
-                    title="Acessar cardápio"
+                    [title]="('SHARED.SEE_FOOD.0' | translate) + ' ' + ('SHARED.SEE_FOOD.1' | translate)"
                     fill="solid"
                     class="rgs-white-solid linkt-btn">
-                      <ion-icon name="receipt-outline" class="mg-right-8"></ion-icon> acessar <b class="mg-left-5">cardápio</b>
+                      <ion-icon name="receipt-outline" class="mg-right-8"></ion-icon>{{ 'SHARED.SEE_FOOD.0' | translate }} <b class="mg-left-5">{{ 'SHARED.SEE_FOOD.1' | translate }}</b>
                     </ion-button>
                   </ion-col>
 
@@ -93,10 +93,10 @@
                     <ion-button
                     mode="md"
                     shape="round"
-                    title="Ver no instagran"
+                    [title]="('SHARED.SEE_ON_INSTAGRAM.0' | translate) + ' ' + ('SHARED.SEE_ON_INSTAGRAM.1' | translate)"
                     fill="solid"
                     class="rgs-white-solid linkt-btn">
-                      <ion-icon name="logo-instagram" class="mg-right-8"></ion-icon> ver <b class="mg-left-5">no instagram</b>
+                      <ion-icon name="logo-instagram" class="mg-right-8"></ion-icon>{{ 'SHARED.SEE_ON_INSTAGRAM.0' | translate }} <b class="mg-left-5">{{ 'SHARED.SEE_ON_INSTAGRAM.1' | translate }}</b>
                     </ion-button>
                   </ion-col>
                 </ion-row>
@@ -116,7 +116,7 @@
               <ion-icon name="card-outline" slot="start"></ion-icon>
 
               <ion-text mode="ios" class="line-height-18">
-                <p class="color-gray-text mg-left-16">Além das formas tradicionais de pagamento, aceitam <b class="color-green">vale refeição</b>.</p>
+                <p class="color-gray-text mg-left-16">{{ 'ESTABLISHMENT_PAGE.TICKETS.TEXT' | translate }} <b class="color-green">{{ 'ESTABLISHMENT_PAGE.TICKETS.VR' | translate }}</b>.</p>
                 <p class="color-gray-6 mg-left-16 fs-14 mg-top-8"><ng-container *ngFor="let ticket of establishment.ticket_info.tickets">{{ ticket.text }}</ng-container></p>
               </ion-text>
             </ion-item>
@@ -134,7 +134,7 @@
               <ion-icon name="paw-outline" slot="start"></ion-icon>
 
               <ion-text mode="ios" class="line-height-18">
-                <p class="color-gray-text mg-left-16">Pode trazer <b class="color-green">seu bichinho</b>.</p>
+                <p class="color-gray-text mg-left-16">{{ 'PETFRIENDLY.BRING' | translate }} <b class="color-green">{{ 'PETFRIENDLY.YOUR_PET' | translate }}</b>.</p>
                 <p class="color-gray-6 mg-left-16 fs-14 mg-top-8">Pet friendly.</p>
               </ion-text>
             </ion-item>
@@ -152,8 +152,8 @@
               <ion-icon name="musical-notes-outline" slot="start"></ion-icon>
 
               <ion-text mode="ios">
-                <p class="color-gray-text mg-left-16">Tem show <b class="color-green">ao vivo</b>.</p>
-                <p class="color-gray-6 mg-left-16 fs-14 mg-top-8">Recomendamos que visite o insta do estabelecimento para ver a programação do dia.</p>
+                <p class="color-gray-text mg-left-16">{{ 'LIVEMUSIC.HAS_SHOW' | translate }} <b class="color-green">{{ 'LIVEMUSIC.LIVE' | translate }}</b>.</p>
+                <p class="color-gray-6 mg-left-16 fs-14 mg-top-8">{{ 'LIVEMUSIC.SEE_MORE' | translate }}</p>
               </ion-text>
             </ion-item>
           </ion-col>
@@ -170,8 +170,8 @@
               <ion-icon name="snow-outline" slot="start"></ion-icon>
 
               <ion-text mode="ios">
-                <p class="color-gray-text mg-left-16">Possui <b class="color-green">ambiente climatizado</b>.</p>
-                <p class="color-gray-6 mg-left-16 fs-14 mg-top-8">Consulte com o estabelecimento para mais detalhes</p>
+                <p class="color-gray-text mg-left-16">{{ 'AIR_CONDITIONED.HAS' | translate }} <b class="color-green">{{ 'AIR_CONDITIONED.AIR_CONDITIONED_PLACE' | translate }}</b>.</p>
+                <p class="color-gray-6 mg-left-16 fs-14 mg-top-8">{{ 'BOOKING.CONTACT_PLACE' | translate }}</p>
               </ion-text>
             </ion-item>
           </ion-col>
@@ -188,8 +188,8 @@
               <ion-icon name="book-outline" slot="start"></ion-icon>
 
               <ion-text mode="ios">
-                <p class="color-gray-text mg-left-16">Economize tempo, faça uma <b class="color-green">reserva</b>.</p>
-                <p class="color-gray-6 mg-left-16 fs-14 mg-top-8">Entre em contato pelo botão do WhatsApp.</p>
+                <p class="color-gray-text mg-left-16">{{ 'BOOKING.SAVE_TIME' | translate }} <b class="color-green">{{ 'BOOKING.BOOKING' | translate }}</b>.</p>
+                <p class="color-gray-6 mg-left-16 fs-14 mg-top-8">{{ 'BOOKING.CONTACT_PLACE' | translate }}</p>
               </ion-text>
             </ion-item>
           </ion-col>
@@ -205,8 +205,8 @@
               <ion-icon name="calendar-outline" slot="start"></ion-icon>
 
               <ion-text mode="ios">
-                <p class="color-gray-text mg-left-16">Horário de funcionamento.</p>
-                <p class="color-gray-6 mg-left-16 fs-14 mg-top-8">Dizemos que um restaurante está aberto ou fechado com base nos horários abaixo.</p>
+                <p class="color-gray-text mg-left-16">{{ 'WORKING_TIME.TEXT' | translate }}</p>
+                <p class="color-gray-6 mg-left-16 fs-14 mg-top-8">{{ 'WORKING_TIME.ADVISE' | translate }}</p>
               </ion-text>
             </ion-item>
           </ion-col>
@@ -216,13 +216,25 @@
               <ion-card-content>
                 <ion-item mode="ios" *ngFor="let time of establishment.working_time; let last = last" [lines]="last ? 'none' : 'full'">
                   <ion-text mode="ios" [ngClass]="{'is-today font-w-bold': time.day_number === todayAsDayNumber}">
-                    <p class="fs-14 color-gray-16 day-name">{{ time.text }}</p>
+                    <p class="fs-14 color-gray-16 day-name">
+                      <ng-container [ngSwitch]="time.day_number">
+                        <ng-container *ngSwitchCase="0">{{ 'SHARED.DAYS.SUNDAY' | translate }}</ng-container>
+                        <ng-container *ngSwitchCase="1">{{ 'SHARED.DAYS.MONDAY' | translate }}</ng-container>
+                        <ng-container *ngSwitchCase="2">{{ 'SHARED.DAYS.TUESDAY' | translate }}</ng-container>
+                        <ng-container *ngSwitchCase="3">{{ 'SHARED.DAYS.WEDNESDAY' | translate }}</ng-container>
+                        <ng-container *ngSwitchCase="4">{{ 'SHARED.DAYS.THURSDAY' | translate }}</ng-container>
+                        <ng-container *ngSwitchCase="5">{{ 'SHARED.DAYS.FRIDAY' | translate }}</ng-container>
+                        <ng-container *ngSwitchCase="6">{{ 'SHARED.DAYS.SATURDAY' | translate }}</ng-container>
+                      </ng-container>
+                    </p>
                     <!-- HOJE -->
-                    <ion-chip *ngIf="time.day_number === todayAsDayNumber" class="main-solid-gray fs-10 txt-uppercase small">Hoje</ion-chip>
+                    <ion-chip *ngIf="time.day_number === todayAsDayNumber" class="main-solid-gray fs-10 txt-uppercase small">
+                      {{ 'SHARED.TODAY' | translate }}
+                    </ion-chip>
                   </ion-text>
 
                   <ion-text mode="ios" slot="end" [ngClass]="{'is-today font-w-bold': time.day_number === todayAsDayNumber}">
-                    <p class="fs-18 color-gray-text" *ngFor="let hour of time.opening_time">{{ hour.open }} às {{hour.close }}</p>
+                    <p class="fs-18 color-gray-text" *ngFor="let hour of time.opening_time">{{ hour.open }} {{ 'SHARED.TO_HOUR' | translate }} {{hour.close }}</p>
                   </ion-text>
                 </ion-item>
               </ion-card-content>
@@ -241,10 +253,10 @@
               (click)="scrollToTop()"
               size="small"
               shape="round"
-              title="Voltar para cima"
+              [title]="('SHARED.BACK_TO_TOP.0' | translate) + ' ' + ('SHARED.BACK_TO_TOP.1' | translate)"
               fill="clear"
               class="rgs-main-solid mg-bottom-16 fs-14">
-                voltar <b class="mg-left-5">para cima</b> <ion-icon name="chevron-up-outline" class="mg-left-5"></ion-icon>
+                {{ 'SHARED.BACK_TO_TOP.0' | translate }} <b class="mg-left-5">{{ 'SHARED.BACK_TO_TOP.1' | translate }}</b> <ion-icon name="chevron-up-outline" class="mg-left-5"></ion-icon>
               </ion-button>
             </div>
           </ion-col>

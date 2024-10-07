@@ -16,7 +16,22 @@
     "VERSION" : "versão",
     "SEE_DETAILS" : ["Ver","detalhes"],
     "CANCEL" : "Cancelar",
-    "DEFINE" : "Definir"
+    "DEFINE" : "Definir",
+    "TODAY" : "Hoje",
+    "DAYS" : {
+      "MONDAY": "Segunda-feira",
+      "TUESDAY": "Terça-feira",
+      "WEDNESDAY": "Quarta-feira",
+      "THURSDAY": "Quinta-feira",
+      "FRIDAY": "Sexta-feira",
+      "SATURDAY": "Sábado",
+      "SUNDAY": "Domingo"
+    },
+    "TO_HOUR" : "às",
+    "CALL_WHATSAPP" : ["chamar no","WhatsApp"],
+    "SEE_FOOD" : ["acessar","cardápio"],
+    "SEE_ON_INSTAGRAM" : ["ver no","instagram"],
+    "COPY" : "Copiar"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Nosso próposito aqui é fazer com que voê economize o seu bem mais precioso:","o tempo"],
@@ -81,5 +96,35 @@
   },
   "ERRORS" : {
     "REQUIRED_FIELD" : "campo obrigatório"
+  },
+  "ESTABLISHMENT_PAGE" : {
+    "HEADER_TITLE" : ["sobre o","estabelecimento"],
+    "TICKETS" : {
+      "TEXT" : "Além das formas tradicionais de pagamento, aceitam",
+      "VR" : "vale refeição"
+    }
+  },
+  "PETFRIENDLY" : {
+    "BRING" : "Pode trazer",
+    "YOUR_PET" : "seu bichinho"
+  },
+  "LIVEMUSIC" : {
+    "HAS_SHOW" : "Tem show",
+    "LIVE" : "ao vivo",
+    "SEE_MORE" : "Recomendamos que visite o insta do estabelecimento para ver a programação do dia."
+  },
+  "AIR_CONDITIONED" : {
+    "HAS" : "Possui",
+    "AIR_CONDITIONED_PLACE" : "ambiente climatizado",
+    "SEE_MORE" : "Consulte com o estabelecimento para mais detalhes."
+  },
+  "BOOKING" : {
+    "SAVE_TIME" : "Economize tempo, faça uma",
+    "BOOKING" : "reserva",
+    "CONTACT_PLACE" : "Entre em contato pelo botão do WhatsApp."
+  },
+  "WORKING_TIME" : {
+    "TEXT" : "Horário de funcionamento",
+    "ADVISE" : "Dizemos que um restaurante está aberto ou fechado com base nos horários abaixo."
   }
 }

@@ -8,7 +8,7 @@
     "CURRENT_LANG" : "Current language"
   },
   "SHARED" : {
-     "ADVERTISE" : "advertise",
+    "ADVERTISE" : "advertise",
     "YOUR_BRAND" : "your brand",
     "LOOKING_FOR" : "Looking for",
     "BACK_TO_TOP" : ["scroll","to top"],
@@ -16,7 +16,22 @@
     "VERSION" : "version",
     "SEE_DETAILS" : ["see","details"],
     "CANCEL" : "Cancel",
-    "DEFINE" : "Define"
+    "DEFINE" : "Define",
+    "TODAY": "Today",
+    "DAYS": {
+      "MONDAY": "Monday",
+      "TUESDAY": "Tuesday",
+      "WEDNESDAY": "Wednesday",
+      "THURSDAY": "Thursday",
+      "FRIDAY": "Friday",
+      "SATURDAY": "Saturday",
+      "SUNDAY": "Sunday"
+    },
+    "TO_HOUR" : "to",
+    "CALL_WHATSAPP": ["call on", "WhatsApp"],
+    "SEE_FOOD": ["see", "menu"],
+    "SEE_ON_INSTAGRAM": ["see on", "Instagram"],
+    "COPY" : "Copy"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Our purpose here is to help you save your most precious asset: ","time"],
@@ -81,5 +96,35 @@
   },
   "ERRORS" : {
     "REQUIRED_FIELD" : "required field"
+  },
+  "ESTABLISHMENT_PAGE": {
+    "HEADER_TITLE": ["about the", "establishment"],
+    "TICKETS": {
+      "TEXT": "In addition to traditional payment methods, they accept",
+      "VR": "meal voucher"
+    }
+  },
+  "PETFRIENDLY": {
+    "BRING": "You can bring",
+    "YOUR_PET": "your pet"
+  },
+  "LIVEMUSIC": {
+    "HAS_SHOW": "There is a show",
+    "LIVE": "live",
+    "SEE_MORE": "We recommend checking the establishment's Instagram for the day's schedule."
+  },
+  "AIR_CONDITIONED": {
+    "HAS": "Has",
+    "AIR_CONDITIONED_PLACE": "air-conditioned environment",
+    "SEE_MORE": "Check with the establishment for more details."
+  },
+  "BOOKING": {
+    "SAVE_TIME": "Save time, make a",
+    "BOOKING": "reservation",
+    "CONTACT_PLACE": "Contact through the WhatsApp button."
+  },
+  "WORKING_TIME": {
+    "TEXT": "Working hours",
+    "ADVISE": "We state whether a restaurant is open or closed based on the hours below."
   }
 }
