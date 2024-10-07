@@ -14,7 +14,7 @@ class="ion-bg-gray-2"
                   <ion-button
                   (click)="back()"
                   class="back ion-color-white back-btn no-ion-padding font-baloo"
-                  title="Voltar"
+                  [title]="'SHARED.BACK' | translate"
                   fill="clear">
                     <ion-icon name="chevron-back-outline"></ion-icon> <span class="font-w-thin mg-left-5">{{ 'ABOUT_PAGE.HEADER_TITLE.0' | translate }} <b>{{ 'ABOUT_PAGE.HEADER_TITLE.1' | translate }}</b></span>
                   </ion-button>
@@ -176,7 +176,7 @@ class="ion-bg-gray-2"
         </ion-col>
 
         <ion-col size="12" class="no-pad-top">
-          <rgs-social-networks [socialNetworks]="socialNetworks" [centered]="true"></rgs-social-networks>
+          <rgs-social-networks [centered]="true"></rgs-social-networks>
         </ion-col>
 
         <ion-col size="12" class="mg-bottom-16">

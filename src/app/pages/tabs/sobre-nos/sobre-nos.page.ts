@@ -20,25 +20,6 @@ export class SobreNosPage implements OnInit, OnDestroy {
 
   @ViewChild('sobreContent') sobreContent: IonContent;
 
-  public socialNetworks: ISocialNetwork[] = [
-    {
-      text: 'Instagram',
-      value: 'instagram',
-      name: 'Instagram',
-      baseUrl: 'https://www.instagram.com/',
-      user: 'anfitrionapp',
-      logo: 'logo-instagram'
-    },
-    {
-      text: 'Contato',
-      value: 'whatsapp',
-      name: 'Contato',
-      baseUrl: '/contato',
-      user: '',
-      logo: 'logo-whatsapp'
-    },
-  ]
-
   constructor(
     private navCtrl : NavController,
     private store : Store
