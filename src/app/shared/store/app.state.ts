@@ -1,11 +1,17 @@
 import { createAction, createReducer, createSelector, on, props, createFeatureSelector } from "@ngrx/store";
 import { ILang } from "../models/Lang";
+<<<<<<< HEAD
 import { IShortEstablishment } from "../models/Establishment";
 import { IShortTicket } from "../models/Ticket";
 
 export interface IAppState {
   currentLanguage: ILang,
   currentEstablishment: IShortEstablishment
+=======
+
+export interface IAppState {
+  currentLanguage: ILang
+>>>>>>> ea5ebe9e877921834f27db03115d3c8bb931add4
 }
 
 export const appInitialState: IAppState = {
@@ -16,6 +22,7 @@ export const appInitialState: IAppState = {
       es: ''
     },
     value: ''
+<<<<<<< HEAD
   },
   currentEstablishment: {
     name: '',
@@ -65,6 +72,8 @@ export const appInitialState: IAppState = {
         ]
       }
     ]
+=======
+>>>>>>> ea5ebe9e877921834f27db03115d3c8bb931add4
   }
 }
 
@@ -74,20 +83,26 @@ export const setCurrentLanguage = createAction(
   props<{ language: ILang }>()
 )
 
+<<<<<<< HEAD
 export const setCurrentEstablishment = createAction(
   '[APP] Definir estabelecimento selecionado',
   props<{ establishment: IShortEstablishment }>()
 )
 
+=======
+>>>>>>> ea5ebe9e877921834f27db03115d3c8bb931add4
 export const appReducer = createReducer(
   appInitialState,
   on(
     setCurrentLanguage,
     (state, { language }): IAppState => ({ ...state, currentLanguage: language })
+<<<<<<< HEAD
   ),
   on(
     setCurrentEstablishment,
     (state, { establishment }): IAppState => ({ ...state, currentEstablishment: establishment })
+=======
+>>>>>>> ea5ebe9e877921834f27db03115d3c8bb931add4
   )
 )
 
@@ -98,8 +113,11 @@ export const selectAppCurrentLanguage = createSelector(
   selectAppState,
   (state: IAppState) => state.currentLanguage
 );
+<<<<<<< HEAD
 
 export const selectCurrentEstablishment = createSelector(
   selectAppState,
   (state: IAppState) => state.currentEstablishment
 );
+=======
+>>>>>>> ea5ebe9e877921834f27db03115d3c8bb931add4
