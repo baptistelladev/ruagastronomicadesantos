@@ -1,7 +1,7 @@
 <div class="social-network-wrapper full-width" [ngClass]="{ 'centered': centered }">
   <ng-container *ngFor="let socialNetwork of socialNetworks">
     <ion-button
-    *ngIf="socialNetwork.value === 'instagram'"
+    *ngIf="socialNetwork.value === NetworksEnum.INSTAGRAM"
     [href]="socialNetwork.baseUrl + socialNetwork.user"
     [title]="socialNetwork.text"
     class="social-network-button"
@@ -14,7 +14,7 @@
 
   <ng-container *ngFor="let socialNetwork of socialNetworks">
     <ion-button
-    *ngIf="socialNetwork.value === 'whatsapp'"
+    *ngIf="socialNetwork.value === NetworksEnum.WHATSAPP"
     [routerLink]="[socialNetwork.baseUrl]"
     [title]="socialNetwork.text"
     class="social-network-button"

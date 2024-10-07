@@ -1,3 +1,4 @@
+import { AppInfoService } from './core/services/firebase/app-info.service';
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from './core/services/storage.service';
 import { TranslateService } from '@ngx-translate/core';
@@ -7,6 +8,8 @@ import { APP_LANG_KEY, IS_FIRST_ACCESS_KEY } from './shared/consts/keys';
 import { ILang } from './shared/models/Lang';
 import { LANGS } from './shared/mocks/langs';
 import { NavController } from '@ionic/angular';
+import { AppInfo } from '@capacitor/app';
+import { IAppInfo } from './shared/models/AppInfo';
 
 @Component({
   selector: 'rgs-root',
@@ -22,15 +25,19 @@ export class AppComponent implements OnInit {
     private storageService : StorageService,
     private translate : TranslateService,
     private store : Store,
-    private navCtrl : NavController
+    private navCtrl : NavController,
+    private appInfoService : AppInfoService
   ) {}
 
   async ngOnInit() {
+    this.getAppInfo();
+
     await this.storageService.createStorage();
 
     await this.storageService.getStorageKey(APP_LANG_KEY).then((res: string) => {
       if (res === null) {
-        this.openModalLanguage = true;
+        console.log('sem idioma');
+
 
         let foundLang = LANGS.find((lang: ILang) => {
           return lang.value === 'pt';
@@ -60,5 +67,14 @@ export class AppComponent implements OnInit {
   public understood(): void {
     this.openModalLanguage = false;
     this.storageService.setStorageKey(APP_LANG_KEY, this.currentLanguage.value);
+  }
+
+  public async getAppInfo() {
+    await this.appInfoService.getDocument('RGS_APP_INFO', 'Ni3MH95foTBjb8H5MKnz')
+    .then((appInfo: IAppInfo | undefined) => {
+      if (appInfo) {
+        this.store.dispatch(AppStore.setAppInfoNetworks({ networks: appInfo.networks }))
+      }
+    })
   }
 }

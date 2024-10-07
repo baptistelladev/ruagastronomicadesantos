@@ -31,7 +31,16 @@
     "CALL_WHATSAPP" : ["chamar no","WhatsApp"],
     "SEE_FOOD" : ["acessar","cardápio"],
     "SEE_ON_INSTAGRAM" : ["ver no","instagram"],
-    "COPY" : "Copiar"
+    "COPY" : "Copiar",
+    "GO_TO_WHATS" : "Ir para o WhatsApp",
+    "I_WILL_REDIRECT_YOU" : "Eu vou te direcionar para o whats do(a)",
+    "OK_QUESTION" : "tudo bem?",
+    "I_WILL_REDIRECT_YOU_INSTAGRAM" : "Eu vou te direcionar para o instagram do(a)",
+    "GO_TO_INSTA" : "Ir para o Instagram",
+    "UNDERSTOOD" : "Entendi",
+    "COPIED_ADRESS" : "Endereço copiado",
+    "PRIVATE_APP" : "Cole-o em um aplicativo de transporte privado de sua preferência: Uber, 99taxi, etc...",
+    "BACK" : "Voltar"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Nosso próposito aqui é fazer com que voê economize o seu bem mais precioso:","o tempo"],
@@ -126,5 +135,8 @@
   "WORKING_TIME" : {
     "TEXT" : "Horário de funcionamento",
     "ADVISE" : "Dizemos que um restaurante está aberto ou fechado com base nos horários abaixo."
+  },
+  "MESSAGES" : {
+    "WELCOME_WHATSAPP" : "Olá eu vim do Rua Gastronômica de Santos e..."
   }
 }

@@ -10,6 +10,7 @@ import { map, Observable, Subscription } from 'rxjs';
 import * as AppStore from './../../../shared/store/app.state';
 import { ILang } from 'src/app/shared/models/Lang';
 import { ITime } from 'src/app/shared/models/Time';
+import { TranslateService } from '@ngx-translate/core';
 
 
 @Component({
@@ -19,25 +20,6 @@ import { ITime } from 'src/app/shared/models/Time';
 })
 export class EstabelecimentoPage implements OnInit {
 
-  public socialNetworks: ISocialNetwork[] = [
-    {
-      text: 'Instagram',
-      value: 'instagram',
-      name: 'Instagram',
-      baseUrl: 'https://www.instagram.com/',
-      user: 'anfitrionapp',
-      logo: 'logo-instagram'
-    },
-    {
-      text: 'Contato',
-      value: 'whatsapp',
-      name: 'Contato',
-      baseUrl: '/contato',
-      user: '',
-      logo: 'logo-whatsapp'
-    },
-  ]
-
   @ViewChild('establishmentContent') establishmentContent: IonContent;
 
   public todayAsDayNumber: any = moment().day()
@@ -45,33 +27,6 @@ export class EstabelecimentoPage implements OnInit {
   public selectedOption: string;
 
   public initialMenuOffset: any;
-
-  public menu: any[] = [
-    {
-      text: {
-        pt: 'Localização'
-      },
-      value: 'location'
-    },
-    {
-      text: {
-        pt: 'Caracteristicas'
-      },
-      value: 'character'
-    },
-    {
-      text: {
-        pt: 'Redes sociais'
-      },
-      value: 'networks'
-    },
-    {
-      text: {
-        pt: 'Reserva'
-      },
-      value: 'contact'
-    }
-  ]
 
   public establishment: IShortEstablishment;
   public establishment$: Observable<IShortEstablishment>;
@@ -87,7 +42,8 @@ export class EstabelecimentoPage implements OnInit {
     private renderer : Renderer2,
     private clipboard: Clipboard,
     private alertCtrl : AlertController,
-    public store : Store
+    public store : Store,
+    private translate : TranslateService
   ) { }
 
   async ngOnInit() {
@@ -134,18 +90,23 @@ export class EstabelecimentoPage implements OnInit {
     let hasCopy = this.clipboard.copy(`${this.establishment.adress.street}, ${this.establishment.adress.number} - ${this.establishment.adress.neighborhood}`);
 
     if (hasCopy) {
-      await this.showAlert('Cole-o em um aplicativo de sua preferência');
+      await this.showAlert(`${this.translate.instant('SHARED.PRIVATE_APP')}`);
     }
   }
 
   public async showAlert(message: string): Promise<HTMLIonAlertElement> {
     const alert = await this.alertCtrl.create({
       mode: 'ios',
-      subHeader: 'Endereço copiado',
+      subHeader: `${this.translate.instant('SHARED.COPIED_ADRESS')}`,
       message: message,
       cssClass: 'rgs-alert',
-      buttons: ['Entendi']
-    })
+      buttons: [
+        {
+          role: 'cancel',
+          text: `${this.translate.instant('SHARED.UNDERSTOOD')}`
+        },
+      ]
+    });
 
     alert.present();
 
@@ -166,6 +127,81 @@ export class EstabelecimentoPage implements OnInit {
 
   public async scrollToTop() {
     this.establishmentContent.scrollToTop(600);
+  }
+
+  public async redirectToWhatsapp(): Promise<HTMLIonAlertElement> {
+    const alert = await this.alertCtrl.create({
+      mode: 'ios',
+      cssClass: 'rgs-alert',
+      subHeader: 'WhatsApp',
+      message: `${this.translate.instant('SHARED.I_WILL_REDIRECT_YOU')} <b>${this.establishment.name}${this.currentLanguage.value === 'en' ? "'s WhatsApp," : ","}</b> ${this.translate.instant('SHARED.OK_QUESTION')}`,
+      buttons: [
+        {
+          role: 'cancel',
+          text: `${this.translate.instant('SHARED.CANCEL')}`,
+          handler: () => {
+
+          }
+        },
+        {
+          role: 'confirm',
+          text: `${this.translate.instant('SHARED.GO_TO_WHATS')}`,
+          handler: async () => {
+            await alert.dismiss().then(() => {
+              this.goToWhatsApp();
+            })
+          }
+        }
+      ]
+    })
+
+    await alert.present();
+
+    return alert;
+  }
+
+  /**
+   * @description Abrir WhatsApp com mensagem.
+   */
+  public goToWhatsApp(): void {
+    let mensagem: string = this.translate.instant('MESSAGES.WELCOME_WHATSAPP');
+    let mensagemCodificada = encodeURIComponent(mensagem);
+    window.open(`https://wa.me/5513997330408?text=${mensagemCodificada}`, '_blank');
+  }
+
+  public goToInsta(): void {
+    window.open(`https://www.instagram.com/ruagastronomicadesantos/`, '_blank');
+  }
+
+  public async redirectToInstagram(): Promise<HTMLIonAlertElement> {
+    const alert = await this.alertCtrl.create({
+      cssClass: 'rgs-alert',
+      mode: 'ios',
+      subHeader: 'Instagram',
+      message: `${this.translate.instant('SHARED.I_WILL_REDIRECT_YOU_INSTAGRAM')} <b>${this.establishment.name}${this.currentLanguage.value === 'en' ? "'s Instagram," : ","}</b> ${this.translate.instant('SHARED.OK_QUESTION')}`,
+      buttons: [
+        {
+          text: `${this.translate.instant('SHARED.CANCEL')}`,
+          role: '',
+          handler: () => {
+
+          }
+        },
+        {
+          text: `${this.translate.instant('SHARED.GO_TO_INSTA')}`,
+          role: 'confirm',
+          handler: async () => {
+            await alert.dismiss().then(() => {
+              this.goToInsta();
+            })
+          }
+        }
+      ]
+    })
+
+    await alert.present();
+
+    return alert;
   }
 
 }

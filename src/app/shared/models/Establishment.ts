@@ -1,4 +1,6 @@
 import { IHour } from "./Hour"
+import { ISocialNetwork } from "./Network"
+import { IPhone } from "./Phone"
 import { IShortTicket } from "./Ticket"
 import { ITime } from "./Time"
 
@@ -33,7 +35,9 @@ export interface IShortEstablishment {
     accept_booking: boolean,
     show_field: boolean
   },
-  working_time: ITime[]
+  working_time: ITime[],
+  phones: IPhone[],
+  networks: ISocialNetwork[]
 }
 
 export interface ILongEstablishment {

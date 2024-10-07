@@ -10,8 +10,7 @@ import * as AppStore from './../../../shared/store/app.state';
 import { Store } from '@ngrx/store';
 import { ITranslation } from 'src/app/shared/models/Translation';
 import { EstablishmentsService } from 'src/app/core/services/firebase/establishments.service';
-import { ECollectionsEnum } from 'src/app/shared/enums/Collections.ts/collection';
-
+import { CollectionsEnum } from 'src/app/shared/enums/collection';
 
 @Component({
   selector: 'rgs-inicio',
@@ -96,25 +95,6 @@ export class InicioPage implements OnInit, OnDestroy {
     }
   ]
 
-  public socialNetworks: ISocialNetwork[] = [
-    {
-      text: 'Instagram',
-      value: 'instagram',
-      name: 'Instagram',
-      baseUrl: 'https://www.instagram.com/',
-      user: 'anfitrionapp',
-      logo: 'logo-instagram'
-    },
-    {
-      text: 'Contato',
-      value: 'whatsapp',
-      name: 'Contato',
-      baseUrl: '/contato',
-      user: '',
-      logo: 'logo-whatsapp'
-    },
-  ]
-
   public short_establishments: IShortEstablishment[];
 
   public filters: any[] = [
@@ -159,7 +139,7 @@ export class InicioPage implements OnInit, OnDestroy {
   }
 
   public getEstablishments() {
-    this.establishments$ = this.establishmentsService.getCollection(ECollectionsEnum.SHORT_ESTABLISHMENTS);
+    this.establishments$ = this.establishmentsService.getCollection(CollectionsEnum.SHORT_ESTABLISHMENTS);
 
     this.establishmentsDescription = this.establishments$
     .subscribe((stablishments: IShortEstablishment[]) => {

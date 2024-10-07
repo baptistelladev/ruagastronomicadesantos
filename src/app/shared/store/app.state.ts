@@ -2,10 +2,12 @@ import { createAction, createReducer, createSelector, on, props, createFeatureSe
 import { ILang } from "../models/Lang";
 import { IShortEstablishment } from "../models/Establishment";
 import { IShortTicket } from "../models/Ticket";
+import { ISocialNetwork } from "../models/Network";
 
 export interface IAppState {
   currentLanguage: ILang,
-  currentEstablishment: IShortEstablishment
+  currentEstablishment: IShortEstablishment,
+  appInfoNetworks: ISocialNetwork[]
 }
 
 export const appInitialState: IAppState = {
@@ -64,8 +66,31 @@ export const appInitialState: IAppState = {
           }
         ]
       }
+    ],
+    phones: [
+      {
+        type: '',
+        number: '',
+        description: ''
+      }
+    ],
+    networks: [
+      {
+        text: '',
+        value: '',
+        baseUrl: '',
+        user: ''
+      }
     ]
-  }
+  },
+  appInfoNetworks: [
+    {
+      text: '',
+      value: '',
+      baseUrl: '',
+      user: ''
+    }
+  ]
 }
 
 // ACTIONS
@@ -79,6 +104,11 @@ export const setCurrentEstablishment = createAction(
   props<{ establishment: IShortEstablishment }>()
 )
 
+export const setAppInfoNetworks = createAction(
+  '[APP] Definir redes sociais/contato do aplicativo',
+  props<{ networks: ISocialNetwork[] }>()
+)
+
 export const appReducer = createReducer(
   appInitialState,
   on(
@@ -88,6 +118,10 @@ export const appReducer = createReducer(
   on(
     setCurrentEstablishment,
     (state, { establishment }): IAppState => ({ ...state, currentEstablishment: establishment })
+  ),
+  on(
+    setAppInfoNetworks,
+    (state, { networks }): IAppState => ({ ...state, appInfoNetworks: networks })
   )
 )
 
@@ -103,3 +137,9 @@ export const selectCurrentEstablishment = createSelector(
   selectAppState,
   (state: IAppState) => state.currentEstablishment
 );
+
+export const selectAppInfoNetworks = createSelector(
+  selectAppState,
+  (state: IAppState) => state.appInfoNetworks
+);
+
