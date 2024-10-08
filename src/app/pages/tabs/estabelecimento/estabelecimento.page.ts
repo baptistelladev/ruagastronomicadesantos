@@ -146,10 +146,8 @@ export class EstabelecimentoPage implements OnInit {
         {
           role: 'confirm',
           text: `${this.translate.instant('SHARED.GO_TO_WHATS')}`,
-          handler: async () => {
-            await alert.dismiss().then(() => {
-              this.goToWhatsApp();
-            })
+          handler: () => {
+            this.goToWhatsApp();
           }
         }
       ]
@@ -166,11 +164,11 @@ export class EstabelecimentoPage implements OnInit {
   public goToWhatsApp(): void {
     let mensagem: string = this.translate.instant('MESSAGES.WELCOME_WHATSAPP');
     let mensagemCodificada = encodeURIComponent(mensagem);
-    window.open(`https://wa.me/5513997330408?text=${mensagemCodificada}`, '_blank');
+    window.open(`https://wa.me/5513997330408?text=${mensagemCodificada}`, 'self');
   }
 
   public goToInsta(): void {
-    window.open(`https://www.instagram.com/ruagastronomicadesantos/`, '_blank');
+    window.open(`https://www.instagram.com/ruagastronomicadesantos/`, '_self');
   }
 
   public async redirectToInstagram(): Promise<HTMLIonAlertElement> {

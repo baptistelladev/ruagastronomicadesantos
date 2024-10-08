@@ -31,7 +31,16 @@
     "CALL_WHATSAPP": ["call on", "WhatsApp"],
     "SEE_FOOD": ["see", "menu"],
     "SEE_ON_INSTAGRAM": ["see on", "Instagram"],
-    "COPY" : "Copy"
+    "COPY" : "Copy",
+    "GO_TO_WHATS" : "Go to WhatsApp",
+    "I_WILL_REDIRECT_YOU" : "I'll direct you to",
+    "OK_QUESTION" : "okay?",
+    "I_WILL_REDIRECT_YOU_INSTAGRAM" : "I'll direct you to",
+    "GO_TO_INSTA" : "Go to Instagram",
+    "UNDERSTOOD" : "I understood",
+    "COPIED_ADRESS" : "Adress has copied",
+    "PRIVATE_APP" : "Paste it into a private transport app of your choice: Uber, 99taxi, etc...",
+    "BACK" : "Back"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Our purpose here is to help you save your most precious asset: ","time"],
@@ -126,5 +135,8 @@
   "WORKING_TIME": {
     "TEXT": "Working hours",
     "ADVISE": "We state whether a restaurant is open or closed based on the hours below."
+  },
+  "MESSAGES" : {
+    "WELCOME_WHATSAPP" : "Hello, I came from the Gastronomic Street of Santos and..."
   }
 }
