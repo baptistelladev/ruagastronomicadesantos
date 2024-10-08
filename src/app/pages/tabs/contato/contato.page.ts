@@ -6,6 +6,7 @@ import { ILang } from 'src/app/shared/models/Lang';
 import * as AppStore from './../../../shared/store/app.state';
 import { TranslateService } from '@ngx-translate/core';
 import { IContact } from 'src/app/shared/models/IContact';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -33,17 +34,38 @@ export class ContatoPage implements OnInit, OnDestroy {
     }
   ]
 
+  public translatedPage: any;
+  public translatedPage$: Observable<any>;
+
   constructor(
     private navCtrl : NavController,
     private alertCtrl : AlertController,
     private store : Store,
-    private translate : TranslateService
+    private translate : TranslateService,
+    private title : Title
   ) { }
 
   ngOnInit() {
     this.setInitialSegment('comercial');
     this.getCurrentLanguageFromNGRX();
     this.getContactInfoFromNGRX();
+  }
+
+  ionViewDidEnter(): void {
+    this.getTitleFromPage();
+  }
+
+  public getTitleFromPage(): void {
+    this.translatedPage$ = this.translate.get('CONTACT_PAGE')
+
+    this.translatedPage$
+    .pipe(take(2))
+    .subscribe((resp: any) => {
+      this.translatedPage = resp;
+      this.title.setTitle(this.translatedPage['PAGE_TITLE'])
+      console.log(resp);
+
+    })
   }
 
   public getCurrentLanguageFromNGRX(): void {

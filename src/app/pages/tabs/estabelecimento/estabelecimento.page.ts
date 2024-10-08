@@ -6,11 +6,12 @@ import { getElement } from 'ionicons/dist/types/stencil-public-runtime';
 import { ISocialNetwork } from 'src/app/shared/models/Network';
 import { Store } from '@ngrx/store';
 import { IShortEstablishment } from 'src/app/shared/models/Establishment';
-import { map, Observable, Subscription } from 'rxjs';
+import { map, Observable, Subscription, take } from 'rxjs';
 import * as AppStore from './../../../shared/store/app.state';
 import { ILang } from 'src/app/shared/models/Lang';
 import { ITime } from 'src/app/shared/models/Time';
 import { TranslateService } from '@ngx-translate/core';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -36,6 +37,8 @@ export class EstabelecimentoPage implements OnInit {
   public currentLanguage$: Observable<ILang>;
   public currentLanguageSubscription: Subscription;
 
+  public translatedPage: any;
+  public translatedPage$: Observable<any>;
 
   constructor(
     private navCtrl : NavController,
@@ -43,14 +46,14 @@ export class EstabelecimentoPage implements OnInit {
     private clipboard: Clipboard,
     private alertCtrl : AlertController,
     public store : Store,
-    private translate : TranslateService
+    private translate : TranslateService,
+    private title : Title
   ) { }
 
   async ngOnInit() {
     this.getCurrentLanguageFromNGRX();
     this.selectOption('location');
     this.getCurrentEstablishment();
-
   }
 
   public getCurrentLanguageFromNGRX(): void {
@@ -74,6 +77,23 @@ export class EstabelecimentoPage implements OnInit {
     }))
     .subscribe((establishment: IShortEstablishment) => {
       this.establishment = establishment;
+
+      switch (this.currentLanguage.value) {
+        case 'pt':
+          this.title.setTitle(`${this.establishment.name} na Rua Gastronômica de Santos`);
+          break;
+
+        case 'en':
+          this.title.setTitle(`${this.establishment.name} on the Gastronomic Street of Santos`);
+          break;
+
+        case 'es':
+          this.title.setTitle(`${this.establishment.name} en la Calle Gastronómica de Santos`)
+          break;
+
+        default:
+          break;
+      }
     })
   }
 

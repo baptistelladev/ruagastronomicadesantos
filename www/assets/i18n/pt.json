@@ -40,7 +40,10 @@
     "UNDERSTOOD" : "Entendi",
     "COPIED_ADRESS" : "Endereço copiado",
     "PRIVATE_APP" : "Cole-o em um aplicativo de transporte privado de sua preferência: Uber, 99taxi, etc...",
-    "BACK" : "Voltar"
+    "BACK" : "Voltar",
+    "FILTER" : "Filtro",
+    "TO_FILTER" : "Filtrar",
+    "ALRIGHT" : "Tudo bem"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Nosso próposito aqui é fazer com que voê economize o seu bem mais precioso:","o tempo"],
@@ -53,7 +56,13 @@
       "EXPLORE" : "Explorar",
       "MENU" : "Menu"
     },
-    "CHANGE_LANG" : "Trocar idioma"
+    "CHANGE_LANG" : "Trocar idioma",
+    "SEGMENT_VIEW" : {
+      "AS_SLIDE" : ["Você quer ver os estabelecimentos em forma de","slide"],
+      "AS_LIST" : ["Você quer ver os estabelecimentos em forma de","lista"],
+      "AS_LIST_TITLE" : "Modo lista",
+      "AS_SLIDE_TITLE" : "Modo slide"
+    }
   },
   "MENU_PAGE" : {
     "HEADER_TITLE" : ["sessão","menu"],
@@ -70,7 +79,9 @@
     "SEND_EMAIL" : "enviar email",
     "SEND_MESSAGE" : "enviar mensagem",
     "COMERCIAL_TEXT" : ["para","parcerias e anúncios"],
-    "OTHER_TEXT" : ["para","sugestões ou críticas"]
+    "OTHER_TEXT" : ["para","sugestões ou críticas"],
+    "DIRECT_TO_WHATS" : "Iremos te direcionar para o WhatsApp, tudo bem?",
+    "DIRECT_TO_DEFAULT_EMAIL" : "Abriremos seu app padrão de e-mail, tudo bem?"
   },
   "ABOUT_PAGE" : {
     "HEADER_TITLE" : ["sessão","sobre"],

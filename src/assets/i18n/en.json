@@ -1,5 +1,6 @@
 {
   "CHANGE_LANG_PAGE" : {
+    "PAGE_TITLE": "Change the language you see Santos Gastronomic Street",
     "DESCRIPTION": {
       "TITLE": ["define", "a language"],
       "SUB_TITLE": "how do you want to see our app"
@@ -48,7 +49,8 @@
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Our purpose here is to help you save your most precious asset: ","time"],
     "PARAGRAPH_TWO" : ["Filter the establishments based on your preferences: Japanese food, Mexican food, burger joint, pizzeria, pet-friendly, live music..."],
-    "LIST_OF_ESTABLISHMENTS" : ["List","of stablishments"]
+    "LIST_OF_ESTABLISHMENTS" : ["List","of stablishments"],
+    "PAGE_TITLE" : "List of establishments in Gastronomic St. of Santos"
   },
   "COMPONENTS" : {
     "MADE_W_LOVE" : ["made with","in"],
@@ -69,6 +71,7 @@
     "MENU_TITLE" : "Menu"
   },
   "CONTACT_PAGE" : {
+    "PAGE_TITLE": "Talk to me about the Gastronomic Street of Santos",
     "HEADER_TITLE" : ["contact", "section"],
     "DESCRIPTION" : {
       "TITLE" : ["talk", "to me"],
@@ -84,6 +87,7 @@
     "DIRECT_TO_DEFAULT_EMAIL": "We will open your default email app, is that okay?"
   },
   "ABOUT_PAGE" : {
+    "PAGE_TITLE": "A little about us",
     "HEADER_TITLE" : ["section","about"],
     "TASTIEST_STREET" : ["the","tastiest street","in the city."],
     "INTRODUCTION" : {
