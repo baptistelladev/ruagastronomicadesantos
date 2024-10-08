@@ -5,12 +5,13 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { Store } from '@ngrx/store';
-import { Observable, Subscription } from 'rxjs';
+import { Observable, Subscription, take } from 'rxjs';
 import { LANGS } from 'src/app/shared/mocks/langs';
 import { ILang } from 'src/app/shared/models/Lang';
 import * as AppStore from './../../../shared/store/app.state';
 import { TranslateService } from '@ngx-translate/core';
 import { APP_LANG_KEY } from 'src/app/shared/consts/keys';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'rgs-trocar-idioma',
@@ -27,17 +28,37 @@ export class TrocarIdiomaPage implements OnInit, OnDestroy {
 
   public langs: ILang[] = LANGS;
 
+  public translatedPage: any;
+  public translatedPage$: Observable<any>;
+
   constructor(
     private formBuilder: FormBuilder,
     private navCtrl : NavController,
     private store : Store,
     private translate : TranslateService,
-    private storageService : StorageService
+    private storageService : StorageService,
+    private title : Title
   ) { }
 
   ngOnInit() {
     this.initLanguageForm();
     this.getCurrentLanguageFromNGRX();
+  }
+
+  ionViewDidEnter(): void {
+    this.getTitleFromPage();
+  }
+
+  public getTitleFromPage(): void {
+    this.translatedPage$ = this.translate.get('CHANGE_LANG_PAGE');
+
+    this.translatedPage$
+    .pipe(take(2))
+    .subscribe((resp: any) => {
+      this.translatedPage = resp;
+      this.title.setTitle(this.translatedPage['PAGE_TITLE'])
+      console.log(resp);
+    })
   }
 
   public getCurrentLanguageFromNGRX(): void {
