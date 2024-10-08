@@ -101,7 +101,7 @@ export class ContatoPage implements OnInit, OnDestroy {
   public openWhatsApp(): void {
     let mensagem: string = 'Olá eu vim do Rua Gastronômica de Santos e...'
     let mensagemCodificada = encodeURIComponent(mensagem);
-    window.open(`https://wa.me/5513997330408?text=${mensagemCodificada}`, '_blank');
+    window.open(`https://wa.me/5513997330408?text=${mensagemCodificada}`, '_self');
   }
 
   /**
