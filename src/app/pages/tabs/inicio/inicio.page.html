@@ -272,7 +272,7 @@ mode="ios">
           <ion-text
           class="color-gray-text fs-13 line-height-20 txt-lowercase txt-right"
           mode="ios">
-            <p><span class="font-w-bold fs-18">{{ short_establishments.length }}</span> {{ 'SHARED.ESTABLISHMENTS' | translate }} </p>
+            <p><span class="font-w-bold fs-18">{{ short_establishments.length }}</span> {{ 'SHARED.ESTABLISHMENTS' | translate }}<ng-container *ngIf="short_establishments.length > 1">s</ng-container></p>
           </ion-text>
         </ion-col>
 

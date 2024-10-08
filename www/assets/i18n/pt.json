@@ -1,5 +1,6 @@
 {
   "CHANGE_LANG_PAGE" : {
+    "PAGE_TITLE" : "Change langague you see Rua Gastronômica de Santos",
     "DESCRIPTION" : {
       "TITLE" : ["defina","um idioma"],
       "SUB_TITLE": "como quer ver nosso app"
@@ -48,7 +49,8 @@
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Nosso próposito aqui é fazer com que voê economize o seu bem mais precioso:","o tempo"],
     "PARAGRAPH_TWO" : ["Filtre os estabelecimentos conforme o teu gosto: comida japonesa, comida mexicana, hamburgueria, pizzaria, pet friendly, música ao vivo..."],
-    "LIST_OF_ESTABLISHMENTS" : ["Lista","de estabelecimentos"]
+    "LIST_OF_ESTABLISHMENTS" : ["Lista","de estabelecimentos"],
+    "PAGE_TITLE" : "Lista de estabelecimentos na Rua Gastronômica de Santos"
   },
   "COMPONENTS" : {
     "MADE_W_LOVE" : ["feito com","em"],
@@ -69,6 +71,7 @@
     "MENU_TITLE" : "Menu"
   },
   "CONTACT_PAGE" : {
+    "PAGE_TITLE" : "Fale comigo sobre a Rua Gastronômica de Santos",
     "HEADER_TITLE" : ["sessão","contato"],
     "DESCRIPTION" : {
       "TITLE" : ["fale","comigo"],
@@ -84,6 +87,7 @@
     "DIRECT_TO_DEFAULT_EMAIL" : "Abriremos seu app padrão de e-mail, tudo bem?"
   },
   "ABOUT_PAGE" : {
+    "PAGE_TITLE": "Um pouco sobre nós",
     "HEADER_TITLE" : ["sessão","sobre"],
     "TASTIEST_STREET" : ["a rua","mais gostosa","da cidade."],
     "INTRODUCTION" : {
