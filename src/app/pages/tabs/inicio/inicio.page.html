@@ -130,7 +130,7 @@ mode="ios">
                 <ion-select
                 [okText]="'Filtrar'"
                 #filterSelector
-                label="Filtro"
+                [label]="'SHARED.FILTER' | translate"
                 class="hide-element rgs-selector">
                   <ion-select-option
                   *ngFor="let filter of filters"

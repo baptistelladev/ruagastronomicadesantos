@@ -40,7 +40,10 @@
     "UNDERSTOOD" : "I understood",
     "COPIED_ADRESS" : "Adress has copied",
     "PRIVATE_APP" : "Paste it into a private transport app of your choice: Uber, 99taxi, etc...",
-    "BACK" : "Back"
+    "BACK" : "Back",
+    "FILTER" : "Filter",
+    "TO_FILTER" : "Filter now",
+    "ALRIGHT" : "Okay"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Our purpose here is to help you save your most precious asset: ","time"],
@@ -53,7 +56,13 @@
       "EXPLORE" : "Explore",
       "MENU" : "Menu"
     },
-    "CHANGE_LANG" : "Change language"
+    "CHANGE_LANG" : "Change language",
+    "SEGMENT_VIEW": {
+      "AS_SLIDE": ["Do you want to see the establishments in the form of", "slide"],
+      "AS_LIST": ["Do you want to see the establishments in the form of", "list"],
+      "AS_LIST_TITLE" : "List mode",
+      "AS_SLIDE_TITLE" : "Slide mode"
+    }
   },
   "MENU_PAGE" : {
     "HEADER_TITLE" : ["section","menu"],
@@ -70,7 +79,9 @@
     "SEND_EMAIL" : "send email",
     "SEND_MESSAGE" : "send message",
     "COMERCIAL_TEXT" : ["for","partnerships and advertisements"],
-    "OTHER_TEXT" : ["for","suggestions and criticism"]
+    "OTHER_TEXT" : ["for","suggestions and criticism"],
+    "DIRECT_TO_WHATS": "We will direct you to WhatsApp, is that okay?",
+    "DIRECT_TO_DEFAULT_EMAIL": "We will open your default email app, is that okay?"
   },
   "ABOUT_PAGE" : {
     "HEADER_TITLE" : ["section","about"],

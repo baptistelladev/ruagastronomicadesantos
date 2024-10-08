@@ -3,11 +3,13 @@ import { ILang } from "../models/Lang";
 import { IShortEstablishment } from "../models/Establishment";
 import { IShortTicket } from "../models/Ticket";
 import { ISocialNetwork } from "../models/Network";
+import { IContact } from "../models/IContact";
 
 export interface IAppState {
   currentLanguage: ILang,
   currentEstablishment: IShortEstablishment,
-  appInfoNetworks: ISocialNetwork[]
+  appInfoNetworks: ISocialNetwork[],
+  appInfoContact: IContact
 }
 
 export const appInitialState: IAppState = {
@@ -90,7 +92,17 @@ export const appInitialState: IAppState = {
       baseUrl: '',
       user: ''
     }
-  ]
+  ],
+  appInfoContact: {
+    phone: {
+      ddd: '',
+      number: ''
+    },
+    email: {
+      text: '',
+      value: ''
+    }
+  }
 }
 
 // ACTIONS
@@ -109,6 +121,11 @@ export const setAppInfoNetworks = createAction(
   props<{ networks: ISocialNetwork[] }>()
 )
 
+export const setAppInfoContact = createAction(
+  '[APP] Definir formas de contato do app',
+  props<{ contact: IContact }>()
+)
+
 export const appReducer = createReducer(
   appInitialState,
   on(
@@ -122,6 +139,10 @@ export const appReducer = createReducer(
   on(
     setAppInfoNetworks,
     (state, { networks }): IAppState => ({ ...state, appInfoNetworks: networks })
+  ),
+  on(
+    setAppInfoContact,
+    (state, { contact }): IAppState => ({ ...state, appInfoContact: contact })
   )
 )
 
@@ -141,5 +162,10 @@ export const selectCurrentEstablishment = createSelector(
 export const selectAppInfoNetworks = createSelector(
   selectAppState,
   (state: IAppState) => state.appInfoNetworks
+);
+
+export const selectAppInfoContact = createSelector(
+  selectAppState,
+  (state: IAppState) => state.appInfoContact
 );
 

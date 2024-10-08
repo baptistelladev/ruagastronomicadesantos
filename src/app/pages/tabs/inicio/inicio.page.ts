@@ -178,28 +178,28 @@ export class InicioPage implements OnInit, OnDestroy {
     const alert = await this.showAlertViewMode();
 
     if (value === 'as-slide') {
-      alert.subHeader = 'Modo slide';
-      alert.message = 'Você quer ver os estabelecimentos em forma de <b>slide</b>?';
+      alert.subHeader = `${this.translate.instant('COMPONENTS.SEGMENT_VIEW.AS_SLIDE_TITLE')}`;
+      alert.message = `${this.translate.instant('COMPONENTS.SEGMENT_VIEW.AS_SLIDE.0')} <b>${this.translate.instant('COMPONENTS.SEGMENT_VIEW.AS_SLIDE.1')}</b>`;
       alert.buttons = [
         {
-          text: 'Cancelar',
+          text: `${this.translate.instant('SHARED.CANCEL')}`,
           role: 'cancel'
         },
         {
-          text: 'Confirmar',
+          text: `${this.translate.instant('SHARED.DEFINE')}`,
           role: 'confirm'
         },
       ]
     } else {
-      alert.subHeader = 'Modo lista';
-      alert.message = 'Você quer ver os estabelecimentos em forma de <b>lista</b>?';
+      alert.subHeader = `${this.translate.instant('COMPONENTS.SEGMENT_VIEW.AS_LIST_TITLE')}`;
+      alert.message = `${this.translate.instant('COMPONENTS.SEGMENT_VIEW.AS_LIST.0')} <b>${this.translate.instant('COMPONENTS.SEGMENT_VIEW.AS_LIST.1')}</b>`;
       alert.buttons = [
         {
-          text: 'Cancelar',
+          text: `${this.translate.instant('SHARED.CANCEL')}`,
           role: 'cancel'
         },
         {
-          text: 'Confirmar',
+          text: `${this.translate.instant('SHARED.DEFINE')}`,
           role: 'confirm'
         },
       ]

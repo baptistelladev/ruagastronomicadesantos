@@ -35,8 +35,6 @@ export class SocialNetworksComponent  implements OnInit {
     .pipe(take(2))
     .subscribe((networks: ISocialNetwork[]) => {
       this.socialNetworks = networks;
-      console.log(this.socialNetworks);
-
     })
   }
 
