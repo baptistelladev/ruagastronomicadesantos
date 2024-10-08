@@ -78,7 +78,7 @@
               class="contact-zap-mail"
               href="javascript:void(0)"
               [title]="'CONTACT_PAGE.SEND_EMAIL' | translate">
-                <span class="color-linear font-baloo txt-no-decoration fs-14"><span class="fs-18"><b>ruagastronomicadesantos</b>{{'@gmail.com'}}</span></span>
+                <span class="color-linear font-baloo txt-no-decoration fs-14"><span class="fs-18"><b>{{ appInfoContact.email.text ? appInfoContact.email.text.split('@')[0] : 'email' }}</b>{{ appInfoContact.email.text ? '@' + appInfoContact.email.text.split('@')[1] : 'email' }}</span></span>
                 <span class="simulate-chip-as-btn txt-no-decoration fs-13">{{ 'CONTACT_PAGE.SEND_EMAIL' | translate }} <ion-icon name="mail-outline" class="mg-left-5"></ion-icon></span>
               </a>
             </ng-container>
@@ -89,7 +89,7 @@
               class="contact-zap-mail"
               href="javascript:void(0)"
               [title]="'CONTACT_PAGE.SEND_MESSAGE' | translate">
-                <span class="color-linear font-baloo txt-no-decoration">+55 (013) <span class="fs-20"><b>9 9733.0408</b></span></span>
+                <span class="color-linear font-baloo txt-no-decoration">+55 ({{ appInfoContact.phone.ddd ? appInfoContact.phone.ddd : '000' }}) <span class="fs-20"><b>{{ appInfoContact.phone.number ? appInfoContact.phone.number : '0 0000-0000' }}</b></span></span>
                 <span class="simulate-chip-as-btn txt-no-decoration fs-13">{{ 'CONTACT_PAGE.SEND_MESSAGE' | translate }}<ion-icon name="logo-whatsapp" class="mg-left-5"></ion-icon></span>
               </a>
             </ng-container>

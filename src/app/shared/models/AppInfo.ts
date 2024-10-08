@@ -1,5 +1,7 @@
+import { IContact } from "./IContact";
 import { ISocialNetwork } from "./Network";
 
 export interface IAppInfo {
-  networks: ISocialNetwork[]
+  networks: ISocialNetwork[],
+  contact: IContact
 }

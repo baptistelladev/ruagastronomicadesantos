@@ -73,7 +73,9 @@ export class AppComponent implements OnInit {
     await this.appInfoService.getDocument('RGS_APP_INFO', 'Ni3MH95foTBjb8H5MKnz')
     .then((appInfo: IAppInfo | undefined) => {
       if (appInfo) {
-        this.store.dispatch(AppStore.setAppInfoNetworks({ networks: appInfo.networks }))
+        // TIVE QUE FAZER ISSO PARA O TSLINT ACEITAR VÁRIOS DISPATCH
+        if (appInfo.networks) { this.store.dispatch(AppStore.setAppInfoNetworks({ networks: appInfo.networks })); }
+        if (appInfo.contact) { this.store.dispatch(AppStore.setAppInfoContact({ contact: appInfo.contact })); }
       }
     })
   }
