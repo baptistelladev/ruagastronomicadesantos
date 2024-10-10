@@ -12,6 +12,9 @@ import { ILang } from 'src/app/shared/models/Lang';
 import { ITime } from 'src/app/shared/models/Time';
 import { TranslateService } from '@ngx-translate/core';
 import { Title } from '@angular/platform-browser';
+import { IPhone } from 'src/app/shared/models/Phone';
+import { PhoneTypesEnum } from 'src/app/shared/enums/PhoneTypes';
+import { NetworksEnum } from 'src/app/shared/enums/Networks';
 
 
 @Component({
@@ -182,13 +185,15 @@ export class EstabelecimentoPage implements OnInit {
    * @description Abrir WhatsApp com mensagem.
    */
   public goToWhatsApp(): void {
+    let whats: undefined | IPhone = this.establishment.phones.find(phone => phone.type === PhoneTypesEnum.WHATSAPP);
     let mensagem: string = this.translate.instant('MESSAGES.WELCOME_WHATSAPP');
     let mensagemCodificada = encodeURIComponent(mensagem);
-    window.open(`https://wa.me/5513997330408?text=${mensagemCodificada}`, 'self');
+    window.open(`https://wa.me/55${whats?.ddd}${whats?.number}?text=${mensagemCodificada}`, 'self');
   }
 
   public goToInsta(): void {
-    window.open(`https://www.instagram.com/ruagastronomicadesantos/`, '_self');
+    let insta: undefined | ISocialNetwork = this.establishment.networks.find(network => network.value === NetworksEnum.INSTAGRAM);
+    window.open(`https://www.instagram.com/${insta?.user}/`, '_self');
   }
 
   public async redirectToInstagram(): Promise<HTMLIonAlertElement> {

@@ -44,7 +44,8 @@
     "BACK" : "Back",
     "FILTER" : "Filter",
     "TO_FILTER" : "Filter now",
-    "ALRIGHT" : "Okay"
+    "ALRIGHT" : "Okay",
+    "NO_RESULT": "No establishments for now"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Our purpose here is to help you save your most precious asset: ","time"],

@@ -5,7 +5,7 @@ import { Observable, Subscription, take } from 'rxjs';
 import { ILang } from 'src/app/shared/models/Lang';
 import * as AppStore from './../../../shared/store/app.state';
 import { TranslateService } from '@ngx-translate/core';
-import { IContact } from 'src/app/shared/models/IContact';
+import { IContact } from 'src/app/shared/models/Contact';
 import { Title } from '@angular/platform-browser';
 
 

@@ -1,4 +1,4 @@
-import { IContact } from "./IContact";
+import { IContact } from "./Contact";
 import { ISocialNetwork } from "./Network";
 
 export interface IAppInfo {

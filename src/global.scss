@@ -119,8 +119,7 @@ hr.rgs-divider {
 
   ion-select {
     &::part(label) {
-      color: var(--gray-text);
-      opacity: .5;
+      color: var(--gray-c);
     }
 
     &::part(container) {

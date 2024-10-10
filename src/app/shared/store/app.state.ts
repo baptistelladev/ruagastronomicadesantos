@@ -3,7 +3,7 @@ import { ILang } from "../models/Lang";
 import { IShortEstablishment } from "../models/Establishment";
 import { IShortTicket } from "../models/Ticket";
 import { ISocialNetwork } from "../models/Network";
-import { IContact } from "../models/IContact";
+import { IContact } from "../models/Contact";
 
 export interface IAppState {
   currentLanguage: ILang,
@@ -60,7 +60,11 @@ export const appInitialState: IAppState = {
     working_time: [
       {
         day_number: 0,
-        text: '',
+        text: {
+          pt: '',
+          en: '',
+          es: ''
+        },
         opening_time: [
           {
             close: '',
@@ -73,7 +77,8 @@ export const appInitialState: IAppState = {
       {
         type: '',
         number: '',
-        description: ''
+        ddd: '',
+        text: ''
       }
     ],
     networks: [

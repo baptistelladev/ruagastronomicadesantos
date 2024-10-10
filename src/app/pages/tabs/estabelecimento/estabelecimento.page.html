@@ -79,6 +79,7 @@
                     </ion-button>
                   </ion-col>
 
+                  <!--
                   <ion-col size="12" class="txt-center">
                     <ion-button
                     mode="md"
@@ -89,6 +90,7 @@
                       <ion-icon name="receipt-outline" class="mg-right-8"></ion-icon>{{ 'SHARED.SEE_FOOD.0' | translate }} <b class="mg-left-5">{{ 'SHARED.SEE_FOOD.1' | translate }}</b>
                     </ion-button>
                   </ion-col>
+                  -->
 
                   <ion-col size="12" class="txt-center">
                     <ion-button
@@ -119,7 +121,7 @@
 
               <ion-text mode="ios" class="line-height-18">
                 <p class="color-gray-text mg-left-16">{{ 'ESTABLISHMENT_PAGE.TICKETS.TEXT' | translate }} <b class="color-green">{{ 'ESTABLISHMENT_PAGE.TICKETS.VR' | translate }}</b>.</p>
-                <p class="color-gray-6 mg-left-16 fs-14 mg-top-8"><ng-container *ngFor="let ticket of establishment.ticket_info.tickets">{{ ticket.text }}</ng-container></p>
+                <p class="color-gray-6 mg-left-16 fs-14 mg-top-8"><ng-container *ngFor="let ticket of establishment.ticket_info.tickets; let last = last">{{ ticket.text }}<ng-container *ngIf="!last">, </ng-container></ng-container>.</p>
               </ion-text>
             </ion-item>
           </ion-col>
@@ -130,7 +132,7 @@
             </ion-text>
           </ion-col>
 
-          <!-- TICKETS -->
+          <!-- PET FRIENDLY -->
           <ion-col size="12" *ngIf="establishment.petfriendly_info.show_field && establishment.petfriendly_info.accept_petfriendly">
             <ion-item mode="ios" lines="none" class="establishment-item">
               <ion-icon name="paw-outline" slot="start"></ion-icon>
