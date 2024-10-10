@@ -256,7 +256,7 @@ mode="ios">
           </swiper-slide>
         </ng-container>
 
-        <ng-container *ngIf="!short_establishments || short_establishments && short_establishments.length === 0">
+        <ng-container *ngIf="!short_establishments">
           <swiper-slide
           *ngFor="let establishment of [1,2,3,4,5]; let i = index"
           class="unlock-shadow-from-swiper auto-width">
@@ -268,6 +268,14 @@ mode="ios">
 
     <ion-grid [fixed]="true">
       <ion-row>
+        <ion-col *ngIf="short_establishments && short_establishments.length === 0" size="12">
+          <ion-text mode="ios">
+            <p class="fs-14 color-gray-text">
+              {{ 'SHARED.NO_RESULT' | translate }}.
+            </p>
+          </ion-text>
+        </ion-col>
+
         <ion-col size="12" *ngIf="short_establishments && short_establishments.length > 0">
           <ion-text
           class="color-gray-text fs-13 line-height-20 txt-lowercase txt-right"

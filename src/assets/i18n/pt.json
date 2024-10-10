@@ -44,7 +44,8 @@
     "BACK" : "Voltar",
     "FILTER" : "Filtro",
     "TO_FILTER" : "Filtrar",
-    "ALRIGHT" : "Tudo bem"
+    "ALRIGHT" : "Tudo bem",
+    "NO_RESULT" : "Nenhum estabelecimento por enquanto"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Nosso próposito aqui é fazer com que voê economize o seu bem mais precioso:","o tempo"],
