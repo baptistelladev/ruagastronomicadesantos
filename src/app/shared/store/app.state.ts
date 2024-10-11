@@ -30,7 +30,24 @@ export const appInitialState: IAppState = {
       street: '',
       neighborhood: ''
     },
-    mainType: '',
+    specialty: [
+      {
+        value: '',
+        text: {
+          pt: '',
+          en: '',
+          es: ''
+        }
+      }
+    ],
+    mainType: {
+      value: '',
+      text: {
+        pt: '',
+        en: '',
+        es: ''
+      }
+    },
     ticket_info: {
       accept_ticket: false,
       show_field: false,

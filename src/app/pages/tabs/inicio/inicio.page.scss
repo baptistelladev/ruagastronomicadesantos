@@ -363,3 +363,8 @@ ion-skeleton-text {
   width: 100%;
   border-radius: 12px;
 }
+
+.disable-filter {
+  opacity: .3 !important;
+  pointer-events: none !important;
+}

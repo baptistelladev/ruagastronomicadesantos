@@ -69,8 +69,8 @@ mode="ios">
   <section class="home-content">
     <ion-grid [fixed]="true">
       <ion-row>
-        <ion-col size="12">
-          <div class="view-n-filter-wrapper">
+        <ion-col size="12" >
+          <div class="view-n-filter-wrapper" [ngClass]="{'disable-filter': short_establishments && short_establishments.length === 0}">
             <div class="looking-for-wrapper">
               <ion-text mode="ios">
                 <p class="fs-12 color-gray-text">{{ 'SHARED.LOOKING_FOR' | translate }}</p>
@@ -236,7 +236,7 @@ mode="ios">
 
                 <ion-text mode="ios" class="txt-center">
                   <p class="color-gray-text txt-uppercase type font-w-thin type">
-                    {{ establishment.mainType.pt }}
+                    {{ establishment.mainType.text[currentLanguage.value] }}
                   </p>
                   <h2 class="color-gray-text font-baloo name"><b>{{ establishment.name }}</b></h2>
                   <p class="number color-gray-text">n&ordm; {{ establishment.adress.number }}</p>

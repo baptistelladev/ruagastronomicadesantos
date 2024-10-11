@@ -38,7 +38,7 @@
         <ion-row>
           <ion-col size="12">
             <ion-text mode="ios" class="txt-center">
-              <p class="fs-10 txt-uppercase color-gray-6">{{ establishment.mainType }}</p>
+              <p class="fs-10 txt-uppercase color-gray-6">{{ establishment.mainType.text[currentLanguage.value] }}</p>
               <h1 class="color-gray-text font-baloo fs-32 nome"><b>{{ establishment.name }}</b></h1>
             </ion-text>
 
@@ -108,20 +108,52 @@
             </div>
           </ion-col>
 
-          <ion-col size="12" class="mg-top-32">
+          <!-- EXPERTISE (SÓ APARECE SE FOR RESTAURANTE )-->
+          <ng-container *ngIf="establishment.mainType.value === EstablishmentTypeEnum.RESTAURANTE">
+            <ion-col size="12" class="mg-top-32">
+              <ion-text mode="ios">
+                <hr class="rgs-divider">
+              </ion-text>
+            </ion-col>
+
+            <ion-col size="12">
+              <ion-item mode="ios" lines="none" class="establishment-item">
+                <ion-icon name="restaurant-outline" slot="start"></ion-icon>
+
+                <ion-text mode="ios" class="line-height-18">
+                  <p class="color-gray-text mg-left-16">
+                    <ng-container *ngFor="let specialty of establishment.specialty; let last = last">
+                      <b>{{ specialty.text[currentLanguage.value] }}</b><ng-container *ngIf="!last">, </ng-container></ng-container>.
+                  </p>
+                  <p class="color-gray-6 mg-left-16 fs-14 mg-top-8">{{ 'SHARED.SPECIALTY' | translate }}<ng-container *ngIf="establishment.specialty.length > 0">s</ng-container>.</p>
+                </ion-text>
+              </ion-item>
+            </ion-col>
+          </ng-container>
+
+          <ion-col size="12">
             <ion-text mode="ios">
               <hr class="rgs-divider">
             </ion-text>
           </ion-col>
 
           <!-- TICKETS -->
-          <ion-col size="12" *ngIf="establishment.ticket_info.show_field">
+          <ion-col size="12">
             <ion-item mode="ios" lines="none" class="establishment-item">
               <ion-icon name="card-outline" slot="start"></ion-icon>
 
-              <ion-text mode="ios" class="line-height-18">
+              <!-- SIM -->
+              <ion-text mode="ios" class="line-height-18" *ngIf="establishment.ticket_info.accept_ticket">
                 <p class="color-gray-text mg-left-16">{{ 'ESTABLISHMENT_PAGE.TICKETS.TEXT' | translate }} <b class="color-green">{{ 'ESTABLISHMENT_PAGE.TICKETS.VR' | translate }}</b>.</p>
-                <p class="color-gray-6 mg-left-16 fs-14 mg-top-8"><ng-container *ngFor="let ticket of establishment.ticket_info.tickets; let last = last">{{ ticket.text }}<ng-container *ngIf="!last">, </ng-container></ng-container>.</p>
+                <p class="color-gray-6 mg-left-16 fs-14 mg-top-8">
+                  <ng-container *ngFor="let ticket of establishment.ticket_info.tickets; let last = last">
+                    {{ ticket.text }}<ng-container *ngIf="!last">, </ng-container>
+                  </ng-container>.</p>
+              </ion-text>
+
+              <!-- NÃO -->
+              <ion-text mode="ios" class="line-height-18" *ngIf="!establishment.ticket_info.accept_ticket">
+                <p class="color-gray-text mg-left-16">{{ 'ESTABLISHMENT_PAGE.TICKETS_DONT' | translate }}.</p>
               </ion-text>
             </ion-item>
           </ion-col>
@@ -133,31 +165,19 @@
           </ion-col>
 
           <!-- PET FRIENDLY -->
-          <ion-col size="12" *ngIf="establishment.petfriendly_info.show_field && establishment.petfriendly_info.accept_petfriendly">
+          <ion-col size="12">
             <ion-item mode="ios" lines="none" class="establishment-item">
               <ion-icon name="paw-outline" slot="start"></ion-icon>
 
-              <ion-text mode="ios" class="line-height-18">
+              <!-- SIM -->
+              <ion-text mode="ios" class="line-height-18" *ngIf="establishment.petfriendly_info.accept_petfriendly">
                 <p class="color-gray-text mg-left-16">{{ 'PETFRIENDLY.BRING' | translate }} <b class="color-green">{{ 'PETFRIENDLY.YOUR_PET' | translate }}</b>.</p>
                 <p class="color-gray-6 mg-left-16 fs-14 mg-top-8">Pet friendly.</p>
               </ion-text>
-            </ion-item>
-          </ion-col>
 
-          <ion-col size="12">
-            <ion-text mode="ios">
-              <hr class="rgs-divider">
-            </ion-text>
-          </ion-col>
-
-          <!-- LIVE MUSIC -->
-          <ion-col size="12" *ngIf="establishment.livemusic_info.has_livemusic && establishment.livemusic_info.show_field">
-            <ion-item mode="ios" lines="none" class="establishment-item">
-              <ion-icon name="musical-notes-outline" slot="start"></ion-icon>
-
-              <ion-text mode="ios">
-                <p class="color-gray-text mg-left-16">{{ 'LIVEMUSIC.HAS_SHOW' | translate }} <b class="color-green">{{ 'LIVEMUSIC.LIVE' | translate }}</b>.</p>
-                <p class="color-gray-6 mg-left-16 fs-14 mg-top-8">{{ 'LIVEMUSIC.SEE_MORE' | translate }}</p>
+              <!-- NÃO -->
+              <ion-text mode="ios" class="line-height-18" *ngIf="!establishment.petfriendly_info.accept_petfriendly">
+                <p class="color-gray-text mg-left-16">{{ 'PETFRIENDLY.DONT' | translate }}.</p>
               </ion-text>
             </ion-item>
           </ion-col>
@@ -169,13 +189,43 @@
           </ion-col>
 
           <!-- LIVE MUSIC -->
-          <ion-col size="12" *ngIf="establishment.air_conditioned_info.has_air_conditioned && establishment.air_conditioned_info.show_field">
+          <ion-col size="12">
+            <ion-item mode="ios" lines="none" class="establishment-item">
+              <ion-icon name="musical-notes-outline" slot="start"></ion-icon>
+
+              <!-- SIM -->
+              <ion-text mode="ios" *ngIf="establishment.livemusic_info.has_livemusic">
+                <p class="color-gray-text mg-left-16">{{ 'LIVEMUSIC.HAS_SHOW' | translate }} <b class="color-green">{{ 'LIVEMUSIC.LIVE' | translate }}</b>.</p>
+                <p class="color-gray-6 mg-left-16 fs-14 mg-top-8">{{ 'LIVEMUSIC.SEE_MORE' | translate }}</p>
+              </ion-text>
+
+              <!-- NÃO -->
+              <ion-text mode="ios" class="line-height-18" *ngIf="!establishment.livemusic_info.has_livemusic">
+                <p class="color-gray-text mg-left-16">{{ 'LIVEMUSIC.DONT' | translate }}.</p>
+              </ion-text>
+            </ion-item>
+          </ion-col>
+
+          <ion-col size="12">
+            <ion-text mode="ios">
+              <hr class="rgs-divider">
+            </ion-text>
+          </ion-col>
+
+          <!-- LIVE MUSIC -->
+          <ion-col size="12">
             <ion-item mode="ios" lines="none" class="establishment-item">
               <ion-icon name="snow-outline" slot="start"></ion-icon>
 
-              <ion-text mode="ios">
+               <!-- SIM -->
+              <ion-text mode="ios" *ngIf="establishment.air_conditioned_info.has_air_conditioned">
                 <p class="color-gray-text mg-left-16">{{ 'AIR_CONDITIONED.HAS' | translate }} <b class="color-green">{{ 'AIR_CONDITIONED.AIR_CONDITIONED_PLACE' | translate }}</b>.</p>
                 <p class="color-gray-6 mg-left-16 fs-14 mg-top-8">{{ 'BOOKING.CONTACT_PLACE' | translate }}</p>
+              </ion-text>
+
+              <!-- NÃO -->
+              <ion-text mode="ios" class="line-height-18" *ngIf="!establishment.air_conditioned_info.has_air_conditioned">
+                <p class="color-gray-text mg-left-16">{{ 'AIR_CONDITIONED.DONT' | translate }}.</p>
               </ion-text>
             </ion-item>
           </ion-col>
@@ -187,13 +237,19 @@
           </ion-col>
 
           <!-- BOOKING -->
-          <ion-col size="12" *ngIf="establishment.booking_info.accept_booking && establishment.booking_info.show_field">
+          <ion-col size="12">
             <ion-item mode="ios" lines="none" class="establishment-item">
               <ion-icon name="book-outline" slot="start"></ion-icon>
 
-              <ion-text mode="ios">
+              <!-- SIM -->
+              <ion-text mode="ios" *ngIf="establishment.booking_info.accept_booking">
                 <p class="color-gray-text mg-left-16">{{ 'BOOKING.SAVE_TIME' | translate }} <b class="color-green">{{ 'BOOKING.BOOKING' | translate }}</b>.</p>
                 <p class="color-gray-6 mg-left-16 fs-14 mg-top-8">{{ 'BOOKING.CONTACT_PLACE' | translate }}</p>
+              </ion-text>
+
+              <!-- NÃO -->
+              <ion-text mode="ios" class="line-height-18" *ngIf="!establishment.booking_info.accept_booking">
+                <p class="color-gray-text mg-left-16">{{ 'BOOKING.DONT' | translate }}.</p>
               </ion-text>
             </ion-item>
           </ion-col>
@@ -221,15 +277,7 @@
                 <ion-item mode="ios" *ngFor="let time of establishment.working_time; let last = last" [lines]="last ? 'none' : 'full'">
                   <ion-text mode="ios" [ngClass]="{'is-today font-w-bold': time.day_number === todayAsDayNumber}">
                     <p class="fs-14 color-gray-16 day-name">
-                      <ng-container [ngSwitch]="time.day_number">
-                        <ng-container *ngSwitchCase="0">{{ 'SHARED.DAYS.SUNDAY' | translate }}</ng-container>
-                        <ng-container *ngSwitchCase="1">{{ 'SHARED.DAYS.MONDAY' | translate }}</ng-container>
-                        <ng-container *ngSwitchCase="2">{{ 'SHARED.DAYS.TUESDAY' | translate }}</ng-container>
-                        <ng-container *ngSwitchCase="3">{{ 'SHARED.DAYS.WEDNESDAY' | translate }}</ng-container>
-                        <ng-container *ngSwitchCase="4">{{ 'SHARED.DAYS.THURSDAY' | translate }}</ng-container>
-                        <ng-container *ngSwitchCase="5">{{ 'SHARED.DAYS.FRIDAY' | translate }}</ng-container>
-                        <ng-container *ngSwitchCase="6">{{ 'SHARED.DAYS.SATURDAY' | translate }}</ng-container>
-                      </ng-container>
+                      {{ time.text[currentLanguage.value] }}
                     </p>
                     <!-- HOJE -->
                     <ion-chip *ngIf="time.day_number === todayAsDayNumber" class="main-solid-gray fs-10 txt-uppercase small">
@@ -243,6 +291,18 @@
                 </ion-item>
               </ion-card-content>
             </ion-card>
+
+            <ion-item
+            lines="none"
+            mode="ios"
+            class="simulate-bootstrap-alert mg-top-16 line-height-18">
+              <ion-icon name="alert-circle-outline" slot="start" class="color-bootstrap-warning"></ion-icon>
+
+              <ion-text mode="ios" class="color-bootstrap-warning">
+                <p class="fs-12 mg-bottom-8">{{ 'COMPONENTS.ALERT_WORKING_TIME.TITLE' | translate }}</p>
+                <p class="fs-14">{{ 'COMPONENTS.ALERT_WORKING_TIME.TEXT.0' | translate }} <b>{{ 'COMPONENTS.ALERT_WORKING_TIME.TEXT.1' | translate }}</b>.</p>
+              </ion-text>
+            </ion-item>
           </ion-col>
 
           <ion-col size="12">

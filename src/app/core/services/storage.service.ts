@@ -11,7 +11,6 @@ export class StorageService {
 
   public async createStorage() {
     await this.storage.create();
-    console.log('criado');
   }
 
   public async setStorageKey(key: string, value: any) {

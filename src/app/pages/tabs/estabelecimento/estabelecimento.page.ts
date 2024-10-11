@@ -1,3 +1,4 @@
+import { ESTABLISHMENT_TYPES } from './../../../shared/mocks/establishmentTypes';
 import { AfterContentInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { AlertController, IonContent, NavController } from '@ionic/angular';
 import { Clipboard } from '@angular/cdk/clipboard';
@@ -15,6 +16,7 @@ import { Title } from '@angular/platform-browser';
 import { IPhone } from 'src/app/shared/models/Phone';
 import { PhoneTypesEnum } from 'src/app/shared/enums/PhoneTypes';
 import { NetworksEnum } from 'src/app/shared/enums/Networks';
+import { EstablishmentTypeEnum } from 'src/app/shared/enums/EstablishmentType';
 
 
 @Component({
@@ -42,6 +44,8 @@ export class EstabelecimentoPage implements OnInit {
 
   public translatedPage: any;
   public translatedPage$: Observable<any>;
+
+  public EstablishmentTypeEnum = EstablishmentTypeEnum;
 
   constructor(
     private navCtrl : NavController,
@@ -137,8 +141,6 @@ export class EstabelecimentoPage implements OnInit {
   }
 
   public hideToolbar(e: any): void {
-    console.log(e.detail);
-
     let header: ElementRef | HTMLElement | null = document.getElementById('estabelecimento-header');
 
     if (e.detail.scrollTop > 60) {

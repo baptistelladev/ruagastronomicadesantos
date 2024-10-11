@@ -47,9 +47,7 @@ export class SobreNosPage implements OnInit, OnDestroy {
     .pipe(take(2))
     .subscribe((resp: any) => {
       this.translatedPage = resp;
-      this.title.setTitle(this.translatedPage['PAGE_TITLE'])
-      console.log(resp);
-
+      this.title.setTitle(this.translatedPage['PAGE_TITLE']);
     })
   }
 

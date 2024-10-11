@@ -1,6 +1,6 @@
 {
   "CHANGE_LANG_PAGE" : {
-    "PAGE_TITLE" : "Change langague you see Rua Gastronômica de Santos",
+    "PAGE_TITLE" : "Troque o idioma que usa na Rua Gastronômica de Santos",
     "DESCRIPTION" : {
       "TITLE" : ["defina","um idioma"],
       "SUB_TITLE": "como quer ver nosso app"
@@ -13,7 +13,7 @@
     "YOUR_BRAND" : "sua marca",
     "LOOKING_FOR" : "Procurando por",
     "BACK_TO_TOP" : ["voltar","para cima"],
-    "ESTABLISHMENTS" : "estabelecimentos",
+    "ESTABLISHMENTS" : "estabelecimento",
     "VERSION" : "versão",
     "SEE_DETAILS" : ["Ver","detalhes"],
     "CANCEL" : "Cancelar",
@@ -44,7 +44,8 @@
     "BACK" : "Voltar",
     "FILTER" : "Filtro",
     "TO_FILTER" : "Filtrar",
-    "ALRIGHT" : "Tudo bem"
+    "ALRIGHT" : "Tudo bem",
+    "NO_RESULT" : "Nenhum estabelecimento por enquanto"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Nosso próposito aqui é fazer com que voê economize o seu bem mais precioso:","o tempo"],
