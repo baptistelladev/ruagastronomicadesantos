@@ -13,7 +13,7 @@
     "YOUR_BRAND" : "tu marca",
     "LOOKING_FOR" : "Buscando",
     "BACK_TO_TOP" : ["desplazarse","hacia arriba"],
-    "ESTABLISHMENTS" : "estabelecimientos",
+    "ESTABLISHMENTS" : "estabelecimiento",
     "VERSION" : "versión",
     "SEE_DETAILS" : ["ver","detalles"],
     "CANCEL" : "Cancelar",
@@ -44,7 +44,8 @@
     "BACK" : "Voltar",
     "FILTER" : "Filtro",
     "TO_FILTER" : "Filtrar",
-    "ALRIGHT" : "Tudo bien"
+    "ALRIGHT" : "Tudo bien",
+    "NO_RESULT": "No hay establecimientos por ahora"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Nuestro propósito aquí es ayudarte a ahorrar tu bien más precioso:","el tiempo"],

@@ -56,8 +56,7 @@ export class TrocarIdiomaPage implements OnInit, OnDestroy {
     .pipe(take(2))
     .subscribe((resp: any) => {
       this.translatedPage = resp;
-      this.title.setTitle(this.translatedPage['PAGE_TITLE'])
-      console.log(resp);
+      this.title.setTitle(this.translatedPage['PAGE_TITLE']);
     })
   }
 
@@ -83,8 +82,6 @@ export class TrocarIdiomaPage implements OnInit, OnDestroy {
   }
 
   public async changeLang(e: any) {
-    console.log(e);
-
     let foundLang = this.langs.find((lang: ILang) => {
       return lang.value === e.detail.value;
     })

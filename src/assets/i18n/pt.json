@@ -45,7 +45,8 @@
     "FILTER" : "Filtro",
     "TO_FILTER" : "Filtrar",
     "ALRIGHT" : "Tudo bem",
-    "NO_RESULT" : "Nenhum estabelecimento por enquanto"
+    "NO_RESULT" : "Nenhum estabelecimento por enquanto",
+    "SPECIALTY" : "Culinária"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Nosso próposito aqui é fazer com que voê economize o seu bem mais precioso:","o tempo"],
@@ -65,6 +66,10 @@
       "AS_LIST" : ["Você quer ver os estabelecimentos em forma de","lista"],
       "AS_LIST_TITLE" : "Modo lista",
       "AS_SLIDE_TITLE" : "Modo slide"
+    },
+    "ALERT_WORKING_TIME" : {
+      "TITLE" : "Atenção",
+      "TEXT" : ["Estes horários são fornecidos pelo estabelecimento,","mas podem variar sem aviso prévio, principalmente em feriados e vésperas de feriados"]
     }
   },
   "MENU_PAGE" : {
@@ -127,26 +132,31 @@
     "TICKETS" : {
       "TEXT" : "Além das formas tradicionais de pagamento, aceitam",
       "VR" : "vale refeição"
-    }
+    },
+    "TICKETS_DONT" : "Não aceita vale refeição como pagamento"
   },
   "PETFRIENDLY" : {
     "BRING" : "Pode trazer",
-    "YOUR_PET" : "seu bichinho"
+    "YOUR_PET" : "seu bichinho",
+    "DONT" : "Não é possível trazer seu pet"
   },
   "LIVEMUSIC" : {
     "HAS_SHOW" : "Tem show",
     "LIVE" : "ao vivo",
-    "SEE_MORE" : "Recomendamos que visite o insta do estabelecimento para ver a programação do dia."
+    "SEE_MORE" : "Recomendamos que visite o insta do estabelecimento para ver a programação do dia.",
+    "DONT" : "Não possui música ao vivo"
   },
   "AIR_CONDITIONED" : {
     "HAS" : "Possui",
     "AIR_CONDITIONED_PLACE" : "ambiente climatizado",
-    "SEE_MORE" : "Consulte com o estabelecimento para mais detalhes."
+    "SEE_MORE" : "Consulte com o estabelecimento para mais detalhes.",
+    "DONT" : "Não possui ambiente climatizado"
   },
   "BOOKING" : {
     "SAVE_TIME" : "Economize tempo, faça uma",
     "BOOKING" : "reserva",
-    "CONTACT_PLACE" : "Entre em contato pelo botão do WhatsApp."
+    "CONTACT_PLACE" : "Entre em contato pelo botão do WhatsApp.",
+    "DONT" : "Não aceita reservas antecipadas"
   },
   "WORKING_TIME" : {
     "TEXT" : "Horário de funcionamento",

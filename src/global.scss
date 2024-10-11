@@ -301,3 +301,20 @@ ion-button {
   background: linear-gradient(to right, transparent, var(--green), var(--green-dark) 40%, transparent);
   border-radius: 30px;
 }
+
+ion-item {
+  &.simulate-bootstrap-alert {
+    border-radius: 16px;
+    --min-height: 0;
+    --padding-top: 16px;
+    --padding-end: 16px;
+    --padding-start: 16px;
+    --padding-bottom: 16px;
+    --background: #fff3cd;
+    border: 1px solid #ffeeba;
+
+    ion-icon {
+      font-size: 32px;
+    }
+  }
+}

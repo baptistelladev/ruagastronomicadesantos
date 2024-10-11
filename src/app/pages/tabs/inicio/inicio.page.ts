@@ -11,6 +11,7 @@ import { Store } from '@ngrx/store';
 import { ITranslation } from 'src/app/shared/models/Translation';
 import { EstablishmentsService } from 'src/app/core/services/firebase/establishments.service';
 import { CollectionsEnum } from 'src/app/shared/enums/Collection';
+import * as moment from 'moment';
 
 @Component({
   selector: 'rgs-inicio',
@@ -160,9 +161,9 @@ export class InicioPage implements OnInit, OnDestroy {
     this.establishments$ = this.establishmentsService.getCollection(CollectionsEnum.SHORT_ESTABLISHMENTS);
 
     this.establishmentsDescription = this.establishments$
-    .subscribe((stablishments: IShortEstablishment[]) => {
-      console.log(stablishments);
+    .subscribe( async (stablishments: IShortEstablishment[]) => {
       this.short_establishments = stablishments;
+      console.log(this.short_establishments);
     })
   }
 

@@ -22,12 +22,10 @@ export class AppInfoService {
         if (docSnap.exists()) {
           return docSnap.data() as IAppInfo; // Retorna os dados do documento
         } else {
-          console.log('Documento não encontrado');
           return undefined; // Retorna undefined se o documento não existir
         }
       })
       .catch((error) => {
-        console.error('Erro ao buscar documento:', error);
         throw error; // Lança o erro para que possa ser tratado pelo chamador
       });
   }
