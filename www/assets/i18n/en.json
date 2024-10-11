@@ -46,7 +46,8 @@
     "TO_FILTER" : "Filter now",
     "ALRIGHT" : "Okay",
     "NO_RESULT": "No establishments for now",
-    "SPECIALTY" : "Cooking"
+    "SPECIALTY" : "Cooking",
+    "NUMBER" : "Number"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Our purpose here is to help you save your most precious asset: ","time"],

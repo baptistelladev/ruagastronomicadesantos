@@ -337,15 +337,24 @@ ion-item {
 
     ion-text {
       p {
-        color: var(--gray-text);
+        &.title {
+          color: var(--gray-text);
+          font-weight: bold;
+        }
+
+        &.desc {
+          color: var(--gray-text);
+        }
       }
     }
 
     &.is-active {
       ion-text {
         p {
-          color: var(--green);
-          font-weight: bold;
+          &.desc {
+            color: var(--green);
+            font-weight: bold;
+          }
         }
       }
     }
