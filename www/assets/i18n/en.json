@@ -45,7 +45,8 @@
     "FILTER" : "Filter",
     "TO_FILTER" : "Filter now",
     "ALRIGHT" : "Okay",
-    "NO_RESULT": "No establishments for now"
+    "NO_RESULT": "No establishments for now",
+    "SPECIALTY" : "Cooking"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Our purpose here is to help you save your most precious asset: ","time"],
@@ -65,6 +66,10 @@
       "AS_LIST": ["Do you want to see the establishments in the form of", "list"],
       "AS_LIST_TITLE" : "List mode",
       "AS_SLIDE_TITLE" : "Slide mode"
+    },
+    "ALERT_WORKING_TIME": {
+      "TITLE": "Attention",
+      "TEXT": ["These hours are provided by the establishment,", "but they may vary without prior notice, especially on holidays and holiday eves"]
     }
   },
   "MENU_PAGE" : {
@@ -127,26 +132,31 @@
     "TICKETS": {
       "TEXT": "In addition to traditional payment methods, they accept",
       "VR": "meal voucher"
-    }
+    },
+    "TICKETS_DONT": "Does not accept meal vouchers as payment"
   },
   "PETFRIENDLY": {
     "BRING": "You can bring",
-    "YOUR_PET": "your pet"
+    "YOUR_PET": "your pet",
+    "DONT": "It is not possible to bring your pet"
   },
   "LIVEMUSIC": {
     "HAS_SHOW": "There is a show",
     "LIVE": "live",
-    "SEE_MORE": "We recommend checking the establishment's Instagram for the day's schedule."
+    "SEE_MORE": "We recommend checking the establishment's Instagram for the day's schedule.",
+    "DONT": "Does not have live music"
   },
   "AIR_CONDITIONED": {
     "HAS": "Has",
     "AIR_CONDITIONED_PLACE": "air-conditioned environment",
-    "SEE_MORE": "Check with the establishment for more details."
+    "SEE_MORE": "Check with the establishment for more details.",
+    "DONT": "Does not have air conditioning"
   },
   "BOOKING": {
     "SAVE_TIME": "Save time, make a",
     "BOOKING": "reservation",
-    "CONTACT_PLACE": "Contact through the WhatsApp button."
+    "CONTACT_PLACE": "Contact through the WhatsApp button.",
+    "DONT": "Does not accept advance reservations"
   },
   "WORKING_TIME": {
     "TEXT": "Working hours",
