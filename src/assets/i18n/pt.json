@@ -46,7 +46,8 @@
     "TO_FILTER" : "Filtrar",
     "ALRIGHT" : "Tudo bem",
     "NO_RESULT" : "Nenhum estabelecimento por enquanto",
-    "SPECIALTY" : "Culinária"
+    "SPECIALTY" : "Culinária",
+    "NUMBER" : "Número"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Nosso próposito aqui é fazer com que voê economize o seu bem mais precioso:","o tempo"],

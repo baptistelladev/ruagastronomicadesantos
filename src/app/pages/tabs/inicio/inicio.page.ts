@@ -1,8 +1,8 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, viewChild, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { AlertController, AlertInput, IonContent, IonSelect, NavController } from '@ionic/angular';
+import { AlertController, AlertInput, IonContent, IonSelect, NavController, PopoverController } from '@ionic/angular';
 import { TranslateService } from '@ngx-translate/core';
-import { Observable, Subscription, take } from 'rxjs';
+import { map, Observable, Subscription, take } from 'rxjs';
 import { IShortEstablishment } from 'src/app/shared/models/Establishment';
 import { ILang } from 'src/app/shared/models/Lang';
 import { ISocialNetwork } from 'src/app/shared/models/Network';
@@ -12,13 +12,19 @@ import { ITranslation } from 'src/app/shared/models/Translation';
 import { EstablishmentsService } from 'src/app/core/services/firebase/establishments.service';
 import { CollectionsEnum } from 'src/app/shared/enums/Collection';
 import * as moment from 'moment';
+import { UtilsService } from 'src/app/core/services/utils.service';
+import SwiperComponent, { Swiper } from 'swiper';
 
 @Component({
   selector: 'rgs-inicio',
   templateUrl: './inicio.page.html',
   styleUrls: ['./inicio.page.scss'],
 })
-export class InicioPage implements OnInit, OnDestroy {
+export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
+
+  @ViewChild('establishmentsSwiper')
+  swiperRef: ElementRef | undefined;
+  swiper?: Swiper;
 
   public adress: any = {
     pt: 'Rua Tolentino Filgueiras, Gonzaga.',
@@ -29,23 +35,23 @@ export class InicioPage implements OnInit, OnDestroy {
   @ViewChild('filterSelector') filterSelector: IonSelect;
   @ViewChild('homeContent') homeContent: IonContent;
 
-  public selectedOrderOption: string = 'numeric';
+  public selectedOrderOption: string;
 
   public orderOptions: any[] = [
     {
-      value: 'numeric',
+      value: 'INC',
       text: {
-        pt: 'Ordem numérica',
-        en: '',
-        es: ''
+        pt: 'Menor para o maior',
+        en: 'From smallest to largest',
+        es: 'De menor a mayor'
       }
     },
     {
-      value: 'alphabetic',
+      value: 'DEC',
       text: {
-        pt: 'Ordem alfabética',
-        en: '',
-        es: ''
+        pt: 'Maior para o menor',
+        en: 'From largest to smallest',
+        es: 'De mayor a menor'
       }
     }
   ]
@@ -134,16 +140,42 @@ export class InicioPage implements OnInit, OnDestroy {
     private navCtrl : NavController,
     private translate : TranslateService,
     private store : Store,
-    private establishmentsService : EstablishmentsService
+    private establishmentsService : EstablishmentsService,
+    private utilsService : UtilsService,
+    private popoverCtrl : PopoverController
   ) { }
 
   ngOnInit() {
+    this.initialOrdenation('INC');
     this.getCurrentLanguageFromNGRX();
     this.getEstablishments();
   }
 
+  ngAfterViewInit(): void {
+    this.swiper = this.swiperRef?.nativeElement.swiper;
+  }
+
   ionViewDidEnter(): void {
     this.getTitleFromPage();
+  }
+
+  public async orderBy(orderBy: string) {
+    this.selectedOrderOption = orderBy;
+
+    if (this.selectedOrderOption === 'INC') {
+      this.short_establishments = await this.utilsService.orderByAdressNumberCrescent(this.short_establishments);
+    } else {
+      this.short_establishments = await this.utilsService.orderByAdressNumberDecrescent(this.short_establishments);
+    }
+
+    await this.popoverCtrl.dismiss({}, '', 'order-by').then(() => {
+      this.slideSwiperToStart();
+    })
+
+  }
+
+  public initialOrdenation(value: string) {
+    this.selectedOrderOption = value;
   }
 
   public getTitleFromPage(): void {
@@ -161,8 +193,14 @@ export class InicioPage implements OnInit, OnDestroy {
     this.establishments$ = this.establishmentsService.getCollection(CollectionsEnum.SHORT_ESTABLISHMENTS);
 
     this.establishmentsDescription = this.establishments$
-    .subscribe( async (stablishments: IShortEstablishment[]) => {
-      this.short_establishments = stablishments;
+    .pipe(
+      map((establishments: IShortEstablishment[]) => {
+        this.utilsService.orderByAdressNumberCrescent(establishments);
+        return establishments
+      })
+    )
+    .subscribe((establishments: IShortEstablishment[]) => {
+      this.short_establishments = establishments;
       console.log(this.short_establishments);
     })
   }
@@ -238,6 +276,10 @@ export class InicioPage implements OnInit, OnDestroy {
   public seeEstablishment(establishment: any): void {
     this.navCtrl.navigateForward(['/estabelecimento/' + establishment.value]);
     this.store.dispatch(AppStore.setCurrentEstablishment({ establishment: establishment } ))
+  }
+
+  public slideSwiperToStart(): void {
+    this.swiper?.slideTo(0, 800);
   }
 
   public ngOnDestroy(): void {
