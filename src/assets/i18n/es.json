@@ -167,5 +167,11 @@
   },
   "MESSAGES" : {
     "WELCOME_WHATSAPP" : "Hola, vengo de la Calle Gastronómica de Santos y..."
-  }
+  },
+  "PAGE_NOT_FOUND": {
+  "PAGE_TITLE": "No encontramos la página, vuelve a la pantalla principal",
+  "TITLE": ["página", "no encontrada"],
+  "TEXT": ["Puede que hayas escrito algo mal, ", "debe ser hambre, no sé..."],
+  "BUTTON": ["Volver", "a la pantalla principal"]
+}
 }

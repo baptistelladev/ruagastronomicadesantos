@@ -1,5 +1,9 @@
 ion-button {
 
+  &.height-48 {
+    height: 48px;
+  }
+
   &.to-turn {
     transform: rotate(90deg);
   }

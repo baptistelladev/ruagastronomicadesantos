@@ -10,6 +10,8 @@ import { LANGS } from './shared/mocks/langs';
 import { NavController } from '@ionic/angular';
 import { AppInfo } from '@capacitor/app';
 import { IAppInfo } from './shared/models/AppInfo';
+import { Analytics } from '@angular/fire/analytics';
+import { AnalyticsService } from './core/services/firebase/analytics.service';
 
 @Component({
   selector: 'rgs-root',

@@ -166,5 +166,11 @@
   },
   "MESSAGES" : {
     "WELCOME_WHATSAPP" : "Olá eu vim do Rua Gastronômica de Santos e..."
+  },
+  "PAGE_NOT_FOUND" : {
+    "PAGE_TITLE" : "Não encontramos a página, volte para a tela principal",
+    "TITLE": ["página","não encontrada"],
+    "TEXT" : ["Você deve ter digitado algo errado, ","deve ser fome, sei lá..."],
+    "BUTTON" : ["Voltar","para tela principal"]
   }
 }

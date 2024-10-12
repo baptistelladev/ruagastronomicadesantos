@@ -7,6 +7,7 @@ import { ISocialNetwork } from 'src/app/shared/models/Network';
 import * as AppStore from './../../../shared/store/app.state';
 import { Title } from '@angular/platform-browser';
 import { TranslateService } from '@ngx-translate/core';
+import { AnalyticsService } from 'src/app/core/services/firebase/analytics.service';
 
 
 @Component({
@@ -29,7 +30,8 @@ export class SobreNosPage implements OnInit, OnDestroy {
     private navCtrl : NavController,
     private store : Store,
     private title : Title,
-    private translate : TranslateService
+    private translate : TranslateService,
+    private analyticsService : AnalyticsService
   ) { }
 
   ngOnInit() {

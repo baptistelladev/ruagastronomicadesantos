@@ -166,5 +166,11 @@
   },
   "MESSAGES" : {
     "WELCOME_WHATSAPP" : "Hello, I came from the Gastronomic Street of Santos and..."
-  }
+  },
+  "PAGE_NOT_FOUND": {
+  "PAGE_TITLE": "We couldn't find the page, return to the main screen",
+  "TITLE": ["page", "not found"],
+  "TEXT": ["You might have typed something wrong, ", "must be hunger, I don't know..."],
+  "BUTTON": ["Back", "to main screen"]
+}
 }
