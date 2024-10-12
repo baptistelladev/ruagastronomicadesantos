@@ -55,7 +55,12 @@
     "PARAGRAPH_ONE" : ["Nuestro propósito aquí es ayudarte a ahorrar tu bien más precioso:","el tiempo"],
     "PARAGRAPH_TWO" : ["Filtra los establecimientos según tus gustos: comida japonesa, comida mexicana, hamburguesería, pizzería, pet friendly, música en vivo..."],
     "LIST_OF_ESTABLISHMENTS" : ["Lista","de establecimientos"],
-    "PAGE_TITLE" : "Lista de establecimientos"
+    "PAGE_TITLE" : "Lista de establecimientos",
+    "FEEDBACK": {
+      "GIVE_YOUR_FEEDBACK": ["Dale tu", "feedback"],
+      "GIVE_YOUR_FEEDBACK_TEXT": "Nos gustaría saber si el sitio web te ha sido útil de alguna manera. Si no, ¿qué no encontraste aquí y qué podemos mejorar?",
+      "SEND_FEEDBACK": "enviar mi feedback"
+    }
   },
   "COMPONENTS" : {
     "MADE_W_LOVE" : ["hecho con","en"],

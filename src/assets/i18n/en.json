@@ -54,7 +54,12 @@
     "PARAGRAPH_ONE" : ["Our purpose here is to help you save your most precious asset: ","time"],
     "PARAGRAPH_TWO" : ["Filter the establishments based on your preferences: Japanese food, Mexican food, burger joint, pizzeria, pet-friendly, live music..."],
     "LIST_OF_ESTABLISHMENTS" : ["List","of stablishments"],
-    "PAGE_TITLE" : "List of establishments in Gastronomic St. of Santos"
+    "PAGE_TITLE" : "List of establishments in Gastronomic St. of Santos",
+    "FEEDBACK": {
+      "GIVE_YOUR_FEEDBACK": ["Give your", "feedback"],
+      "GIVE_YOUR_FEEDBACK_TEXT": "We would like to know if the website has been helpful to you in any way. If not, what did you not find here, and what can we improve?",
+      "SEND_FEEDBACK": "send my feedback"
+    }
   },
   "COMPONENTS" : {
     "MADE_W_LOVE" : ["made with","in"],

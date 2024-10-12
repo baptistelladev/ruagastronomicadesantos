@@ -146,6 +146,18 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
     }
   ]
 
+  public parkings: any[] = [
+    {
+      name: 'VC3 Estacionamentos'
+    },
+    {
+      name: 'VC3 Estacionamentos'
+    },
+    {
+      name: 'VC3 Estacionamentos'
+    }
+  ]
+
   public currentLanguage: ILang;
   public currentLanguage$: Observable<ILang>;
   public currentLanguageSubscription: Subscription;
@@ -177,7 +189,7 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
     this.initialFilter('ALL');
     this.defineActiveFilter('ALL');
     this.getCurrentLanguageFromNGRX();
-    this.getEstablishments();
+    //this.getEstablishments();
     this.analyticsService.tagViewInit(AnalyticsEventnameEnum.PAGE_VIEW);
   }
 

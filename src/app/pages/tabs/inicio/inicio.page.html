@@ -54,7 +54,7 @@ mode="ios">
           <ion-text
           class="txt-left color-gray-text full-width icon-title-text without-icon d-block mg-bottom-8"
           mode="ios">
-            <h2 class="font-baloo txt-lowercase fs-20">
+            <h2 class="font-baloo fs-20">
               {{ 'INICIO_PAGE.LIST_OF_ESTABLISHMENTS.0' | translate }} <span class="font-w-bold">{{ 'INICIO_PAGE.LIST_OF_ESTABLISHMENTS.1' | translate }}</span>
             </h2>
 
@@ -219,6 +219,13 @@ mode="ios">
         },
         '1300' : {
           slidesPerView: 6.7
+        },
+        '1600' : {
+          slidesPerView: 8
+        }
+        ,
+        '2000' : {
+          slidesPerView: 10.3
         }
       }">
         <ng-container *ngIf="short_establishments && short_establishments.length > 0">
@@ -334,6 +341,28 @@ mode="ios">
           class="color-gray-text fs-13 line-height-20 txt-lowercase txt-right"
           mode="ios">
             <p><span class="font-w-bold fs-18">{{ short_establishments.length }}</span> {{ 'SHARED.ESTABLISHMENTS' | translate }}<ng-container *ngIf="short_establishments.length > 1">s</ng-container></p>
+          </ion-text>
+        </ion-col>
+
+        <ion-col size="12">
+          <hr class="rgs-divider">
+        </ion-col>
+
+        <ion-col size="12">
+          <ion-text
+          class="txt-left color-gray-text full-width icon-title-text without-icon d-block mg-bottom-8"
+          mode="ios">
+            <h2 class="font-baloo fs-20">
+              {{ 'INICIO_PAGE.FEEDBACK.GIVE_YOUR_FEEDBACK.0' | translate }} <span class="font-w-bold">{{ 'INICIO_PAGE.FEEDBACK.GIVE_YOUR_FEEDBACK.1' | translate }}</span>
+            </h2>
+
+            <p class="fs-14 font-w-thin">
+              {{ 'INICIO_PAGE.FEEDBACK.GIVE_YOUR_FEEDBACK_TEXT' | translate }}
+            </p>
+
+            <p class="fs-14 mg-top-16">
+              <a href="javascript:void(0)" [routerLink]="['/contato']" [title]="'INICIO_PAGE.FEEDBACK.SEND_FEEDBACK' | translate" class="send-feedback">{{ 'INICIO_PAGE.FEEDBACK.SEND_FEEDBACK' | translate }} <ion-icon name="arrow-forward"></ion-icon></a>
+            </p>
           </ion-text>
         </ion-col>
 
