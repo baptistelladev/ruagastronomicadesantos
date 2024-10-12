@@ -53,8 +53,13 @@
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Nosso próposito aqui é fazer com que voê economize o seu bem mais precioso:","o tempo"],
     "PARAGRAPH_TWO" : ["Filtre os estabelecimentos conforme o teu gosto: comida japonesa, comida mexicana, hamburgueria, pizzaria, pet friendly, música ao vivo..."],
-    "LIST_OF_ESTABLISHMENTS" : ["Lista","de estabelecimentos"],
-    "PAGE_TITLE" : "Lista de estabelecimentos na Rua Gastronômica de Santos"
+    "LIST_OF_ESTABLISHMENTS" : ["Confira","os estabelecimentos"],
+    "PAGE_TITLE" : "Lista de estabelecimentos na Rua Gastronômica de Santos",
+    "FEEDBACK" : {
+      "GIVE_YOUR_FEEDBACK" : ["Dê o seu","feedback"],
+      "GIVE_YOUR_FEEDBACK_TEXT" : "Gostaríamos de saber se o site é ou foi útil de alguma forma para você, caso contrário, o que foi que você não encontrou por aqui, o que podemos melhorar?",
+      "SEND_FEEDBACK" : "enviar meu feedback"
+    }
   },
   "COMPONENTS" : {
     "MADE_W_LOVE" : ["feito com","em"],
