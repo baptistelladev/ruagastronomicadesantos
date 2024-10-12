@@ -146,7 +146,7 @@ ion-content {
     }
 
     &.hero-content {
-      padding: 90px 0 16px 0;
+      padding: 70px 0 0px 0;
     }
 
     &.home-content {
@@ -211,8 +211,8 @@ ion-item {
       @include flexbox(center, center, row);
 
       .logo-container {
-        width: 70px;
-        height: 70px;
+        width: 60px;
+        height: 60px;
         border-radius: 100px;
         background: var(--white);
         margin: 0;
@@ -280,18 +280,7 @@ ion-card {
           margin: 0;
           overflow: hidden;
           @include flexbox(center, center, row);
-          border: .5px solid var(--transparent);
           transition: all 200ms ease;
-
-          &.has-image {
-            border: .5px solid var(--gray-text);
-          }
-
-          ion-spinner {
-            --color: var(--gray-mid);
-            width: 35px;
-            height: 35px;
-          }
         }
       }
 

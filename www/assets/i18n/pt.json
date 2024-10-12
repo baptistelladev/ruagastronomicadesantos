@@ -47,7 +47,8 @@
     "ALRIGHT" : "Tudo bem",
     "NO_RESULT" : "Nenhum estabelecimento por enquanto",
     "SPECIALTY" : "Culinária",
-    "NUMBER" : "Número"
+    "NUMBER" : "Número",
+    "NO_OPEN" : "Não abre"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Nosso próposito aqui é fazer com que voê economize o seu bem mais precioso:","o tempo"],
