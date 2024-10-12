@@ -225,7 +225,11 @@ mode="ios">
           <swiper-slide
           *ngFor="let establishment of short_establishments; let i = index"
           class="unlock-shadow-from-swiper auto-width">
-            <ion-card mode="ios" class="establishment-card-vertical" lines="none">
+            <ion-card
+            [ngClass]="{ 'coming-soon': establishment.isBuilding }"
+            mode="ios"
+            class="establishment-card-vertical"
+            lines="none">
               <ion-card-content class="txt-center" mode="ios">
                 <div class="logo-wrapper mg-bottom-12">
                   <div class="logo-container" [ngClass]="{'has-image': !isLoadingLogo}">
@@ -251,12 +255,19 @@ mode="ios">
 
               <ion-card-footer mode="ios">
                 <ion-button
+                *ngIf="!establishment.isBuilding"
                 (click)="seeEstablishment(establishment)"
                 title="Ver detalhes"
                 mode="md"
                 class="full-width">
                   {{ 'SHARED.SEE_DETAILS.0' | translate }} <b class="mg-left-5">{{ 'SHARED.SEE_DETAILS.1' | translate }}</b> <ion-icon name="chevron-forward-outline" class="mg-left-5"></ion-icon>
                 </ion-button>
+
+                <div class="coming-soon" *ngIf="establishment.isBuilding">
+                  <ion-text mode="ios">
+                    <p class="fs-14 d-block">em breve</p>
+                  </ion-text>
+                </div>
               </ion-card-footer>
             </ion-card>
           </swiper-slide>
