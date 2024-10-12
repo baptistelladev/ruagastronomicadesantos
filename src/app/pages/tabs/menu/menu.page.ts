@@ -6,6 +6,8 @@ import { ILang } from 'src/app/shared/models/Lang';
 import * as AppStore from './../../../shared/store/app.state';
 import { TranslateService } from '@ngx-translate/core';
 import { Title } from '@angular/platform-browser';
+import { AnalyticsService } from 'src/app/core/services/firebase/analytics.service';
+import { AnalyticsEventnameEnum } from 'src/app/shared/enums/Analytics';
 
 
 @Component({
@@ -47,11 +49,13 @@ export class MenuPage implements OnInit, OnDestroy {
     private navCtrl : NavController,
     private store : Store,
     private translate : TranslateService,
-    private title : Title
+    private title : Title,
+    private analyticsService : AnalyticsService
   ) { }
 
   ngOnInit() {
     this.getCurrentLanguageFromNGRX();
+    this.analyticsService.tagViewInit(AnalyticsEventnameEnum.PAGE_VIEW);
   }
 
   ionViewDidEnter(): void {

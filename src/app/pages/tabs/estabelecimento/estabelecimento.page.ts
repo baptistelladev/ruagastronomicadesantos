@@ -17,6 +17,11 @@ import { IPhone } from 'src/app/shared/models/Phone';
 import { PhoneTypesEnum } from 'src/app/shared/enums/PhoneTypes';
 import { NetworksEnum } from 'src/app/shared/enums/Networks';
 import { EstablishmentTypeEnum } from 'src/app/shared/enums/EstablishmentType';
+import { ActivatedRoute } from '@angular/router';
+import { EstablishmentsService } from 'src/app/core/services/firebase/establishments.service';
+import { CollectionsEnum } from 'src/app/shared/enums/Collection';
+import { AnalyticsService } from 'src/app/core/services/firebase/analytics.service';
+import { AnalyticsEventnameEnum } from 'src/app/shared/enums/Analytics';
 
 
 @Component({
@@ -47,6 +52,8 @@ export class EstabelecimentoPage implements OnInit {
 
   public EstablishmentTypeEnum = EstablishmentTypeEnum;
 
+  public establishmentNameFromUrl: string | null;
+
   constructor(
     private navCtrl : NavController,
     private renderer : Renderer2,
@@ -54,13 +61,28 @@ export class EstabelecimentoPage implements OnInit {
     private alertCtrl : AlertController,
     public store : Store,
     private translate : TranslateService,
-    private title : Title
+    private title : Title,
+    private route: ActivatedRoute,
+    private establishmentService : EstablishmentsService,
+    private analyticsService : AnalyticsService
   ) { }
 
   async ngOnInit() {
+    this.listenForUrl();
     this.getCurrentLanguageFromNGRX();
     this.selectOption('location');
     this.getCurrentEstablishment();
+    this.analyticsService.tagViewInit(AnalyticsEventnameEnum.PAGE_VIEW);
+  }
+
+  public listenForUrl(): void {
+    this.route.paramMap
+    .pipe(take(1))
+    .subscribe(params => {
+      this.establishmentNameFromUrl = params.get('name');
+      console.log("Estabelecimento:", this.establishmentNameFromUrl);
+
+    });
   }
 
   public getCurrentLanguageFromNGRX(): void {
@@ -82,26 +104,45 @@ export class EstabelecimentoPage implements OnInit {
         working_time: [...establishment.working_time].sort((a, b) => a.day_number - b.day_number)
       }
     }))
-    .subscribe((establishment: IShortEstablishment) => {
-      this.establishment = establishment;
-
-      switch (this.currentLanguage.value) {
-        case 'pt':
-          this.title.setTitle(`${this.establishment.name} na Rua Gastronômica de Santos`);
-          break;
-
-        case 'en':
-          this.title.setTitle(`${this.establishment.name} on the Gastronomic Street of Santos`);
-          break;
-
-        case 'es':
-          this.title.setTitle(`${this.establishment.name} en la Calle Gastronómica de Santos`)
-          break;
-
-        default:
-          break;
+    .subscribe({
+      next: (establishment: IShortEstablishment) => {
+        if (establishment.value) {
+          this.establishment = establishment;
+          this.defineTitleFromPage(this.establishment.name);
+        } else {
+          // A STRING PRECISA EXISTIR, PARA DEPOIS SER PROCURADA COMO VALUE.
+          if (this.establishmentNameFromUrl) {
+            this.establishmentService
+            .getDocumentByValue(CollectionsEnum.SHORT_ESTABLISHMENTS, 'value', this.establishmentNameFromUrl)
+            .then((establishmentFromService: IShortEstablishment | null) => {
+              if (establishmentFromService) {
+                this.establishment = establishmentFromService;
+                this.defineTitleFromPage(this.establishment.name);
+              }
+            })
+          }
+        }
       }
     })
+  }
+
+  public defineTitleFromPage(establishment_name: string): void {
+    switch (this.currentLanguage.value) {
+      case 'pt':
+        this.title.setTitle(`${establishment_name} na Rua Gastronômica de Santos`);
+        break;
+
+      case 'en':
+        this.title.setTitle(`${establishment_name} on the Gastronomic Street of Santos`);
+        break;
+
+      case 'es':
+        this.title.setTitle(`${establishment_name} en la Calle Gastronómica de Santos`)
+        break;
+
+      default:
+        break;
+    }
   }
 
 

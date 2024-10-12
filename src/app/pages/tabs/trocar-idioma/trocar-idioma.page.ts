@@ -12,6 +12,8 @@ import * as AppStore from './../../../shared/store/app.state';
 import { TranslateService } from '@ngx-translate/core';
 import { APP_LANG_KEY } from 'src/app/shared/consts/keys';
 import { Title } from '@angular/platform-browser';
+import { AnalyticsService } from 'src/app/core/services/firebase/analytics.service';
+import { AnalyticsEventnameEnum } from 'src/app/shared/enums/Analytics';
 
 @Component({
   selector: 'rgs-trocar-idioma',
@@ -37,12 +39,14 @@ export class TrocarIdiomaPage implements OnInit, OnDestroy {
     private store : Store,
     private translate : TranslateService,
     private storageService : StorageService,
-    private title : Title
+    private title : Title,
+    private analyticsService : AnalyticsService
   ) { }
 
   ngOnInit() {
     this.initLanguageForm();
     this.getCurrentLanguageFromNGRX();
+    this.analyticsService.tagViewInit(AnalyticsEventnameEnum.PAGE_VIEW);
   }
 
   ionViewDidEnter(): void {

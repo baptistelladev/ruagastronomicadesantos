@@ -14,6 +14,9 @@ import { CollectionsEnum } from 'src/app/shared/enums/Collection';
 import * as moment from 'moment';
 import { UtilsService } from 'src/app/core/services/utils.service';
 import SwiperComponent, { Swiper } from 'swiper';
+import { ActivatedRoute } from '@angular/router';
+import { AnalyticsService } from 'src/app/core/services/firebase/analytics.service';
+import { AnalyticsEventnameEnum } from 'src/app/shared/enums/Analytics';
 
 @Component({
   selector: 'rgs-inicio',
@@ -164,7 +167,8 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
     private store : Store,
     private establishmentsService : EstablishmentsService,
     private utilsService : UtilsService,
-    private popoverCtrl : PopoverController
+    private popoverCtrl : PopoverController,
+    private analyticsService : AnalyticsService
   ) { }
 
   ngOnInit() {
@@ -174,6 +178,7 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
     this.defineActiveFilter('ALL');
     this.getCurrentLanguageFromNGRX();
     this.getEstablishments();
+    this.analyticsService.tagViewInit(AnalyticsEventnameEnum.PAGE_VIEW);
   }
 
   ngAfterViewInit(): void {
@@ -247,7 +252,7 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
     )
     .subscribe((establishments: IShortEstablishment[]) => {
       this.short_establishments = establishments;
-      console.log(this.short_establishments);
+      console.log(this.short_establishments, 'oia');
     })
   }
 

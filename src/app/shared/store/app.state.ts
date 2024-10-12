@@ -22,6 +22,7 @@ export const appInitialState: IAppState = {
     value: ''
   },
   currentEstablishment: {
+    id: '',
     name: '',
     value: '',
     adress: {

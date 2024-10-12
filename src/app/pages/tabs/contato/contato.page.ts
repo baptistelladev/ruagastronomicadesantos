@@ -7,6 +7,8 @@ import * as AppStore from './../../../shared/store/app.state';
 import { TranslateService } from '@ngx-translate/core';
 import { IContact } from 'src/app/shared/models/Contact';
 import { Title } from '@angular/platform-browser';
+import { AnalyticsService } from 'src/app/core/services/firebase/analytics.service';
+import { AnalyticsEventnameEnum } from 'src/app/shared/enums/Analytics';
 
 
 @Component({
@@ -42,13 +44,15 @@ export class ContatoPage implements OnInit, OnDestroy {
     private alertCtrl : AlertController,
     private store : Store,
     private translate : TranslateService,
-    private title : Title
+    private title : Title,
+    private analyticsService : AnalyticsService
   ) { }
 
   ngOnInit() {
     this.setInitialSegment('comercial');
     this.getCurrentLanguageFromNGRX();
     this.getContactInfoFromNGRX();
+    this.analyticsService.tagViewInit(AnalyticsEventnameEnum.PAGE_VIEW);
   }
 
   ionViewDidEnter(): void {
