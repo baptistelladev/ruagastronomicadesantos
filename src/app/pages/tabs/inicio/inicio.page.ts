@@ -35,6 +35,9 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
   @ViewChild('filterSelector') filterSelector: IonSelect;
   @ViewChild('homeContent') homeContent: IonContent;
 
+  public selectedFilter: string;
+  public activeFilter: any;
+
   public selectedOrderOption: string;
 
   public orderOptions: any[] = [
@@ -107,15 +110,23 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
 
   public filters: any[] = [
     {
-      value: 'pet-friendly',
+      value: 'ALL',
       text: {
-        pt: 'Pet friendly',
-        en: 'Pet friendly',
-        es: 'Pet friendy'
+        pt: 'Todos',
+        en: 'All',
+        es: 'Todos'
       }
     },
     {
-      value: 'ticket',
+      value: 'PET_FRIENDLY',
+      text: {
+        pt: 'Pode levar pet',
+        en: 'Pets allowed',
+        es: 'Se permiten mascotas'
+      }
+    },
+    {
+      value: 'TICKET',
       text: {
         pt: 'Aceita vale refeição',
         en: 'Accept meal vouchers ',
@@ -123,7 +134,7 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
       }
     },
     {
-      value: 'livemusic',
+      value: 'LIVEMUSIC',
       text: {
         pt: 'Tem música ao vivo',
         en: 'Has live music',
@@ -158,7 +169,9 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit() {
     this.initialOrdenation('INC');
-    this.initialSegmentView('AS_LIST');
+    this.initialSegmentView('AS_SLIDE');
+    this.initialFilter('ALL');
+    this.defineActiveFilter('ALL');
     this.getCurrentLanguageFromNGRX();
     this.getEstablishments();
   }
@@ -201,6 +214,10 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
     this.definitiveView = this.selectedView;
   }
 
+  public initialFilter(value: string) {
+    this.selectedFilter = value;
+  }
+
   public getTitleFromPage(): void {
     this.translatedPage$ = this.translate.get('INICIO_PAGE')
 
@@ -218,7 +235,13 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
     this.establishmentsDescription = this.establishments$
     .pipe(
       map((establishments: IShortEstablishment[]) => {
-        this.utilsService.orderByAdressNumberCrescent(establishments);
+
+        if (this.selectedOrderOption === 'INC') {
+          this.utilsService.orderByAdressNumberCrescent(establishments);
+        } else {
+          this.utilsService.orderByAdressNumberDecrescent(establishments);
+        }
+
         return establishments
       })
     )
@@ -251,15 +274,20 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public async segmentViewChanged(value: string) {
+    console.log(this.selectedView);
+
     const alert = await this.showAlertViewMode();
 
-    if (value === 'as-slide') {
+    if (value === 'AS_SLIDE') {
       alert.subHeader = `${this.translate.instant('COMPONENTS.SEGMENT_VIEW.AS_SLIDE_TITLE')}`;
       alert.message = `${this.translate.instant('COMPONENTS.SEGMENT_VIEW.AS_SLIDE.0')} <b>${this.translate.instant('COMPONENTS.SEGMENT_VIEW.AS_SLIDE.1')}</b>`;
       alert.buttons = [
         {
           text: `${this.translate.instant('SHARED.CANCEL')}`,
-          role: 'cancel'
+          role: 'cancel',
+          handler: () => {
+            this.selectedView = 'AS_LIST'
+          }
         },
         {
           text: `${this.translate.instant('SHARED.DEFINE')}`,
@@ -275,7 +303,10 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
       alert.buttons = [
         {
           text: `${this.translate.instant('SHARED.CANCEL')}`,
-          role: 'cancel'
+          role: 'cancel',
+          handler: () => {
+            this.selectedView = 'AS_SLIDE'
+          }
         },
         {
           text: `${this.translate.instant('SHARED.DEFINE')}`,
@@ -319,7 +350,7 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
 
 
     switch (e.detail.value) {
-      case 'pet-friendly':
+      case 'PET_FRIENDLY':
         this.establishmentsService
         .getCollectionFilteredBy(CollectionsEnum.SHORT_ESTABLISHMENTS, 'petfriendly_info.accept_petfriendly')
         .then( async (short_establishments: IShortEstablishment[]) => {
@@ -328,7 +359,7 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
         })
         break;
 
-      case 'ticket':
+      case 'TICKET':
         this.establishmentsService
         .getCollectionFilteredBy(CollectionsEnum.SHORT_ESTABLISHMENTS, 'ticket_info.accept_ticket')
         .then( async (short_establishments: IShortEstablishment[]) => {
@@ -337,7 +368,7 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
         })
         break;
 
-      case 'livemusic':
+      case 'LIVEMUSIC':
         this.establishmentsService
         .getCollectionFilteredBy(CollectionsEnum.SHORT_ESTABLISHMENTS, 'livemusic_info.has_livemusic')
         .then( async (short_establishments: IShortEstablishment[]) => {
@@ -346,9 +377,26 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
         })
         break;
 
+      case 'ALL':
+        this.getEstablishments();
+        break;
+
       default:
         break;
     }
+
+    this.defineActiveFilter(e.detail.value);
+  }
+
+  public defineActiveFilter(value: string) {
+    let filterFound = this.filters.find((filter: any) => {
+      return filter.value === value;
+    })
+
+    if (filterFound) {
+      this.activeFilter = filterFound;
+    }
+
   }
 
   public ngOnDestroy(): void {

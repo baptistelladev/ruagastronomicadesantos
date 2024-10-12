@@ -47,7 +47,8 @@
     "ALRIGHT" : "Okay",
     "NO_RESULT": "No establishments for now",
     "SPECIALTY" : "Cooking",
-    "NUMBER" : "Number"
+    "NUMBER" : "Number",
+    "NO_OPEN" : "Doesn't open"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Our purpose here is to help you save your most precious asset: ","time"],

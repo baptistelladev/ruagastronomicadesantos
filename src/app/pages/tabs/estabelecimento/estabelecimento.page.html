@@ -286,7 +286,13 @@
                   </ion-text>
 
                   <ion-text mode="ios" slot="end" [ngClass]="{'is-today font-w-bold': time.day_number === todayAsDayNumber}">
-                    <p class="fs-18 color-gray-text" *ngFor="let hour of time.opening_time">{{ hour.open }} {{ 'SHARED.TO_HOUR' | translate }} {{hour.close }}</p>
+                    <p class="fs-18 color-gray-text" *ngFor="let hour of time.opening_time">
+                      {{ hour.open }} {{ 'SHARED.TO_HOUR' | translate }} {{hour.close }}
+                    </p>
+                  </ion-text>
+
+                  <ion-text mode="ios" slot="end" *ngIf="time.opening_time.length === 0">
+                    <p class="fs-18 color-gray-text">{{ 'SHARED.NO_OPEN' | translate }}</p>
                   </ion-text>
                 </ion-item>
               </ion-card-content>

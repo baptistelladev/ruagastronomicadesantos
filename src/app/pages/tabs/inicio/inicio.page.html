@@ -50,6 +50,22 @@ mode="ios">
   <section class="hero-content">
     <ion-grid [fixed]="true">
       <ion-row>
+
+
+        <ion-col size="12">
+          <ion-text
+          class="txt-left color-gray-text full-width icon-title-text without-icon"
+          mode="ios">
+            <h2 class="font-baloo txt-lowercase fs-22">
+              {{ 'INICIO_PAGE.LIST_OF_ESTABLISHMENTS.0' | translate }} <span class="font-w-bold">{{ 'INICIO_PAGE.LIST_OF_ESTABLISHMENTS.1' | translate }}</span>
+            </h2>
+
+            <p class="fs-14">
+              {{ adress[currentLanguage.value] }}
+            </p>
+          </ion-text>
+        </ion-col>
+
         <ion-col size="12">
           <ion-text mode="ios" class="long-text">
             <p class="color-gray-text fs-14 font-w-thin">
@@ -70,18 +86,9 @@ mode="ios">
     <ion-grid [fixed]="true">
       <ion-row>
         <ion-col size="12" >
-          <div class="view-n-filter-wrapper" [ngClass]="{'disable-filter': short_establishments && short_establishments.length === 0}">
+          <div class="view-n-filter-wrapper">
             <div class="looking-for-wrapper">
-              <ion-text mode="ios">
-                <p class="fs-12 color-gray-text">{{ 'SHARED.LOOKING_FOR' | translate }}</p>
-              </ion-text>
 
-              <ion-button
-              title="Todos"
-              fill="clear"
-              class="clear-green as-selector">
-                Todos <ion-icon name="chevron-down"></ion-icon>
-              </ion-button>
             </div>
 
             <div class="buttons-wrapper">
@@ -139,7 +146,8 @@ mode="ios">
                 #filterSelector
                 [label]="'SHARED.FILTER' | translate"
                 class="hide-element rgs-selector"
-                (ionChange)="filterByCharacteristic($event)">
+                (ionChange)="filterByCharacteristic($event)"
+                [(ngModel)]="selectedFilter">
                   <ion-select-option
                   *ngFor="let filter of filters"
                   [value]="filter.value">
@@ -167,21 +175,9 @@ mode="ios">
           </div>
         </ion-col>
 
-        <ion-col size="12">
-          <hr class="rgs-divider">
-        </ion-col>
-
-        <ion-col size="12">
-          <ion-text
-          class="txt-left color-gray-text full-width icon-title-text without-icon"
-          mode="ios">
-            <h2 class="font-baloo txt-lowercase fs-22">
-              {{ 'INICIO_PAGE.LIST_OF_ESTABLISHMENTS.0' | translate }} <span class="font-w-bold">{{ 'INICIO_PAGE.LIST_OF_ESTABLISHMENTS.1' | translate }}</span>
-            </h2>
-
-            <p class="fs-14">
-              {{ adress[currentLanguage.value] }}
-            </p>
+        <ion-col size="12" class="no-pad-bottom">
+          <ion-text mode="ios" class="line-height-18">
+            <p class="fs-14 color-gray-text">{{ 'SHARED.LOOKING_FOR' | translate }}: <span class="fs-14 color-green font-w-semibold txt-lowercase">{{ activeFilter.text[currentLanguage.value] }}</span></p>
           </ion-text>
         </ion-col>
       </ion-row>
@@ -282,19 +278,19 @@ mode="ios">
     <ng-container *ngIf="definitiveView === 'AS_LIST'">
       <ion-grid [fixed]="true" *ngIf="short_establishments && short_establishments.length > 0">
         <ion-row>
-          <ion-col size="12" *ngFor="let establishment of short_establishments">
+          <ion-col
+          size="12"
+          size-md="6"
+          *ngFor="let establishment of short_establishments">
             <ion-item
+            (click)="seeEstablishment(establishment)"
             button="true"
             class="establishment-horizontal-item"
             lines="none"
             mode="ios">
               <div class="logo-wrapper">
                 <div class="logo-container" [ngClass]="{'has-image': !isLoadingLogo}">
-                  <ion-spinner name="lines-sharp-small" *ngIf="isLoadingLogo"></ion-spinner>
-
                   <ion-img
-                  *ngIf="!isLoadingLogo"
-                  (ionImgDidLoad)="imageHasLoaded()"
                   [src]="'./../../../../assets/images/establishments/' + establishment.value + '.jpg'"
                   alt="logo">
                   </ion-img>
