@@ -102,14 +102,14 @@ mode="ios">
                     <ion-item mode="ios" lines="none" class="item-from-popover">
                       <ion-text mode="ios">
                         <p class="fs-16 title">
-                          Número
+                          {{ 'SHARED.NUMBER' | translate }}
                         </p>
                       </ion-text>
                     </ion-item>
                     <ion-item
                     *ngFor="let option of orderOptions"
                     [ngClass]="{ 'is-active' : option.value === selectedOrderOption }"
-                    (click)="orderBy(option.value)"
+                    (click)="orderBy(option.value, false)"
                     mode="ios"
                     lines="none"
                     class="item-from-popover">
@@ -138,11 +138,12 @@ mode="ios">
                 [okText]="'Filtrar'"
                 #filterSelector
                 [label]="'SHARED.FILTER' | translate"
-                class="hide-element rgs-selector">
+                class="hide-element rgs-selector"
+                (ionChange)="filterByCharacteristic($event)">
                   <ion-select-option
                   *ngFor="let filter of filters"
-                  value="apple">
-                    {{ filter.text.pt }}
+                  [value]="filter.value">
+                    {{ filter.text[currentLanguage.value] }}
                   </ion-select-option>
                 </ion-select>
               </ion-button>
@@ -186,8 +187,8 @@ mode="ios">
       </ion-row>
     </ion-grid>
 
-    <!-- effect="coverflow" -->
-    <div class="inicio-swiper-wrapper">
+    <!-- SLIDE -->
+    <div class="inicio-swiper-wrapper" *ngIf="definitiveView === 'AS_SLIDE'">
       <swiper-container
       class="full-width swiper-w-relative-pagination"
       [init]="true"
@@ -230,11 +231,15 @@ mode="ios">
           <swiper-slide
           *ngFor="let establishment of short_establishments; let i = index"
           class="unlock-shadow-from-swiper auto-width">
-            <ion-card mode="ios" class="parking-card" lines="none">
+            <ion-card mode="ios" class="establishment-card-vertical" lines="none">
               <ion-card-content class="txt-center" mode="ios">
                 <div class="logo-wrapper mg-bottom-12">
-                  <div class="logo-container">
+                  <div class="logo-container" [ngClass]="{'has-image': !isLoadingLogo}">
+                    <ion-spinner name="lines-sharp-small" *ngIf="isLoadingLogo"></ion-spinner>
+
                     <ion-img
+                    *ngIf="!isLoadingLogo"
+                    (ionImgDidLoad)="imageHasLoaded()"
                     [src]="'./../../../../assets/images/establishments/' + establishment.value + '.jpg'"
                     alt="logo">
                     </ion-img>
@@ -272,6 +277,42 @@ mode="ios">
         </ng-container>
       </swiper-container>
     </div>
+
+    <!-- LIST -->
+    <ng-container *ngIf="definitiveView === 'AS_LIST'">
+      <ion-grid [fixed]="true" *ngIf="short_establishments && short_establishments.length > 0">
+        <ion-row>
+          <ion-col size="12" *ngFor="let establishment of short_establishments">
+            <ion-item
+            button="true"
+            class="establishment-horizontal-item"
+            lines="none"
+            mode="ios">
+              <div class="logo-wrapper">
+                <div class="logo-container" [ngClass]="{'has-image': !isLoadingLogo}">
+                  <ion-spinner name="lines-sharp-small" *ngIf="isLoadingLogo"></ion-spinner>
+
+                  <ion-img
+                  *ngIf="!isLoadingLogo"
+                  (ionImgDidLoad)="imageHasLoaded()"
+                  [src]="'./../../../../assets/images/establishments/' + establishment.value + '.jpg'"
+                  alt="logo">
+                  </ion-img>
+                </div>
+              </div>
+
+              <ion-text mode="ios" class="txt-left">
+                <p class="color-gray-text txt-uppercase type font-w-thin type">
+                  {{ establishment.mainType.text[currentLanguage.value] }}
+                </p>
+                <h2 class="color-gray-text font-baloo name fs-20"><b>{{ establishment.name }}</b></h2>
+                <p class="number color-gray-text">n&ordm; {{ establishment.adress.number }}</p>
+              </ion-text>
+            </ion-item>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ng-container>
 
     <ion-grid [fixed]="true">
       <ion-row>
