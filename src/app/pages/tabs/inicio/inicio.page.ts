@@ -56,10 +56,11 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
     }
   ]
 
-  public selectedView: string = 'as-slide';
+  public definitiveView: string;
+  public selectedView: string;
   public viewSegments: any[] = [
     {
-      value: 'as-slide',
+      value: 'AS_SLIDE',
       text: {
         pt: 'slide',
         en: '',
@@ -68,7 +69,7 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
       icon: 'albums'
     },
     {
-      value: 'as-list',
+      value: 'AS_LIST',
       text: {
         pt: 'lista',
         en: '',
@@ -102,23 +103,31 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
     }
   ]
 
-  public short_establishments: IShortEstablishment[];
+
 
   public filters: any[] = [
-    {
-      value: 'Tudo',
-      text: {
-        pt: 'Todas as opções',
-        en: 'Everything',
-        es: 'Tudito'
-      }
-    },
     {
       value: 'pet-friendly',
       text: {
         pt: 'Pet friendly',
         en: 'Pet friendly',
         es: 'Pet friendy'
+      }
+    },
+    {
+      value: 'ticket',
+      text: {
+        pt: 'Aceita vale refeição',
+        en: 'Accept meal vouchers ',
+        es: 'Acepta vales de comida'
+      }
+    },
+    {
+      value: 'livemusic',
+      text: {
+        pt: 'Tem música ao vivo',
+        en: 'Has live music',
+        es: 'Tiene música en vivo'
       }
     }
   ]
@@ -127,12 +136,14 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
   public currentLanguage$: Observable<ILang>;
   public currentLanguageSubscription: Subscription;
 
-  public establishments: IShortEstablishment;
+  public short_establishments: IShortEstablishment[];
   public establishments$: Observable<IShortEstablishment[]>;
   public establishmentsDescription: Subscription;
 
   public translatedPage: any;
   public translatedPage$: Observable<any>;
+
+  public isLoadingLogo: boolean;
 
   constructor(
     private alertCtrl : AlertController,
@@ -147,6 +158,7 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit() {
     this.initialOrdenation('INC');
+    this.initialSegmentView('AS_LIST');
     this.getCurrentLanguageFromNGRX();
     this.getEstablishments();
   }
@@ -159,7 +171,7 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
     this.getTitleFromPage();
   }
 
-  public async orderBy(orderBy: string) {
+  public async orderBy(orderBy: string, fromAnotherPlace: boolean) {
     this.selectedOrderOption = orderBy;
 
     if (this.selectedOrderOption === 'INC') {
@@ -168,14 +180,25 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
       this.short_establishments = await this.utilsService.orderByAdressNumberDecrescent(this.short_establishments);
     }
 
-    await this.popoverCtrl.dismiss({}, '', 'order-by').then(() => {
+    if (fromAnotherPlace) {
       this.slideSwiperToStart();
-    })
+    } else {
+      await this.popoverCtrl.dismiss({}, '', 'order-by').then(() => {
+        this.slideSwiperToStart();
+      })
+    }
+
+    return this.short_establishments
 
   }
 
   public initialOrdenation(value: string) {
     this.selectedOrderOption = value;
+  }
+
+  public initialSegmentView(value: string) {
+    this.selectedView = value;
+    this.definitiveView = this.selectedView;
   }
 
   public getTitleFromPage(): void {
@@ -240,7 +263,10 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
         },
         {
           text: `${this.translate.instant('SHARED.DEFINE')}`,
-          role: 'confirm'
+          role: 'confirm',
+          handler: () => {
+            this.definitiveView = this.selectedView;
+          }
         },
       ]
     } else {
@@ -253,7 +279,10 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
         },
         {
           text: `${this.translate.instant('SHARED.DEFINE')}`,
-          role: 'confirm'
+          role: 'confirm',
+          handler: () => {
+            this.definitiveView = this.selectedView;
+          }
         },
       ]
     }
@@ -282,8 +311,49 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
     this.swiper?.slideTo(0, 800);
   }
 
+  public imageHasLoaded() {
+    this.isLoadingLogo = false;
+  }
+
+  public filterByCharacteristic(e: any): void {
+
+
+    switch (e.detail.value) {
+      case 'pet-friendly':
+        this.establishmentsService
+        .getCollectionFilteredBy(CollectionsEnum.SHORT_ESTABLISHMENTS, 'petfriendly_info.accept_petfriendly')
+        .then( async (short_establishments: IShortEstablishment[]) => {
+          this.short_establishments = short_establishments;
+          this.short_establishments = await this.orderBy(this.selectedOrderOption, true);
+        })
+        break;
+
+      case 'ticket':
+        this.establishmentsService
+        .getCollectionFilteredBy(CollectionsEnum.SHORT_ESTABLISHMENTS, 'ticket_info.accept_ticket')
+        .then( async (short_establishments: IShortEstablishment[]) => {
+          this.short_establishments = short_establishments;
+          this.short_establishments = await this.orderBy(this.selectedOrderOption, true);
+        })
+        break;
+
+      case 'livemusic':
+        this.establishmentsService
+        .getCollectionFilteredBy(CollectionsEnum.SHORT_ESTABLISHMENTS, 'livemusic_info.has_livemusic')
+        .then( async (short_establishments: IShortEstablishment[]) => {
+          this.short_establishments = short_establishments;
+          this.short_establishments = await this.orderBy(this.selectedOrderOption, true);
+        })
+        break;
+
+      default:
+        break;
+    }
+  }
+
   public ngOnDestroy(): void {
     this.currentLanguageSubscription.unsubscribe();
     this.establishmentsDescription.unsubscribe();
   }
+
 }
