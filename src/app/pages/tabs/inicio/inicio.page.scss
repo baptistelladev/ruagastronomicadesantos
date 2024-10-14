@@ -532,6 +532,7 @@ ion-list {
   background: linear-gradient(to left, var(--white), var(--transparent));
   border-radius: 0 12px 12px 0;
   padding: 0;
+  box-shadow: 5px 0 5px -3px rgba(0, 0, 0, 0.1);
 
   ion-item {
     --background: var(--transparent);
