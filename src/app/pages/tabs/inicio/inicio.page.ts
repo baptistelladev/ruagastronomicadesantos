@@ -17,6 +17,7 @@ import SwiperComponent, { Swiper } from 'swiper';
 import { ActivatedRoute } from '@angular/router';
 import { AnalyticsService } from 'src/app/core/services/firebase/analytics.service';
 import { AnalyticsEventnameEnum } from 'src/app/shared/enums/Analytics';
+import { IParking } from 'src/app/shared/models/IParking';
 
 @Component({
   selector: 'rgs-inicio',
@@ -146,7 +147,7 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
     }
   ]
 
-  public parkings: any[] = [
+  public parkings: IParking[] = [
     {
       name: 'VC3 Estacionamentos',
       adress: {
@@ -154,7 +155,12 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
         neighborhood: 'Gonzaga',
         street: 'R. Tolentino Filgueras',
         number: '83'
-      }
+      },
+      phone: {
+        ddd: '013',
+        number: '997330408'
+      },
+      value: 'vc3-estacionamento'
     },
     {
       name: 'E Park',
@@ -163,7 +169,12 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
         neighborhood: 'Gonzaga',
         street: 'R. Tolentino Filgueras',
         number: '94'
-      }
+      },
+      phone: {
+        ddd: '',
+        number: ''
+      },
+      value: 'e-park'
     }
   ]
 
@@ -438,6 +449,14 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
 
   public closeModal(): void {
     this.showParkingModal = false;
+  }
+
+  public callParking(parking: any, e: any) {
+    if (parking.phone.ddd && parking.phone.number) {
+      window.location.href = `tel:55${parking.phone.ddd}${parking.phone.number}`;
+    } else {
+      e.preventDefault();
+    }
   }
 
   public ngOnDestroy(): void {

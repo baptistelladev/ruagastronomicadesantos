@@ -23,6 +23,11 @@ export interface IShortEstablishment {
     show_field: boolean,
     tickets: IShortTicket[]
   },
+  market_ticket_info: {
+    accept_ticket: boolean,
+    show_field: boolean,
+    tickets: IShortTicket[]
+  },
   petfriendly_info: {
     accept_petfriendly: boolean,
     show_field: boolean

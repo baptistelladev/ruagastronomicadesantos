@@ -50,6 +50,16 @@ export const appInitialState: IAppState = {
         es: ''
       }
     },
+    market_ticket_info: {
+      accept_ticket: false,
+      show_field: false,
+      tickets: [
+        {
+          text: '',
+          value: ''
+        }
+      ]
+    },
     ticket_info: {
       accept_ticket: false,
       show_field: false,

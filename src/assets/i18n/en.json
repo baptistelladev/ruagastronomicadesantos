@@ -140,7 +140,12 @@
       "TEXT": "In addition to traditional payment methods, they accept",
       "VR": "meal voucher"
     },
-    "TICKETS_DONT": "Does not accept meal vouchers as payment"
+    "TICKETS_DONT": "Does not accept meal vouchers as payment",
+    "MARKET_TICKETS": {
+      "TEXT": "In addition to traditional payment methods, they accept",
+      "VA": "food vouchers"
+    },
+    "MARKET_TICKETS_DONT": "Does not accept food vouchers as a form of payment"
   },
   "PETFRIENDLY": {
     "BRING": "You can bring",

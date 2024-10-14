@@ -363,47 +363,6 @@ mode="ios">
             class="txt-left color-gray-text full-width icon-title-text without-icon d-block mg-bottom-8 has-icon"
             mode="ios">
               <h2 class="font-baloo fs-20">
-                <ion-icon name="car-sport-outline"></ion-icon>
-                Lista <span class="font-w-bold mg-left-5">de estacionamentos</span>
-              </h2>
-
-              <p class="fs-14 font-w-thin">
-                Se você planeja ir de carro, há estacionamentos na rua e nas redondezas, confira:
-              </p>
-            </ion-text>
-          </ion-item>
-
-          <ion-list mode="ios" class="mg-top-16 mg-bottom-8">
-            <ion-item
-            detail="false"
-            [button]="true"
-            lines="none"
-            *ngFor="let parking of parkings"
-            (click)="seeParking(true)">
-              <ion-text mode="ios" class="line-height-20">
-                <p class="color-gray-6 fs-14 txt-uppercase">{{ parking.name }}</p>
-                <p class="color-gray-6 fs-12 adress"><ion-icon name="location-outline"></ion-icon>{{ parking.adress.street }}, {{ parking.adress.number }} - {{ parking.adress.neighborhood }}.</p>
-              </ion-text>
-
-              <ion-text mode="ios" class="txt-right"  slot="end">
-                <ion-chip mode="ios" class="main-solid-green txt-uppercase fs-10 small">
-                  Ver detalhes
-                </ion-chip>
-              </ion-text>
-            </ion-item>
-          </ion-list>
-        </ion-col>
-
-        <ion-col size="12" class="ion-hide-md-up">
-          <hr class="rgs-divider">
-        </ion-col>
-
-        <ion-col size="12" size-md="6">
-          <ion-item lines="none" class="ion-bg-transparent item-title-w-icon">
-            <ion-text
-            class="txt-left color-gray-text full-width icon-title-text without-icon d-block mg-bottom-8 has-icon"
-            mode="ios">
-              <h2 class="font-baloo fs-20">
                 <ion-icon name="chatbubbles-outline"></ion-icon>
                 {{ 'INICIO_PAGE.FEEDBACK.GIVE_YOUR_FEEDBACK.0' | translate }} <span class="font-w-bold mg-left-5">{{ 'INICIO_PAGE.FEEDBACK.GIVE_YOUR_FEEDBACK.1' | translate }}</span>
               </h2>
@@ -417,6 +376,47 @@ mode="ios">
               </p>
             </ion-text>
           </ion-item>
+        </ion-col>
+
+        <ion-col size="12" class="ion-hide-md-up">
+          <hr class="rgs-divider">
+        </ion-col>
+
+        <ion-col size="12" size-md="6">
+          <ion-item lines="none" class="ion-bg-transparent item-title-w-icon">
+            <ion-text
+            class="txt-left color-gray-text full-width icon-title-text without-icon d-block mg-bottom-8 has-icon"
+            mode="ios">
+              <h2 class="font-baloo fs-20">
+                <ion-icon name="car-sport-outline"></ion-icon>
+                Lista <span class="font-w-bold mg-left-5">de estacionamentos</span>
+              </h2>
+
+              <p class="fs-14 font-w-thin">
+                Se você planeja ir de carro, há estacionamentos na rua e nas redondezas, confira:
+              </p>
+            </ion-text>
+          </ion-item>
+
+          <ion-list mode="ios" class="mg-top-16 mg-bottom-8">
+            <ion-item
+            detail="false"
+            lines="none"
+            *ngFor="let parking of parkings"
+            (click)="callParking(parking, $event)"
+            [button]="parking.phone.ddd && parking.phone.number">
+              <ion-text mode="ios" class="line-height-20">
+                <p class="color-gray-6 fs-14 txt-uppercase">{{ parking.name }}</p>
+                <p class="color-gray-6 fs-12 adress"><ion-icon name="location-outline"></ion-icon>{{ parking.adress.street }}, {{ parking.adress.number }}.</p>
+              </ion-text>
+
+              <ion-text  *ngIf="parking.phone.ddd && parking.phone.number" mode="ios" class="txt-right"  slot="end">
+                <ion-chip mode="ios" class="main-solid-green txt-uppercase fs-10 small">
+                  <ion-icon name="call" class="color-white"></ion-icon> Contato
+                </ion-chip>
+              </ion-text>
+            </ion-item>
+          </ion-list>
         </ion-col>
 
         <ion-col size="12">

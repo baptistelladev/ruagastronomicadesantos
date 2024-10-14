@@ -141,7 +141,12 @@
       "TEXT": "Además de las formas tradicionales de pago, aceptan",
       "VR": "vale de comida"
     },
-      "TICKETS_DONT": "No acepta vales de comida como pago"
+    "TICKETS_DONT": "No acepta vales de comida como pago",
+    "MARKET_TICKETS": {
+      "TEXT": "Además de las formas tradicionales de pago, aceptan",
+      "VA": "vale de alimentación"
+    },
+    "MARKET_TICKETS_DONT": "No acepta vale de alimentación como forma de pago"
   },
   "PETFRIENDLY": {
     "BRING": "Puedes traer",
