@@ -148,15 +148,26 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
 
   public parkings: any[] = [
     {
-      name: 'VC3 Estacionamentos'
+      name: 'VC3 Estacionamentos',
+      adress: {
+        zip_code: '00000000',
+        neighborhood: 'Gonzaga',
+        street: 'R. Tolentino Filgueras',
+        number: '83'
+      }
     },
     {
-      name: 'VC3 Estacionamentos'
-    },
-    {
-      name: 'VC3 Estacionamentos'
+      name: 'E Park',
+      adress: {
+        zip_code: '00000000',
+        neighborhood: 'Gonzaga',
+        street: 'R. Tolentino Filgueras',
+        number: '94'
+      }
     }
   ]
+
+  public showParkingModal: boolean = false;
 
   public currentLanguage: ILang;
   public currentLanguage$: Observable<ILang>;
@@ -189,7 +200,7 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
     this.initialFilter('ALL');
     this.defineActiveFilter('ALL');
     this.getCurrentLanguageFromNGRX();
-    this.getEstablishments();
+    //this.getEstablishments();
     this.analyticsService.tagViewInit(AnalyticsEventnameEnum.PAGE_VIEW);
   }
 
@@ -414,6 +425,19 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
       this.activeFilter = filterFound;
     }
 
+  }
+
+  public seeParking(show: boolean): void {
+    this.showParkingModal = show;
+  }
+
+  public modalHasDismissed(e: any) {
+    console.log(e);
+    this.showParkingModal = false;
+  }
+
+  public closeModal(): void {
+    this.showParkingModal = false;
   }
 
   public ngOnDestroy(): void {

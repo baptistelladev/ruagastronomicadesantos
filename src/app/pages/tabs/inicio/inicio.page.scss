@@ -345,7 +345,7 @@ ion-card {
         --background-hover: var(--green);
 
         ion-icon {
-          margin: 0 5px 0 0;
+          margin: 0 0 0 5px;
           font-size: 18px;
         }
       }
@@ -526,4 +526,48 @@ ion-item {
       margin-left: 10px;
     }
   }
+}
+
+ion-list {
+  background: linear-gradient(to left, var(--white), var(--transparent));
+  border-radius: 0 12px 12px 0;
+  padding: 0;
+
+  ion-item {
+    --background: var(--transparent);
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --min-height: 0;
+    --inner-padding-end: 0;
+    --padding-top: 16px;
+    --padding-bottom: 16px;
+
+    &:nth-child(odd) {
+      border-bottom: 1px solid var(--gray-da);
+    }
+
+    &:nth-child(even) {
+      border-top: 1px solid var(--white);
+    }
+
+    ion-text {
+      ion-chip {
+        margin: 0;
+      }
+
+      p {
+        &.adress {
+          @include flexbox(center, flex-start, row);
+
+          ion-icon {
+            margin: 0 4px 0 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.parking-modal-section {
+  padding: 16px;
 }
