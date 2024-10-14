@@ -200,7 +200,7 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
     this.initialFilter('ALL');
     this.defineActiveFilter('ALL');
     this.getCurrentLanguageFromNGRX();
-    //this.getEstablishments();
+    this.getEstablishments();
     this.analyticsService.tagViewInit(AnalyticsEventnameEnum.PAGE_VIEW);
   }
 
