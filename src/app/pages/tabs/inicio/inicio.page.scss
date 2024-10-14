@@ -554,6 +554,10 @@ ion-list {
     ion-text {
       ion-chip {
         margin: 0;
+
+        ion-icon {
+          margin: 0 5px 0 0;
+        }
       }
 
       p {

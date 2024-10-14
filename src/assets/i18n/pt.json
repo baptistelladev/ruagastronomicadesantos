@@ -140,7 +140,12 @@
       "TEXT" : "Além das formas tradicionais de pagamento, aceitam",
       "VR" : "vale refeição"
     },
-    "TICKETS_DONT" : "Não aceita vale refeição como pagamento"
+    "TICKETS_DONT" : "Não aceita vale refeição como pagamento",
+    "MARKET_TICKETS" : {
+      "TEXT" : "Além das formas tradicionais de pagamento, aceitam",
+      "VA" : "vale alimentação"
+    },
+    "MARKET_TICKETS_DONT" : "Não aceita vale alimentação como pagamento"
   },
   "PETFRIENDLY" : {
     "BRING" : "Pode trazer",
