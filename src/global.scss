@@ -34,7 +34,7 @@
 @import './assets/scss/ionic/ion-select.scss';
 @import './assets/scss/ionic/ion-chip.scss';
 @import './assets/scss/ionic/ion-fab.scss';
-
+@import './assets/scss/ionic/ion-modal.scss';
 
 /* GRID */
 ion-grid {
@@ -319,6 +319,27 @@ ion-item {
 
     ion-icon {
       font-size: 32px;
+    }
+  }
+}
+
+ion-item.item-title-w-icon {
+  --padding-start: 0;
+  --padding-end: 0;
+  --inner-padding: 0;
+
+  ion-text {
+    &.has-icon {
+      h2 {
+        @include flexbox(center, flex-start, row);
+      flex-wrap: wrap;
+      margin: 0 0 5px 0;
+
+      ion-icon {
+        font-size: 25px;
+        margin: 0 9px 0 0;
+      }
+      }
     }
   }
 }
