@@ -17,7 +17,8 @@ import SwiperComponent, { Swiper } from 'swiper';
 import { ActivatedRoute } from '@angular/router';
 import { AnalyticsService } from 'src/app/core/services/firebase/analytics.service';
 import { AnalyticsEventnameEnum } from 'src/app/shared/enums/Analytics';
-import { IParking } from 'src/app/shared/models/IParking';
+import { IShortParking } from 'src/app/shared/models/IParking';
+import { ParkingsService } from 'src/app/core/services/firebase/parkings.service';
 
 @Component({
   selector: 'rgs-inicio',
@@ -147,37 +148,6 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
     }
   ]
 
-  public parkings: IParking[] = [
-    {
-      name: 'VC3 Estacionamentos',
-      adress: {
-        zip_code: '00000000',
-        neighborhood: 'Gonzaga',
-        street: 'R. Tolentino Filgueras',
-        number: '83'
-      },
-      phone: {
-        ddd: '013',
-        number: '997330408'
-      },
-      value: 'vc3-estacionamento'
-    },
-    {
-      name: 'E Park',
-      adress: {
-        zip_code: '00000000',
-        neighborhood: 'Gonzaga',
-        street: 'R. Tolentino Filgueras',
-        number: '94'
-      },
-      phone: {
-        ddd: '',
-        number: ''
-      },
-      value: 'e-park'
-    }
-  ]
-
   public showParkingModal: boolean = false;
 
   public currentLanguage: ILang;
@@ -187,6 +157,10 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
   public short_establishments: IShortEstablishment[];
   public establishments$: Observable<IShortEstablishment[]>;
   public establishmentsDescription: Subscription;
+
+  public short_parkings: IShortParking[];
+  public parkings$: Observable<IShortParking[]>;
+  public parkingsDescription: Subscription;
 
   public translatedPage: any;
   public translatedPage$: Observable<any>;
@@ -202,7 +176,8 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
     private establishmentsService : EstablishmentsService,
     private utilsService : UtilsService,
     private popoverCtrl : PopoverController,
-    private analyticsService : AnalyticsService
+    private analyticsService : AnalyticsService,
+    private parkingsService : ParkingsService
   ) { }
 
   ngOnInit() {
@@ -212,6 +187,7 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
     this.defineActiveFilter('ALL');
     this.getCurrentLanguageFromNGRX();
     this.getEstablishments();
+    this.getParkings();
     this.analyticsService.tagViewInit(AnalyticsEventnameEnum.PAGE_VIEW);
   }
 
@@ -287,6 +263,16 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
     .subscribe((establishments: IShortEstablishment[]) => {
       this.short_establishments = establishments;
       console.log(this.short_establishments, 'oia');
+    })
+  }
+
+  public getParkings() {
+    this.parkings$ = this.parkingsService.getCollection(CollectionsEnum.SHORT_PARKINGS);
+
+    this.parkingsDescription = this.parkings$
+    .subscribe((parkings: IShortParking[]) => {
+      this.short_parkings = parkings;
+      console.log(this.short_parkings, 'oia');
     })
   }
 
@@ -372,9 +358,13 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
     this.homeContent.scrollToTop(600);
   }
 
-  public seeEstablishment(establishment: any): void {
-    this.navCtrl.navigateForward(['/estabelecimento/' + establishment.value]);
-    this.store.dispatch(AppStore.setCurrentEstablishment({ establishment: establishment } ))
+  public seeEstablishment(establishment: IShortEstablishment, e: any): void {
+    if (establishment.isBuilding) {
+      e.preventDefault();
+    } else {
+      this.navCtrl.navigateForward(['/estabelecimento/' + establishment.value]);
+      this.store.dispatch(AppStore.setCurrentEstablishment({ establishment: establishment } ))
+    }
   }
 
   public slideSwiperToStart(): void {
@@ -462,6 +452,7 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
   public ngOnDestroy(): void {
     this.currentLanguageSubscription.unsubscribe();
     this.establishmentsDescription.unsubscribe();
+    this.parkingsDescription.unsubscribe();
   }
 
 }

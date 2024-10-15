@@ -248,14 +248,14 @@ mode="ios">
             lines="none">
               <ion-card-content class="txt-center" mode="ios">
                 <div class="logo-wrapper mg-bottom-12">
-                  <div class="logo-container" [ngClass]="{'has-image': !isLoadingLogo}">
+                  <div class="logo-container"
+                  [ngClass]="{'has-image': !isLoadingLogo, 'logo-needs-gray-2' : establishment.value === 'galeteria-santista'}">
                     <ion-spinner name="lines-sharp-small" *ngIf="isLoadingLogo"></ion-spinner>
 
                     <ion-img
                     *ngIf="!isLoadingLogo"
                     (ionImgDidLoad)="imageHasLoaded()"
-                    [src]="'./../../../../assets/images/establishments/' + establishment.value + '.jpg'"
-                    alt="logo">
+                    [src]="'./../../../../assets/images/establishments/' + establishment.value + (establishment.value === 'bistro-14' || establishment.value === 'galeteria-santista' ? '.png' : '.jpg')">
                     </ion-img>
                   </div>
                 </div>
@@ -272,7 +272,7 @@ mode="ios">
               <ion-card-footer mode="ios">
                 <ion-button
                 *ngIf="!establishment.isBuilding"
-                (click)="seeEstablishment(establishment)"
+                (click)="seeEstablishment(establishment, $event)"
                 title="Ver detalhes"
                 mode="md"
                 class="full-width">
@@ -308,18 +308,23 @@ mode="ios">
           size-md="6"
           *ngFor="let establishment of short_establishments">
             <ion-item
-            (click)="seeEstablishment(establishment)"
+            [ngClass]="{ 'coming-soon': establishment.isBuilding }"
+            (click)="seeEstablishment(establishment, $event)"
             button="true"
             class="establishment-horizontal-item"
             lines="none"
             mode="ios">
               <div class="logo-wrapper">
-                <div class="logo-container" [ngClass]="{'has-image': !isLoadingLogo}">
-                  <ion-img
-                  [src]="'./../../../../assets/images/establishments/' + establishment.value + '.jpg'"
-                  alt="logo">
-                  </ion-img>
-                </div>
+                <div class="logo-container"
+                  [ngClass]="{'has-image': !isLoadingLogo, 'logo-needs-gray-2' : establishment.value === 'galeteria-santista'}">
+                    <ion-spinner name="lines-sharp-small" *ngIf="isLoadingLogo"></ion-spinner>
+
+                    <ion-img
+                    *ngIf="!isLoadingLogo"
+                    (ionImgDidLoad)="imageHasLoaded()"
+                    [src]="'./../../../../assets/images/establishments/' + establishment.value + (establishment.value === 'bistro-14' || establishment.value === 'galeteria-santista' ? '.png' : '.jpg')">
+                    </ion-img>
+                  </div>
               </div>
 
               <ion-text mode="ios" class="txt-left">
@@ -339,8 +344,8 @@ mode="ios">
       <ion-row>
         <ion-col *ngIf="short_establishments && short_establishments.length === 0" size="12">
           <ion-text mode="ios">
-            <p class="fs-14 color-gray-text">
-              {{ 'SHARED.NO_RESULT' | translate }}.
+            <p class="fs-14 color-gray-text font-w-thin">
+              {{ 'SHARED.NO_RESULT_ESTABLISHMENTS' | translate }}.
             </p>
           </ion-text>
         </ion-col>
@@ -398,11 +403,14 @@ mode="ios">
             </ion-text>
           </ion-item>
 
-          <ion-list mode="ios" class="mg-top-16 mg-bottom-8">
+          <ion-list
+          *ngIf="short_parkings && short_parkings.length > 0"
+          mode="ios"
+          class="mg-top-16 mg-bottom-8">
             <ion-item
             detail="false"
             lines="none"
-            *ngFor="let parking of parkings"
+            *ngFor="let parking of short_parkings"
             (click)="callParking(parking, $event)"
             [button]="parking.phone.ddd && parking.phone.number">
               <ion-text mode="ios" class="line-height-20">
@@ -417,6 +425,14 @@ mode="ios">
               </ion-text>
             </ion-item>
           </ion-list>
+
+          <ion-text mode="ios" *ngIf="short_parkings && short_parkings.length === 0">
+            <p class="fs-14 color-gray-text font-w-thin">
+              {{ 'SHARED.NO_RESULT_PARKINGS' | translate }}.
+            </p>
+          </ion-text>
+
+          <ion-skeleton-text animated="true" class="like-parking-item" *ngIf="!short_parkings"></ion-skeleton-text>
         </ion-col>
 
         <ion-col size="12">

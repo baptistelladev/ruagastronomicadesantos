@@ -45,7 +45,8 @@
     "FILTER" : "Filter",
     "TO_FILTER" : "Filter now",
     "ALRIGHT" : "Okay",
-    "NO_RESULT": "No establishments for now",
+    "NO_RESULT_ESTABLISHMENTS" : "No establishments for now",
+    "NO_RESULT_PARKINGS" : "No parking for now",
     "SPECIALTY" : "Cooking",
     "NUMBER" : "Number",
     "NO_OPEN" : "Doesn't open"
