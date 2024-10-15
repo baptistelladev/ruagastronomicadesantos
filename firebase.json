@@ -8,8 +8,13 @@
     ],
     "redirects": [
       {
-        "source": "/",
-        "destination": "/estabelecimento/vila-tolentino",
+        "source": "https://vilatolentino.ruagastronomicadesantos.com.br",
+        "destination": "https://www.ruagastronomicadesantos.com.br/estabelecimento/vila-tolentino",
+        "type": 301
+      },
+      {
+        "source": "https://www.vilatolentino.ruagastronomicadesantos.com.br",
+        "destination": "https://www.ruagastronomicadesantos.com.br/estabelecimento/vila-tolentino",
         "type": 301
       }
     ],
