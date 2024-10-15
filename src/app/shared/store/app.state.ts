@@ -1,3 +1,4 @@
+import { IShortParking } from 'src/app/shared/models/IParking';
 import { createAction, createReducer, createSelector, on, props, createFeatureSelector } from "@ngrx/store";
 import { ILang } from "../models/Lang";
 import { IShortEstablishment } from "../models/Establishment";
@@ -8,11 +9,28 @@ import { IContact } from "../models/Contact";
 export interface IAppState {
   currentLanguage: ILang,
   currentEstablishment: IShortEstablishment,
+  parkings: IShortParking[],
   appInfoNetworks: ISocialNetwork[],
   appInfoContact: IContact
 }
 
 export const appInitialState: IAppState = {
+  parkings: [
+    {
+      name: '',
+      value: '',
+      adress: {
+        street: '',
+        number: '',
+        neighborhood: '',
+        zip_code: ''
+      },
+      phone: {
+        ddd: '',
+        number: ''
+      }
+    }
+  ],
   currentLanguage: {
     text: {
       pt: '',
@@ -160,6 +178,11 @@ export const setAppInfoContact = createAction(
   props<{ contact: IContact }>()
 )
 
+export const setParkings = createAction(
+  '[APP] Definir estacionamentos',
+  props<{ parkings: IShortParking[] }>()
+)
+
 export const appReducer = createReducer(
   appInitialState,
   on(
@@ -177,6 +200,10 @@ export const appReducer = createReducer(
   on(
     setAppInfoContact,
     (state, { contact }): IAppState => ({ ...state, appInfoContact: contact })
+  ),
+  on(
+    setParkings,
+    (state, { parkings }): IAppState => ({ ...state, parkings: parkings })
   )
 )
 
@@ -203,3 +230,7 @@ export const selectAppInfoContact = createSelector(
   (state: IAppState) => state.appInfoContact
 );
 
+export const selectParkings = createSelector(
+  selectAppState,
+  (state: IAppState) => state.parkings
+);

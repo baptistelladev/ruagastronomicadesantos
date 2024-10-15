@@ -37,6 +37,10 @@ ion-content {
           box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
           border: 5px solid var(--white);
 
+          &.logo-needs-gray-2 {
+            background: var(--gray-2);
+          }
+
           ion-img {
             border-radius: 100%;
             overflow: hidden;

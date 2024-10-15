@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collectionData, collection, getDoc } from '@angular/fire/firestore';
+import { Firestore, getDoc } from '@angular/fire/firestore';
 import { doc } from 'firebase/firestore';
-import { Observable } from 'rxjs';
 import { IAppInfo } from 'src/app/shared/models/AppInfo';
-import { IShortEstablishment } from 'src/app/shared/models/Establishment';
 
 @Injectable({
   providedIn: 'root'

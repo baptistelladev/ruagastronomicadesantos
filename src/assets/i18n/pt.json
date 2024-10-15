@@ -45,7 +45,8 @@
     "FILTER" : "Filtro",
     "TO_FILTER" : "Filtrar",
     "ALRIGHT" : "Tudo bem",
-    "NO_RESULT" : "Nenhum estabelecimento por enquanto",
+    "NO_RESULT_ESTABLISHMENTS" : "Nenhum estabelecimento por enquanto",
+    "NO_RESULT_PARKINGS" : "Nenhum estacionamento por enquanto",
     "SPECIALTY" : "Culinária",
     "NUMBER" : "Número",
     "NO_OPEN" : "Não abre"

@@ -51,5 +51,5 @@ export class EstablishmentsService {
         console.error("Erro ao obter o documento:", error);
         return null; // Retorna null em caso de erro
     }
-}
+  }
 }
