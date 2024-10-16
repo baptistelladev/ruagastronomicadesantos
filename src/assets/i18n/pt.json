@@ -50,7 +50,8 @@
     "SPECIALTY" : "Culinária",
     "NUMBER" : "Número",
     "NO_OPEN" : "Não abre",
-    "COMING_SOON" : "Em breve"
+    "COMING_SOON" : "Em breve",
+    "LIST_OF" : "Lista de"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Nosso próposito aqui é fazer com que voê economize o seu bem mais precioso:","o tempo"],
