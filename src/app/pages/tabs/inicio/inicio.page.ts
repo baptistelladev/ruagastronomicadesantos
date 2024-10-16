@@ -262,7 +262,6 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
     )
     .subscribe((establishments: IShortEstablishment[]) => {
       this.short_establishments = establishments;
-      console.log(this.short_establishments, 'oia');
     })
   }
 
@@ -272,7 +271,6 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
     this.parkingsDescription = this.parkings$
     .subscribe((parkings: IShortParking[]) => {
       this.short_parkings = parkings;
-      console.log(this.short_parkings, 'oia');
     })
   }
 
@@ -299,7 +297,6 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public async segmentViewChanged(value: string) {
-    console.log(this.selectedView);
 
     const alert = await this.showAlertViewMode();
 
@@ -433,7 +430,6 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
   }
 
   public modalHasDismissed(e: any) {
-    console.log(e);
     this.showParkingModal = false;
   }
 

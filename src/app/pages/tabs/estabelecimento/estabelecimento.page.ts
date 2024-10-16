@@ -80,8 +80,6 @@ export class EstabelecimentoPage implements OnInit {
     .pipe(take(1))
     .subscribe(params => {
       this.establishmentNameFromUrl = params.get('name');
-      console.log("Estabelecimento:", this.establishmentNameFromUrl);
-
     });
   }
 
