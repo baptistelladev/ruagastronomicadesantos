@@ -1,5 +1,5 @@
 import { AppInfoService } from './core/services/firebase/app-info.service';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { StorageService } from './core/services/storage.service';
 import { TranslateService } from '@ngx-translate/core';
 import { Store, StoreModule } from '@ngrx/store';
@@ -12,6 +12,7 @@ import { AppInfo } from '@capacitor/app';
 import { IAppInfo } from './shared/models/AppInfo';
 import { Analytics } from '@angular/fire/analytics';
 import { AnalyticsService } from './core/services/firebase/analytics.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'rgs-root',
@@ -27,7 +28,6 @@ export class AppComponent implements OnInit {
     private storageService : StorageService,
     private translate : TranslateService,
     private store : Store,
-    private navCtrl : NavController,
     private appInfoService : AppInfoService
   ) {}
 
