@@ -276,6 +276,7 @@ ion-card {
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
     min-height: 270px;
+    background: linear-gradient(to bottom, var(--white), var(--transparent));
 
     &.coming-soon {
       box-shadow: none;
@@ -354,13 +355,13 @@ ion-card {
         --padding-bottom: 16px;
         --background: var(--gray-fa);
         --color: var(--green);
-        text-shadow: 2px 2px 2px var(--white);
         border-radius: 0;
         --border-radius: 0;
         border-top: .5px solid var(--gray-ec);
         font-size: 14px;
         font-weight: 300;
         --background-hover: var(--green);
+        --background: var(--transparent);
 
         ion-icon {
           margin: 0 0 0 5px;
@@ -547,10 +548,10 @@ ion-item {
 }
 
 ion-list {
-  background: linear-gradient(to left, var(--white), var(--transparent));
-  border-radius: 0 12px 12px 0;
+  background: linear-gradient(to left, var(--gray-fa), var(--transparent));
+  border-radius: 12px;
   padding: 0;
-  box-shadow: 5px 0 5px -3px rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 
   ion-item {
     --background: var(--transparent);
@@ -591,8 +592,8 @@ ion-list {
   }
 }
 
-.parking-modal-section {
-  padding: 16px;
+.specific-list-section {
+  padding: 16px 16px 20px 16px;
 }
 
 ion-skeleton-text {
@@ -600,5 +601,34 @@ ion-skeleton-text {
     border-radius: 12px;
     height: 40px;
     width: 100%;
+  }
+}
+
+ion-item {
+  &.dashboard-item {
+
+    margin: 0;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
+    border-radius: 12px;
+    --border-radius: 12px;
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --padding-top: 16px;
+    --padding-bottom: 16px;
+    --background: linear-gradient(to bottom, var(--gray-fa) 5%, transparent);
+    --inner-padding-end: 0;
+
+    ion-text {
+      p {
+        &.length {
+          font-size: 30px;
+          margin-top: -15px;
+        }
+
+        &.type {
+          margin-top: -5px;
+        }
+      }
+    }
   }
 }

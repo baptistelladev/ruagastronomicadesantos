@@ -7,8 +7,7 @@ import { StoreModule } from '@ngrx/store';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import { HttpClient, provideHttpClient } from '@angular/common/http';
 
-// SWIPER
-import {register} from 'swiper/element/bundle';
+
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { IonicStorageModule } from '@ionic/storage-angular';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -20,6 +19,8 @@ import { getAnalytics } from 'firebase/analytics';
 import { provideFirestore } from '@angular/fire/firestore';
 import { getFirestore } from 'firebase/firestore';
 import { environment } from 'src/environments/environment';
+// SWIPER
+import {register} from 'swiper/element/bundle';
 register();
 
 export function createTranslateLoader(http: HttpClient) {
