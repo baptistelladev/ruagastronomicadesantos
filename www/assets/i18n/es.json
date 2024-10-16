@@ -50,7 +50,9 @@
     "TICKETS_DONT": "No acepta vales de comida como pago",
     "SPECIALTY" : "Cocinando",
     "NUMBER" : "Número",
-    "NO_OPEN" : "Doesn't open"
+    "NO_OPEN" : "Doesn't open",
+    "COMING_SOON" : "Próximamente",
+    "LIST_OF" : "Lista de"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Nuestro propósito aquí es ayudarte a ahorrar tu bien más precioso:","el tiempo"],
@@ -61,7 +63,11 @@
       "GIVE_YOUR_FEEDBACK": ["Dale tu", "feedback"],
       "GIVE_YOUR_FEEDBACK_TEXT": "Nos gustaría saber si el sitio web te ha sido útil de alguna manera. Si no, ¿qué no encontraste aquí y qué podemos mejorar?",
       "SEND_FEEDBACK": "enviar mi feedback"
-    }
+    },
+    "SAVING_TIME_TITLE": ["Ya", "adelantándote"],
+    "SAVING_TIME_TEXT": "Hoy nuestra calle cuenta con",
+    "PARKING_TITLE": ["Para quienes vienen", "en coche"],
+    "PARKING_TEXT": "Hay estacionamientos en la calle y cerca de la calle, veja"
   },
   "COMPONENTS" : {
     "MADE_W_LOVE" : ["hecho con","en"],
