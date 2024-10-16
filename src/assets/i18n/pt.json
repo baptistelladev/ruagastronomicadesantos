@@ -51,7 +51,8 @@
     "NUMBER" : "Número",
     "NO_OPEN" : "Não abre",
     "COMING_SOON" : "Em breve",
-    "LIST_OF" : "Lista de"
+    "LIST_OF" : "Lista de",
+    "CLOSE_MODAL" : "Fechar modal"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Nosso próposito aqui é fazer com que voê economize o seu bem mais precioso:","o tempo"],
