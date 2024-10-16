@@ -51,7 +51,8 @@
     "SPECIALTY" : "Cocinando",
     "NUMBER" : "Número",
     "NO_OPEN" : "Doesn't open",
-    "COMING_SOON" : "Coming soon"
+    "COMING_SOON" : "Próximamente",
+    "LIST_OF" : "Lista de"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Nuestro propósito aquí es ayudarte a ahorrar tu bien más precioso:","el tiempo"],

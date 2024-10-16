@@ -281,7 +281,7 @@ mode="ios">
 
                 <div class="coming-soon" *ngIf="establishment.isBuilding">
                   <ion-text mode="ios">
-                    <p class="fs-14 d-block">em breve</p>
+                    <p class="fs-14 d-block">{{ 'SHARED.COMING_SOON' | translate }}</p>
                   </ion-text>
                 </div>
               </ion-card-footer>
@@ -541,9 +541,11 @@ mode="md">
 
             <ion-col size="12">
               <ion-text mode="ios" class="color-gray-text txt-center line-height-20">
-                <p class="fs-10 txt-uppercase color-gray-6">lista de</p>
+                <!-- LISTA DE -->
+                <p class="fs-10 txt-uppercase color-gray-6" *ngIf="currentLanguage.value === 'pt' || currentLanguage.value === 'es'">{{ 'SHARED.LIST_OF' | translate }}</p>
                 <h2 class="mg-bottom-8 font-w-bold fs-32 font-baloo" *ngIf="selectedInfo?.list.length < 2">{{ selectedInfo?.text[currentLanguage.value] }}</h2>
                 <h2 class="mg-bottom-8 font-w-bold fs-32 font-baloo" *ngIf="selectedInfo?.list.length > 2">{{ selectedInfo?.plural[currentLanguage.value] }}</h2>
+                <p class="fs-10 txt-uppercase color-gray-6" *ngIf="currentLanguage.value === 'en'">{{ 'SHARED.LIST_OF' | translate }}</p>
               </ion-text>
             </ion-col>
 

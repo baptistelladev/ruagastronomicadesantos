@@ -50,7 +50,8 @@
     "SPECIALTY" : "Cooking",
     "NUMBER" : "Number",
     "NO_OPEN" : "Doesn't open",
-    "COMING_SOON" : "Próximamente"
+    "COMING_SOON" : "Coming soon",
+    "LIST_OF" : "list"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Our purpose here is to help you save your most precious asset: ","time"],
