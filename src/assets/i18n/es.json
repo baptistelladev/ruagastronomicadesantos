@@ -52,7 +52,8 @@
     "NUMBER" : "Número",
     "NO_OPEN" : "Doesn't open",
     "COMING_SOON" : "Próximamente",
-    "LIST_OF" : "Lista de"
+    "LIST_OF" : "Lista de",
+    "CLOSE_MODAL" : "Cerrar modal"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Nuestro propósito aquí es ayudarte a ahorrar tu bien más precioso:","el tiempo"],

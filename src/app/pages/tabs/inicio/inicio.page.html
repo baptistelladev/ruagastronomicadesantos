@@ -535,7 +535,7 @@ mode="md">
               class="back ion-color-gray-text back-btn no-ion-padding font-baloo txt-lowercase"
               [title]="'Fechar'"
               fill="clear">
-                <span class="font-w-thin mg-right-5">Fechar modal</span> <ion-icon name="close-outline"></ion-icon>
+                <span class="font-w-thin mg-right-5">{{ 'SHARED.CLOSE_MODAL' | translate }}</span> <ion-icon name="close-outline"></ion-icon>
               </ion-button>
             </ion-col>
 
@@ -545,7 +545,7 @@ mode="md">
                 <p class="fs-10 txt-uppercase color-gray-6" *ngIf="currentLanguage.value === 'pt' || currentLanguage.value === 'es'">{{ 'SHARED.LIST_OF' | translate }}</p>
                 <h2 class="mg-bottom-8 font-w-bold fs-32 font-baloo" *ngIf="selectedInfo?.list.length < 2">{{ selectedInfo?.text[currentLanguage.value] }}</h2>
                 <h2 class="mg-bottom-8 font-w-bold fs-32 font-baloo" *ngIf="selectedInfo?.list.length > 2">{{ selectedInfo?.plural[currentLanguage.value] }}</h2>
-                <p class="fs-10 txt-uppercase color-gray-6" *ngIf="currentLanguage.value === 'en'">{{ 'SHARED.LIST_OF' | translate }}</p>
+                <p class="fs-10 txt-uppercase color-gray-6 negative-mg" *ngIf="currentLanguage.value === 'en'">{{ 'SHARED.LIST_OF' | translate }}</p>
               </ion-text>
             </ion-col>
 
