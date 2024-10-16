@@ -49,7 +49,8 @@
     "NO_RESULT_PARKINGS" : "No parking for now",
     "SPECIALTY" : "Cooking",
     "NUMBER" : "Number",
-    "NO_OPEN" : "Doesn't open"
+    "NO_OPEN" : "Doesn't open",
+    "COMING_SOON" : "Próximamente"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Our purpose here is to help you save your most precious asset: ","time"],
@@ -60,7 +61,11 @@
       "GIVE_YOUR_FEEDBACK": ["Give your", "feedback"],
       "GIVE_YOUR_FEEDBACK_TEXT": "We would like to know if the website has been helpful to you in any way. If not, what did you not find here, and what can we improve?",
       "SEND_FEEDBACK": "send my feedback"
-    }
+    },
+    "SAVING_TIME_TITLE": ["Already", "getting ahead"],
+    "SAVING_TIME_TEXT": "Today our street has",
+    "PARKING_TITLE": ["For those coming", "by car"],
+    "PARKING_TEXT": "There are parking lots on the street and nearby, see below"
   },
   "COMPONENTS" : {
     "MADE_W_LOVE" : ["made with","in"],

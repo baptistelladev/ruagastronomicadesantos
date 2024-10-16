@@ -49,7 +49,8 @@
     "NO_RESULT_PARKINGS" : "Nenhum estacionamento por enquanto",
     "SPECIALTY" : "Culinária",
     "NUMBER" : "Número",
-    "NO_OPEN" : "Não abre"
+    "NO_OPEN" : "Não abre",
+    "COMING_SOON" : "Em breve"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Nosso próposito aqui é fazer com que voê economize o seu bem mais precioso:","o tempo"],
@@ -60,7 +61,11 @@
       "GIVE_YOUR_FEEDBACK" : ["Dê o seu","feedback"],
       "GIVE_YOUR_FEEDBACK_TEXT" : "Gostaríamos de saber se o site é ou foi útil de alguma forma para você, caso contrário, o que foi que você não encontrou por aqui, o que podemos melhorar?",
       "SEND_FEEDBACK" : "enviar meu feedback"
-    }
+    },
+    "SAVING_TIME_TITLE" : ["Já","te adiantando"],
+    "SAVING_TIME_TEXT" : "Hoje nossa rua conta com",
+    "PARKING_TITLE" : ["Para quem vem","de carro"],
+    "PARKING_TEXT" : "Existem estacionamentos na rua e próximos a rua, confira"
   },
   "COMPONENTS" : {
     "MADE_W_LOVE" : ["feito com","em"],
