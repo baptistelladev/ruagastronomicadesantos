@@ -52,7 +52,8 @@
     "NO_OPEN" : "Doesn't open",
     "COMING_SOON" : "Coming soon",
     "LIST_OF" : "list",
-    "CLOSE_MODAL" : "Close modal"
+    "CLOSE_MODAL" : "Close modal",
+    "CONTACT" : "Contact"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Our purpose here is to help you save your most precious asset: ","time"],
