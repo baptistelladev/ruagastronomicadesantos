@@ -1,3 +1,4 @@
+
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { AlertController, IonContent, IonSelect, NavController, PopoverController } from '@ionic/angular';
@@ -16,7 +17,6 @@ import { AnalyticsService } from 'src/app/core/services/firebase/analytics.servi
 import { AnalyticsEventnameEnum } from 'src/app/shared/enums/Analytics';
 import { IShortParking } from 'src/app/shared/models/IParking';
 import { ParkingsService } from 'src/app/core/services/firebase/parkings.service';
-import { EstablishmentTypeEnum } from 'src/app/shared/enums/EstablishmentType';
 
 @Component({
   selector: 'rgs-inicio',
