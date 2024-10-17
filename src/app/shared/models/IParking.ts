@@ -5,7 +5,8 @@ export interface IShortParking {
     zip_code: string,
     number: string,
     neighborhood: string,
-    street: string
+    street: string,
+    type: any
   },
   phone: {
     ddd: string,

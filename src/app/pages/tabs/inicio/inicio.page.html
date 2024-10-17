@@ -349,7 +349,7 @@ mode="ios">
 
         <ng-container *ngIf="short_establishments && short_establishments.length > 0">
           <ion-col size="6">
-            <div class="controls-wrapper">
+            <div class="controls-wrapper" *ngIf="definitiveView === 'AS_SLIDE'">
               <ion-button
               [disabled]="hideLeftControl"
               (click)="slideToPrev()"
@@ -461,19 +461,19 @@ mode="ios">
             [button]="parking.phone.ddd && parking.phone.number">
               <ion-text mode="ios" class="line-height-20">
                 <p class="color-gray-6 fs-14 txt-uppercase">{{ parking.name }}</p>
-                <p class="color-gray-6 fs-12 adress"><ion-icon name="location-outline"></ion-icon>{{ parking.adress.street }}, {{ parking.adress.number }}.</p>
+                <p class="color-gray-6 fs-12 adress"><ion-icon name="location-outline"></ion-icon><ng-container *ngIf="currentLanguage.value !== 'en'">{{ parking.adress.type[currentLanguage.value] }}</ng-container> {{ parking.adress.street }} <ng-container *ngIf="currentLanguage.value === 'en'">{{ parking.adress.type[currentLanguage.value] }}</ng-container>, {{ parking.adress.number }}.</p>
               </ion-text>
 
               <ion-text  *ngIf="parking.phone.ddd && parking.phone.number" mode="ios" class="txt-right"  slot="end">
                 <ion-chip mode="ios" class="main-solid-green txt-uppercase fs-10 small">
-                  <ion-icon name="call" class="color-white"></ion-icon> Contato
+                  <ion-icon name="call" class="color-white"></ion-icon> {{ 'SHARED.CONTACT' | translate }}
                 </ion-chip>
               </ion-text>
             </ion-item>
           </ion-list>
 
           <ion-text mode="ios" *ngIf="short_parkings && short_parkings.length === 0">
-            <p class="fs-14 color-gray-text font-w-thin">
+            <p class="fs-14 color-gray-text font-w-thin mg-top-16">
               {{ 'SHARED.NO_RESULT_PARKINGS' | translate }}.
             </p>
           </ion-text>
@@ -578,17 +578,6 @@ mode="md">
       <section class="specific-list-section">
         <ion-grid [fixed]="true">
           <ion-row>
-            <ion-col size="12" class="txt-right">
-              <ion-button
-              mode="ios"
-              (click)="closeModal()"
-              class="back ion-color-gray-text back-btn no-ion-padding font-baloo txt-lowercase"
-              [title]="'Fechar'"
-              fill="clear">
-                <span class="font-w-thin mg-right-5">{{ 'SHARED.CLOSE_MODAL' | translate }}</span> <ion-icon name="close-outline"></ion-icon>
-              </ion-button>
-            </ion-col>
-
             <ion-col size="12">
               <ion-text mode="ios" class="color-gray-text txt-center line-height-20">
                 <!-- LISTA DE -->
@@ -635,5 +624,25 @@ mode="md">
         </ion-grid>
       </section>
     </ion-content>
+
+    <ion-footer mode="ios" class="ion-no-border">
+      <ion-toolbar mode="ios" class="ion-bg-gray-ed">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="12">
+              <ion-button
+              mode="md"
+              shape="round"
+              (click)="closeModal()"
+              class="rgs-main-solid fs-14 txt-lowercase full-width close-modal-btn"
+              [title]="'Fechar'"
+              fill="solid">
+                <span class="mg-right-5">{{ 'SHARED.CLOSE_MODAL' | translate }}</span>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-toolbar>
+    </ion-footer>
   </ng-template>
 </ion-modal>

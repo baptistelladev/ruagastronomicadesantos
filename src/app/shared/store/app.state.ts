@@ -20,6 +20,11 @@ export const appInitialState: IAppState = {
       name: '',
       value: '',
       adress: {
+        type: {
+          pt: '',
+          en: '',
+          es: ''
+        },
         street: '',
         number: '',
         neighborhood: '',
@@ -48,7 +53,12 @@ export const appInitialState: IAppState = {
       number: '',
       zip_code: '',
       street: '',
-      neighborhood: ''
+      neighborhood: '',
+      type: {
+        pt: '',
+        en: '',
+        es: ''
+      }
     },
     specialty: [
       {

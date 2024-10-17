@@ -45,9 +45,7 @@
             <div class="go-with-waze">
               <ion-text mode="ios" class="txt-center">
                 <p class="color-gray-text fs-14">
-                  <ng-container *ngIf="currentLanguage?.value === 'pt'">R. {{ establishment.adress.street }}</ng-container>
-                  <ng-container *ngIf="currentLanguage?.value === 'en'">{{ establishment.adress.street }} St.</ng-container>
-                  <ng-container *ngIf="currentLanguage?.value === 'es'">C. {{ establishment.adress.street }}</ng-container>, n&ordm; {{ establishment.adress.number }}
+                  <ng-container *ngIf="currentLanguage.value !== 'en'">{{ establishment.adress.type[currentLanguage.value] }}</ng-container> {{ establishment.adress.street }}<ng-container *ngIf="currentLanguage.value === 'en'"> {{ establishment.adress.type[currentLanguage.value] }}</ng-container>, {{ establishment.adress.number }}
                 </p>
                 <p class="color-gray-text fs-14">{{ establishment.adress.zip_code }} - {{ establishment.adress.neighborhood }}</p>
               </ion-text>

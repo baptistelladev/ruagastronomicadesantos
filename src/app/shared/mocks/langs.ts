@@ -5,7 +5,7 @@ export const LANGS: ILang[] = [
     text: {
       pt: 'Português',
       en: 'Portuguese',
-      es: 'Portuguesito'
+      es: 'Portugués'
     },
     value: 'pt'
   },
@@ -13,7 +13,7 @@ export const LANGS: ILang[] = [
     text: {
       pt: 'Inglês',
       en: 'English',
-      es: 'Englixito'
+      es: 'Inglés'
     },
     value: 'en'
   },
@@ -21,7 +21,7 @@ export const LANGS: ILang[] = [
     text: {
       pt: 'Espanhol',
       en: 'Spanish',
-      es: 'Spaniol'
+      es: 'Español'
     },
     value: 'es'
   }
