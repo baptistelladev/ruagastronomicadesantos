@@ -25,6 +25,10 @@ import { ParkingsService } from 'src/app/core/services/firebase/parkings.service
 })
 export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
 
+  public establishmentActiveIndex: number | undefined = 1;
+  public hideRightControl: boolean = false;
+  public hideLeftControl: boolean = false;
+
   public selectedInfo: any;
 
   public lenghts_to_save_time: {
@@ -521,6 +525,37 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
 
   public slideSwiperToStart(): void {
     this.swiper?.slideTo(0, 800);
+  }
+
+  public swiperReachedEnd() {
+    this.hideRightControl = true;
+  }
+
+  public swiperReachedBeginning() {
+    this.hideLeftControl = true;
+  }
+
+  public listenForSlideIndex(): void {
+    if (this.swiper) {
+      this.establishmentActiveIndex = this.swiper?.realIndex + 1;
+    }
+  }
+
+  public slideToNext(): void {
+    this.swiper?.slideNext(800);
+
+    if (this.hideLeftControl) {
+      this.hideLeftControl = false;
+    }
+
+  }
+
+  public slideToPrev(): void {
+    this.swiper?.slidePrev(800);
+
+    if (this.hideRightControl) {
+      this.hideRightControl = false;
+    }
   }
 
   public imageHasLoaded() {

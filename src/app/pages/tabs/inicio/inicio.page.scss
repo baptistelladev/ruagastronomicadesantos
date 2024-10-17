@@ -329,7 +329,7 @@ ion-card {
 
         h2 {
           &.name {
-            max-width: 78px;
+            max-width: 95px;
           }
         }
       }
@@ -636,4 +636,9 @@ ion-item {
 
 .negative-mg {
   margin-top: -10px;
+}
+
+.controls-wrapper {
+  @include flexbox(center, flex-start, row);
+  width: 100%;
 }

@@ -181,6 +181,9 @@ mode="ios">
     <!-- SLIDE -->
     <div class="inicio-swiper-wrapper" *ngIf="definitiveView === 'AS_SLIDE'">
       <swiper-container
+      (swiperreachbeginning)="swiperReachedBeginning()"
+      (swiperreachend)="swiperReachedEnd()"
+      (swiperslidechange)="listenForSlideIndex()"
       class="full-width swiper-w-relative-pagination"
       [init]="true"
       #establishmentsSwiper
@@ -193,26 +196,32 @@ mode="ios">
       space-between="16"
       [breakpoints]="{
        '200' : {
-          slidesPerView: 1.7
+          slidesPerView: 1.7,
+          centeredSlides: true
         },
         '363' : {
-          slidesPerView: 1.9
+          slidesPerView: 1.9,
+          centeredSlides: true
         },
         '445' : {
-          slidesPerView: 2.4
+          slidesPerView: 2.4,
+          centeredSlides: true
         },
         '667' : {
-          slidesPerView: 3.4
+          slidesPerView: 3.4,
+          centeredSlides: true
         },
         '792' : {
-          slidesPerView: 3.8
+          slidesPerView: 3.8,
+          centeredSlides: true
         },
         '991' : {
           slidesPerView: 4.5,
-          centeredSlides: false
+          centeredSlides: true
         },
         '1200' : {
-          slidesPerView: 5.2
+          slidesPerView: 5.2,
+          centeredSlides: false
         },
         '1300' : {
           slidesPerView: 6.7
@@ -338,13 +347,39 @@ mode="ios">
           </ion-text>
         </ion-col>
 
-        <ion-col size="12" *ngIf="short_establishments && short_establishments.length > 0">
-          <ion-text
-          class="color-gray-text fs-13 line-height-20 txt-lowercase txt-right"
-          mode="ios">
-            <p><span class="font-w-bold fs-18">{{ short_establishments.length }}</span> {{ 'SHARED.ESTABLISHMENTS' | translate }}<ng-container *ngIf="short_establishments.length > 1">s</ng-container></p>
-          </ion-text>
-        </ion-col>
+        <ng-container *ngIf="short_establishments && short_establishments.length > 0">
+          <ion-col size="6">
+            <div class="controls-wrapper">
+              <ion-button
+              [disabled]="hideLeftControl"
+              (click)="slideToPrev()"
+              mode="md"
+              class="rgs-main-solid fs-14 mg-right-8"
+              shape="round"
+              title="">
+                <ion-icon name="arrow-back-outline"></ion-icon>
+              </ion-button>
+
+              <ion-button
+              [disabled]="hideRightControl"
+              (click)="slideToNext()"
+              mode="md"
+              class="rgs-main-solid fs-14"
+              shape="round"
+              title="">
+                <ion-icon name="arrow-forward-outline"></ion-icon>
+              </ion-button>
+            </div>
+          </ion-col>
+
+          <ion-col size="6">
+            <ion-text
+            class="color-gray-text fs-13 line-height-20 txt-lowercase txt-right"
+            mode="ios">
+              <p><span class="fs-16 font-w-bold">{{ short_establishments.length }}</span> {{ 'SHARED.ESTABLISHMENTS' | translate }}<ng-container *ngIf="short_establishments.length > 1">s</ng-container></p>
+            </ion-text>
+          </ion-col>
+        </ng-container>
 
         <ion-col size="12">
           <hr class="rgs-divider">
