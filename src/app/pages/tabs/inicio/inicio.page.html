@@ -368,7 +368,7 @@ mode="ios">
             class="txt-left color-gray-text full-width icon-title-text without-icon d-block mg-bottom-8 has-icon"
             mode="ios">
               <h2 class="font-baloo fs-20">
-                <ion-icon name="apps-outline"></ion-icon>
+                <ion-icon name="hourglass-outline"></ion-icon>
                 {{ 'INICIO_PAGE.SAVING_TIME_TITLE.0' | translate }} <span class="font-w-bold mg-left-5">{{ 'INICIO_PAGE.SAVING_TIME_TITLE.1' | translate }}</span>
               </h2>
 
@@ -381,8 +381,9 @@ mode="ios">
           <ion-grid class="no-pad-sides no-pad-top no-pad-bottom">
             <ion-row>
               <ion-col
-              *ngFor="let info of lenghts_to_save_time"
-              size="4">
+              *ngFor="let info of lenghts_to_save_time; let i = index"
+              size="6"
+              size-sm="4">
                 <ion-item
                 [disabled]="info.list.length === 0"
                 (click)="seeSpecficList(true, info)"
@@ -391,7 +392,7 @@ mode="ios">
                 lines="none"
                 class="dashboard-item">
                   <ion-text mode="ios">
-                    <p class="color-green font-baloo length"><b>{{ info.length }}</b></p>
+                    <p class="color-green font-baloo length">{{ info.list.length }}</p>
                     <p class="color-gray-text type fs-10 txt-uppercase" *ngIf="info.list.length < 2">
                       {{ info.text[currentLanguage.value] }}
                     </p>
@@ -405,7 +406,7 @@ mode="ios">
           </ion-grid>
         </ion-col>
 
-        <ion-col size="12" class="ion-hide-md-up">
+        <ion-col size="12" class="ion-hide-lg-up">
           <hr class="rgs-divider">
         </ion-col>
 
@@ -415,7 +416,7 @@ mode="ios">
             class="txt-left color-gray-text full-width icon-title-text without-icon d-block mg-bottom-8 has-icon"
             mode="ios">
               <h2 class="font-baloo fs-20">
-                <ion-icon name="car-sport-outline"></ion-icon>
+                <ion-icon name="trail-sign-outline"></ion-icon>
                 {{ 'INICIO_PAGE.PARKING_TITLE.0' | translate }} <span class="font-w-bold mg-left-5">{{ 'INICIO_PAGE.PARKING_TITLE.1' | translate }}</span>
               </h2>
 

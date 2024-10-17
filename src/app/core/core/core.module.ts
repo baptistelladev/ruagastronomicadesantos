@@ -60,7 +60,7 @@ export function createTranslateLoader(http: HttpClient) {
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: !isDevMode()
-    }),
+    })
   ],
   exports: [
     IonicModule,
