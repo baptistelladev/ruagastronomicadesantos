@@ -593,7 +593,7 @@ ion-list {
 }
 
 .specific-list-section {
-  padding: 16px 16px 20px 16px;
+  padding: 16px 16px 0 16px;
 }
 
 ion-skeleton-text {
@@ -641,4 +641,9 @@ ion-item {
 .controls-wrapper {
   @include flexbox(center, flex-start, row);
   width: 100%;
+}
+
+.close-modal-btn {
+  height: 48px;
+  margin: 0 0 16px 0;
 }
