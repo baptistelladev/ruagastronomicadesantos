@@ -8,6 +8,7 @@ import { CopyrightComponent } from './copyright/copyright.component';
 import { LanguageButtonComponent } from './language-button/language-button.component';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
+import { AdsenseComponent } from './adsense/adsense.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { TranslateModule } from '@ngx-translate/core';
     MadeWLoveComponent,
     SocialNetworksComponent,
     CopyrightComponent,
-    LanguageButtonComponent
+    LanguageButtonComponent,
+    AdsenseComponent
   ],
   imports: [
     CommonModule,
@@ -28,7 +30,8 @@ import { TranslateModule } from '@ngx-translate/core';
     MadeWLoveComponent,
     SocialNetworksComponent,
     CopyrightComponent,
-    LanguageButtonComponent
+    LanguageButtonComponent,
+    AdsenseComponent
   ]
 })
 export class ComponentsModule { }
