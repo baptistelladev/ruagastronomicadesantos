@@ -291,11 +291,11 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
 
   public short_establishments: IShortEstablishment[];
   public establishments$: Observable<IShortEstablishment[]>;
-  public establishmentsDescription: Subscription;
+  public establishmentsSubscription: Subscription;
 
   public short_parkings: IShortParking[];
   public parkings$: Observable<IShortParking[]>;
-  public parkingsDescription: Subscription;
+  public parkingsSubscription: Subscription;
 
   public translatedPage: any;
   public translatedPage$: Observable<any>;
@@ -382,7 +382,7 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
   public getEstablishments() {
     this.establishments$ = this.establishmentsService.getCollection(CollectionsEnum.SHORT_ESTABLISHMENTS);
 
-    this.establishmentsDescription = this.establishments$
+    this.establishmentsSubscription = this.establishments$
     .pipe(
       map((establishments: IShortEstablishment[]) => {
 
@@ -414,7 +414,7 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
   public getParkings() {
     this.parkings$ = this.parkingsService.getCollection(CollectionsEnum.SHORT_PARKINGS);
 
-    this.parkingsDescription = this.parkings$
+    this.parkingsSubscription = this.parkings$
     .subscribe((parkings: IShortParking[]) => {
       this.short_parkings = parkings;
     })
@@ -535,12 +535,6 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
     this.hideLeftControl = true;
   }
 
-  public listenForSlideIndex(): void {
-    if (this.swiper) {
-      this.establishmentActiveIndex = this.swiper?.realIndex + 1;
-    }
-  }
-
   public slideToNext(): void {
     this.swiper?.slideNext(800);
 
@@ -639,8 +633,8 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
 
   public ngOnDestroy(): void {
     this.currentLanguageSubscription.unsubscribe();
-    this.establishmentsDescription.unsubscribe();
-    this.parkingsDescription.unsubscribe();
+    this.establishmentsSubscription.unsubscribe();
+    this.parkingsSubscription.unsubscribe();
   }
 
 }
