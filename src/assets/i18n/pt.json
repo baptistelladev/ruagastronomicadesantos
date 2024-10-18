@@ -68,7 +68,11 @@
     "SAVING_TIME_TITLE" : ["Já","te adiantando"],
     "SAVING_TIME_TEXT" : "Hoje nossa rua conta com",
     "PARKING_TITLE" : ["Para quem vem","de carro"],
-    "PARKING_TEXT" : "Existem estacionamentos na rua e próximos a rua, confira"
+    "PARKING_TEXT" : "Existem estacionamentos na rua e próximos a rua, confira",
+    "VERIFIED" : {
+      "TITLE" : "O que é isso?",
+      "TEXT" : ["O selo anfitrion significa que os dados do estabelecimento são confiáveis, informados pelo próprio local","e que apoia este projeto financeiramente",". Fazendo com que moradores e turistas economizem tempo."]
+    }
   },
   "COMPONENTS" : {
     "MADE_W_LOVE" : ["feito com","em"],
@@ -154,7 +158,11 @@
       "TEXT" : "Além das formas tradicionais de pagamento, aceitam",
       "VA" : "vale alimentação"
     },
-    "MARKET_TICKETS_DONT" : "Não aceita vale alimentação como pagamento"
+    "MARKET_TICKETS_DONT" : "Não aceita vale alimentação como pagamento",
+    "IS_VERIFIED" : {
+      "TITLE" : "Verificado",
+      "TEXT" : "apoia este projeto financeiramente para que você economize seu bem mais precioso, seu tempo."
+    }
   },
   "PETFRIENDLY" : {
     "BRING" : "Pode trazer",

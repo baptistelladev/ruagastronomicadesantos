@@ -68,7 +68,11 @@
     "SAVING_TIME_TITLE": ["Already", "getting ahead"],
     "SAVING_TIME_TEXT": "Today our street has",
     "PARKING_TITLE": ["For those coming", "by car"],
-    "PARKING_TEXT": "There are parking lots on the street and nearby, see below"
+    "PARKING_TEXT": "There are parking lots on the street and nearby, see below",
+    "VERIFIED": {
+      "TITLE": "What is this?",
+      "TEXT": ["The host seal means that the establishment's data is reliable, provided by the location itself", "and that it financially supports this project.", "Making it easier for residents and tourists to save time."]
+    }
   },
   "COMPONENTS" : {
     "MADE_W_LOVE" : ["made with","in"],
@@ -154,7 +158,11 @@
       "TEXT": "In addition to traditional payment methods, they accept",
       "VA": "food vouchers"
     },
-    "MARKET_TICKETS_DONT": "Does not accept food vouchers as a form of payment"
+    "MARKET_TICKETS_DONT": "Does not accept food vouchers as a form of payment",
+    "IS_VERIFIED": {
+      "TITLE": "Verified",
+      "TEXT": "supports this project financially so you can save your most precious asset, your time."
+    }
   },
   "PETFRIENDLY": {
     "BRING": "You can bring",
