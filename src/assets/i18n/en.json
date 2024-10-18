@@ -53,7 +53,8 @@
     "COMING_SOON" : "Coming soon",
     "LIST_OF" : "list",
     "CLOSE_MODAL" : "Close modal",
-    "CONTACT" : "Contact"
+    "CONTACT" : "Contact",
+    "IS_NOT_PREMIUM": "does not have the host badge, and therefore we cannot unlock this feature."
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Our purpose here is to help you save your most precious asset: ","time"],
@@ -71,7 +72,7 @@
     "PARKING_TEXT": "There are parking lots on the street and nearby, see below",
     "VERIFIED": {
       "TITLE": "What is this?",
-      "TEXT": ["The host seal means that the establishment's data is reliable, provided by the location itself", "and that it financially supports this project.", "Making it easier for residents and tourists to save time."]
+      "TEXT" : ["The host seal means that the establishment's data was provided by the location itself","and that the establishment financially collaborates","with this project, so you don't waste time searching on social media or asking on the street"]
     }
   },
   "COMPONENTS" : {
@@ -161,7 +162,7 @@
     "MARKET_TICKETS_DONT": "Does not accept food vouchers as a form of payment",
     "IS_VERIFIED": {
       "TITLE": "Verified",
-      "TEXT": "supports this project financially so you can save your most precious asset, your time."
+      "TEXT" : "is a great host because, in addition to keeping the data updated, it also collaborates financially with this project so you can save time."
     }
   },
   "PETFRIENDLY": {
