@@ -46,6 +46,7 @@ export const appInitialState: IAppState = {
   },
   currentEstablishment: {
     isBuilding: false,
+    isPremium: false,
     id: '',
     name: '',
     value: '',
