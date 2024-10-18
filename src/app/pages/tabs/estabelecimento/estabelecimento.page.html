@@ -4,8 +4,9 @@
     <div class="menu">
       <ion-grid [fixed]="true">
         <ion-row>
-          <ion-col size="12">
+          <ion-col [size]="establishment && establishment.isPremium ? '9' : '12'">
             <ion-button
+            *ngIf="showBackButton"
             mode="ios"
             (click)="back()"
             class="back ion-color-gray-text back-btn no-ion-padding font-baloo"
@@ -13,6 +14,10 @@
             fill="clear">
               <ion-icon name="chevron-back-outline"></ion-icon> <span class="font-w-thin mg-left-5">{{ 'ESTABLISHMENT_PAGE.HEADER_TITLE.0' | translate }} <b>{{ 'ESTABLISHMENT_PAGE.HEADER_TITLE.1' | translate }}</b></span>
             </ion-button>
+          </ion-col>
+
+          <ion-col size="3" class="txt-right" *ngIf="establishment?.isPremium">
+            <ion-icon src="./../../../../assets/icon/verified-check.svg" class="verified"></ion-icon>
           </ion-col>
         </ion-row>
       </ion-grid>
