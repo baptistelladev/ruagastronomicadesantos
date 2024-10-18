@@ -308,14 +308,22 @@ ion-button {
 
 ion-item {
   &.simulate-bootstrap-alert {
-    border-radius: 16px;
+    border-radius: 12px;
     --min-height: 0;
     --padding-top: 16px;
     --padding-end: 16px;
     --padding-start: 16px;
     --padding-bottom: 16px;
-    --background: #fff3cd;
-    border: 1px solid #ffeeba;
+
+    &.warning {
+      --background: var(--bootstrap-warning-light-bg);
+      border: 1px solid var(--bootstrap-warning-border);
+    }
+
+    &.success {
+      --background: var(--bootstrap-success-light-bg);
+      border: 1px solid var(--bootstrap-success-border);
+    }
 
     ion-icon {
       font-size: 32px;
