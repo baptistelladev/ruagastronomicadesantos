@@ -53,7 +53,8 @@
     "COMING_SOON" : "Em breve",
     "LIST_OF" : "Lista de",
     "CLOSE_MODAL" : "Fechar modal",
-    "CONTACT" : "Contato"
+    "CONTACT" : "Contato",
+    "IS_NOT_PREMIUM" : "não possui o selo anfitrion e por isso não podemos liberar esta funcionalidade"
   },
   "INICIO_PAGE" : {
     "PARAGRAPH_ONE" : ["Nosso próposito aqui é fazer com que voê economize o seu bem mais precioso:","o tempo"],
@@ -71,7 +72,7 @@
     "PARKING_TEXT" : "Existem estacionamentos na rua e próximos a rua, confira",
     "VERIFIED" : {
       "TITLE" : "O que é isso?",
-      "TEXT" : ["O selo anfitrion significa que os dados do estabelecimento são confiáveis, informados pelo próprio local","e que apoia este projeto financeiramente",". Fazendo com que moradores e turistas economizem tempo."]
+      "TEXT" : ["O selo anfitrion significa que os dados do estabelecimento foram passados pelo próprio local","e que o estabelecimento colabora financeiramente"," com este projeto, para que não perca tempo procurando em rede social"]
     }
   },
   "COMPONENTS" : {
@@ -161,7 +162,7 @@
     "MARKET_TICKETS_DONT" : "Não aceita vale alimentação como pagamento",
     "IS_VERIFIED" : {
       "TITLE" : "Verificado",
-      "TEXT" : "apoia este projeto financeiramente para que você economize seu bem mais precioso, seu tempo."
+      "TEXT" : "é um ótimo anfitrião pois além de manter os dados atualizados também colabora com este projeto financeiramente para que você economize tempo."
     }
   },
   "PETFRIENDLY" : {

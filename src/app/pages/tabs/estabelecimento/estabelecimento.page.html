@@ -67,11 +67,12 @@
           </ion-col>
 
           <ion-col size="12">
-            <div class="buttons-wrapper">
+            <div class="buttons-wrapper" (click)="itIsntPremium()">
               <ion-grid>
                 <ion-row>
                   <ion-col size="12" class="txt-center">
                     <ion-button
+                    [disabled]="!establishment.isPremium"
                     (click)="redirectToWhatsapp()"
                     mode="md"
                     shape="round"
@@ -97,6 +98,7 @@
 
                   <ion-col size="12" class="txt-center">
                     <ion-button
+                    [disabled]="!establishment.isPremium"
                     (click)="redirectToInstagram()"
                     mode="md"
                     shape="round"

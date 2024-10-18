@@ -273,6 +273,31 @@ export class EstabelecimentoPage implements OnInit, OnDestroy {
     return alert;
   }
 
+  public async itIsntPremium(): Promise<HTMLIonAlertElement | undefined> {
+    if (!this.establishment.isPremium) {
+      const alert = await this.alertCtrl.create({
+        cssClass: 'rgs-alert',
+        mode: 'ios',
+        message: `<b>${this.establishment.name}</b> ${this.translate.instant('SHARED.IS_NOT_PREMIUM')}`,
+        buttons: [
+          {
+            text: `${this.translate.instant('SHARED.UNDERSTOOD')}`,
+            role: '',
+            handler: () => {
+
+            }
+          },
+        ]
+      })
+
+      await alert.present();
+
+      return alert;
+    } else {
+      return undefined
+    }
+  }
+
   ngOnDestroy(): void {
     this.establishmentSubscription.unsubscribe();
   }
