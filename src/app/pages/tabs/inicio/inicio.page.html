@@ -181,12 +181,12 @@ mode="ios">
     <!-- SLIDE -->
     <div class="inicio-swiper-wrapper" *ngIf="definitiveView === 'AS_SLIDE'">
       <swiper-container
+      [init]="true"
       (swiperreachbeginning)="swiperReachedBeginning()"
       (swiperreachend)="swiperReachedEnd()"
       class="full-width swiper-w-relative-pagination"
-      [init]="true"
       #establishmentsSwiper
-      [freeMode]="false"
+      [freeMode]="true"
       [autoHeight]="false"
       slides-offset-before="16"
       slides-offset-after="16"
@@ -220,8 +220,7 @@ mode="ios">
         },
         '1600' : {
           slidesPerView: 8
-        }
-        ,
+        },
         '2000' : {
           slidesPerView: 10.3
         }
@@ -235,6 +234,8 @@ mode="ios">
             mode="ios"
             class="establishment-card-vertical"
             lines="none">
+              <ion-icon src="./../../../../assets/icon/verified-check.svg" class="verified" *ngIf="establishment.isPremium"></ion-icon>
+
               <ion-card-content class="txt-center" mode="ios">
                 <div class="logo-wrapper mg-bottom-12">
                   <div class="logo-container"
@@ -299,10 +300,13 @@ mode="ios">
             <ion-item
             [ngClass]="{ 'coming-soon': establishment.isBuilding }"
             (click)="seeEstablishment(establishment, $event)"
-            button="true"
+            [button]="true"
+            [detailIcon]="''"
             class="establishment-horizontal-item"
             lines="none"
             mode="ios">
+              <ion-icon src="./../../../../assets/icon/verified-check.svg" class="verified" *ngIf="establishment.isPremium"></ion-icon>
+
               <div class="logo-wrapper">
                 <div class="logo-container"
                   [ngClass]="{'has-image': !isLoadingLogo, 'logo-needs-gray-2' : establishment.value === 'galeteria-santista'}">
@@ -401,13 +405,14 @@ mode="ios">
               size-sm="4">
                 <ion-item
                 [disabled]="info.list.length === 0"
+                [detailIcon]="info.list.length ? 'chevron-forward-outline' : 'lock-closed-outline'"
                 (click)="seeSpecficList(true, info)"
                 [button]="true"
                 size="12"
                 lines="none"
                 class="dashboard-item">
                   <ion-text mode="ios">
-                    <p class="color-green font-baloo length">{{ info.list.length }}</p>
+                    <p class="font-baloo length" [ngClass]="[ info.list.length ? 'color-green' : 'color-gray-6']">{{ info.list.length }}</p>
                     <p class="color-gray-text type fs-10 txt-uppercase" *ngIf="info.list.length < 2">
                       {{ info.text[currentLanguage.value] }}
                     </p>
@@ -586,10 +591,13 @@ mode="md">
               <ion-item
               [ngClass]="{ 'coming-soon': establishment.isBuilding }"
               (click)="seeEstablishmentFromModal(establishment, $event)"
-              button="true"
+              [button]="true"
+              [detailIcon]="''"
               class="establishment-horizontal-item"
               lines="none"
               mode="ios">
+                <ion-icon src="./../../../../assets/icon/verified-check.svg" class="verified" *ngIf="establishment.isPremium"></ion-icon>
+
                 <div class="logo-wrapper">
                   <div class="logo-container"
                     [ngClass]="{'has-image': !isLoadingLogo, 'logo-needs-gray-2' : establishment.value === 'galeteria-santista'}">

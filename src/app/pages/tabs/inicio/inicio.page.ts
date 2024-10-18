@@ -538,6 +538,9 @@ export class InicioPage implements OnInit, OnDestroy, AfterViewInit {
   public slideToNext(): void {
     this.swiper?.slideNext(800);
 
+    console.log('swiper');
+
+
     if (this.hideLeftControl) {
       this.hideLeftControl = false;
     }
