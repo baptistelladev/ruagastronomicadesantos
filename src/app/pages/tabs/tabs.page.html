@@ -5,6 +5,7 @@ mode="ios">
   <ion-tab-bar
   slot="bottom"
   [ngClass]="{ 'dark-tab' : applyDarkTabBar, 'light-tab' : !applyDarkTabBar }">
+
     <ion-tab-button
     *ngFor="let tab of tabs"
     [tab]="tab.page">

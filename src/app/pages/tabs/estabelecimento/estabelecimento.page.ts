@@ -1,5 +1,5 @@
 import { ESTABLISHMENT_TYPES } from './../../../shared/mocks/establishmentTypes';
-import { AfterContentInit, Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { AfterContentInit, Component, ElementRef, OnDestroy, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { AlertController, IonContent, NavController } from '@ionic/angular';
 import { Clipboard } from '@angular/cdk/clipboard';
 import * as moment from 'moment';
@@ -29,7 +29,7 @@ import { AnalyticsEventnameEnum } from 'src/app/shared/enums/Analytics';
   templateUrl: './estabelecimento.page.html',
   styleUrls: ['./estabelecimento.page.scss'],
 })
-export class EstabelecimentoPage implements OnInit {
+export class EstabelecimentoPage implements OnInit, OnDestroy {
 
   @ViewChild('establishmentContent') establishmentContent: IonContent;
 
@@ -41,7 +41,7 @@ export class EstabelecimentoPage implements OnInit {
 
   public establishment: IShortEstablishment;
   public establishment$: Observable<IShortEstablishment>;
-  public establishmentDescription: Subscription;
+  public establishmentSubscription: Subscription;
 
   public currentLanguage: ILang;
   public currentLanguage$: Observable<ILang>;
@@ -95,7 +95,7 @@ export class EstabelecimentoPage implements OnInit {
   public getCurrentEstablishment(): void {
     this.establishment$ = this.store.select(AppStore.selectCurrentEstablishment);
 
-    this.establishmentDescription = this.establishment$
+    this.establishmentSubscription = this.establishment$
     .pipe(map((establishment: IShortEstablishment) => {
       return {
         ...establishment,
@@ -268,4 +268,7 @@ export class EstabelecimentoPage implements OnInit {
     return alert;
   }
 
+  ngOnDestroy(): void {
+    this.establishmentSubscription.unsubscribe();
+  }
 }
