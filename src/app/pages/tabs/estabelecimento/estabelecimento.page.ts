@@ -33,6 +33,8 @@ export class EstabelecimentoPage implements OnInit, OnDestroy {
 
   @ViewChild('establishmentContent') establishmentContent: IonContent;
 
+  public showBackButton: boolean;
+
   public todayAsDayNumber: any = moment().day()
 
   public selectedOption: string;
@@ -107,9 +109,12 @@ export class EstabelecimentoPage implements OnInit, OnDestroy {
         if (establishment.value) {
           this.establishment = establishment;
           this.defineTitleFromPage(this.establishment.name);
+          this.showBackButton = true;
         } else {
           // A STRING PRECISA EXISTIR, PARA DEPOIS SER PROCURADA COMO VALUE.
           if (this.establishmentNameFromUrl) {
+            this.showBackButton = false;
+
             this.establishmentService
             .getDocumentByValue(CollectionsEnum.SHORT_ESTABLISHMENTS, 'value', this.establishmentNameFromUrl)
             .then((establishmentFromService: IShortEstablishment | null) => {
