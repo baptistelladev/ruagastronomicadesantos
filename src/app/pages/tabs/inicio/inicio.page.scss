@@ -205,6 +205,16 @@ ion-item {
     border-radius: 12px;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
 
+    ion-icon {
+      &.verified {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 29px;
+      }
+    }
+
     &.coming-soon {
       box-shadow: none;
       pointer-events: none;
@@ -277,6 +287,15 @@ ion-card {
     box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 0px 1px 0px;
     min-height: 270px;
     background: linear-gradient(to bottom, var(--white), var(--transparent));
+
+    ion-icon {
+      &.verified {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 29px;
+      }
+    }
 
     &.coming-soon {
       box-shadow: none;
@@ -612,12 +631,13 @@ ion-item {
     border-radius: 12px;
     --border-radius: 12px;
     --padding-start: 16px;
-    --padding-end: 16px;
+    --padding-end: 0;
     --padding-top: 16px;
     --padding-bottom: 16px;
     --background: linear-gradient(to bottom, var(--gray-fa) 5%, transparent);
-    --inner-padding-end: 0;
+    --inner-padding-end: 16px;
     animation-duration: 0.5s;
+    position: relative;
 
     ion-text {
       p {
